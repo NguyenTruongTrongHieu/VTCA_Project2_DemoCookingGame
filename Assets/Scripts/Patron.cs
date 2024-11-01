@@ -13,7 +13,7 @@ public class Patron : MonoBehaviour
     void Start()
     {
         //Random 1 vi tri trong list orderedFood o class Gameplay
-        int randomFood = Random.Range(0, Gameplay.orderedFood.Count - 1);
+        int randomFood = Random.Range(0, Gameplay.orderedFood.Count);
         //Gan ten mon an o vi tri do cho Patron
         orderedFood = Gameplay.orderedFood[randomFood];
         havingFood = false;
