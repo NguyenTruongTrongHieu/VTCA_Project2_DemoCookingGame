@@ -13,13 +13,13 @@ public class CookFood : MonoBehaviour
     private float cookingTime = 0;
     private string ripeness;
 
-    private float firstPositionOnCuttingBoard = -1;
-    private float secondPositionOnCuttingBoard = 0;
-    private float thirdPositionOnCuttingBoard = 1;
+    private Vector2 firstPositionOnCuttingBoard = new Vector2(-1, -1.25f);
+    private Vector2 secondPositionOnCuttingBoard = new Vector2(0, -1.25f);
+    private Vector2 thirdPositionOnCuttingBoard = new Vector2(1, -1.25f);
 
-    private float firstPositionOnGrill = 5.5f;
-    private float secondPositionOnGrill = 6.5f;
-    private float thirdPositionOnGrill = 7.5f;
+    private Vector2 firstPositionOnGrill = new Vector2(5.5f, -1.25f);
+    private Vector2 secondPositionOnGrill = new Vector2(6.5f, -1.25f);
+    private Vector2 thirdPositionOnGrill = new Vector2(7.5f, -1.25f);
 
     // Start is called before the first frame update
     void Start()
@@ -78,7 +78,7 @@ public class CookFood : MonoBehaviour
         if ((Gameplay.cuttingboardS1 == "JustBun"))
         {
             hamburger.gameObject.GetComponent<MoveTopping>().slotInCuttingboard = 1;
-            Instantiate(hamburger, new Vector2(firstPositionOnCuttingBoard, -1f), Quaternion.identity);
+            Instantiate(hamburger, firstPositionOnCuttingBoard, Quaternion.identity);
             Destroy(gameObject);
             Gameplay.cuttingboardS1 = "FullBun";
         }
@@ -86,7 +86,7 @@ public class CookFood : MonoBehaviour
             if ((Gameplay.cuttingboardS2 == "JustBun"))
         {
             hamburger.gameObject.GetComponent<MoveTopping>().slotInCuttingboard = 2;
-            Instantiate(hamburger, new Vector2(secondPositionOnCuttingBoard, -1f), Quaternion.identity);
+            Instantiate(hamburger, secondPositionOnCuttingBoard, Quaternion.identity);
             Destroy(gameObject);
             Gameplay.cuttingboardS2 = "FullBun";
         }
@@ -94,7 +94,7 @@ public class CookFood : MonoBehaviour
             if ((Gameplay.cuttingboardS3 == "JustBun"))
         {
             hamburger.gameObject.GetComponent<MoveTopping>().slotInCuttingboard = 3;
-            Instantiate(hamburger, new Vector2(thirdPositionOnCuttingBoard, -1f), Quaternion.identity);
+            Instantiate(hamburger, thirdPositionOnCuttingBoard, Quaternion.identity);
             Destroy(gameObject);
             Gameplay.cuttingboardS3 = "FullBun";
         }
