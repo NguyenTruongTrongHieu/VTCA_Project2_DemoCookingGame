@@ -20,7 +20,7 @@ TagManager:
   - Background
   - Water
   - UI
-  - 
+  - DragAndDrop
   - 
   - 
   - 
@@ -49,6 +49,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Customer
+    uniqueID: 323348233
+    locked: 0
+  - name: Table
+    uniqueID: 256255613
     locked: 0
   - name: OnATable
     uniqueID: 103638753
