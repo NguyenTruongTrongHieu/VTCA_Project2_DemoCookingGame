@@ -64,7 +64,11 @@ public class MoveTopping : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         //Neu cham phai phan nguyen lieu banh thi huy phan nguyen lieu di
         if (collision.gameObject.CompareTag("bun"))
         {
-            Destroy(collision.gameObject);
+            //Xet 2 vi tri cua mon an hoan chinh va nguyen lieu ban dau, trung nhau thi moi huy
+            if (collision.GetComponent<MoveSandwich>().slotInCuttingboard == slotInCuttingboard)
+            {
+                Destroy(collision.gameObject);
+            }
         }
 
         if (collision.gameObject.CompareTag("Customer"))
@@ -92,6 +96,7 @@ public class MoveTopping : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         if (collision.gameObject.CompareTag("TrashBin"))
         {
             //Dua object ve cho cu
+            Debug.Log("Roi khoi thung rac");
             isReturnStartPosition = true;
         }
 
