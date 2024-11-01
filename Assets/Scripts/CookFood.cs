@@ -12,6 +12,7 @@ public class CookFood : MonoBehaviour
     [SerializeField]
     private float cookingTime = 0;
     private string ripeness;
+    private int moveCookFood;
 
     private Vector2 firstPositionOnCuttingBoard = new Vector2(-1, -1.25f);
     private Vector2 secondPositionOnCuttingBoard = new Vector2(0, -1.25f);
@@ -24,6 +25,7 @@ public class CookFood : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        moveCookFood = 0;
     }
 
     // Update is called once per frame
@@ -44,6 +46,48 @@ public class CookFood : MonoBehaviour
         {
             ripeness = "burn";
             GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        //Neu bien move bat dau thay doi thi cho cook food chay
+        if (moveCookFood != 0)
+        {
+            this.transform.position -= new Vector3(0.25f, 0, 0);
+        }
+
+        //Neu chay toi diem dich roi thi dung
+        //bat dieu kien de xet tung truong hop cook food se di toi
+        switch (moveCookFood) 
+        {
+            case 1:
+                {
+                    if (this.transform.position.x == firstPositionOnCuttingBoard.x)
+                    {
+                        Instantiate(hamburger, firstPositionOnCuttingBoard, Quaternion.identity);
+                        Destroy(this.gameObject);
+                    }
+                    break;
+                }
+            case 2:
+                {
+                    if (this.transform.position.x == secondPositionOnCuttingBoard.x)
+                    {
+                        Instantiate(hamburger, secondPositionOnCuttingBoard, Quaternion.identity);
+                        Destroy(this.gameObject);
+                    }
+                    break;
+                }
+            case 3:
+                {
+                    if (this.transform.position.x == thirdPositionOnCuttingBoard.x)
+                    {
+                        Instantiate(hamburger, thirdPositionOnCuttingBoard, Quaternion.identity);
+                        Destroy(this.gameObject);
+                    }
+                    break;
+                }
         }
     }
 
@@ -78,24 +122,21 @@ public class CookFood : MonoBehaviour
         if ((Gameplay.cuttingboardS1 == "JustBun"))
         {
             hamburger.gameObject.GetComponent<MoveTopping>().slotInCuttingboard = 1;
-            Instantiate(hamburger, firstPositionOnCuttingBoard, Quaternion.identity);
-            Destroy(gameObject);
+            moveCookFood = 1;
             Gameplay.cuttingboardS1 = "FullBun";
         }
         else
             if ((Gameplay.cuttingboardS2 == "JustBun"))
         {
             hamburger.gameObject.GetComponent<MoveTopping>().slotInCuttingboard = 2;
-            Instantiate(hamburger, secondPositionOnCuttingBoard, Quaternion.identity);
-            Destroy(gameObject);
+            moveCookFood = 2;
             Gameplay.cuttingboardS2 = "FullBun";
         }
         else
             if ((Gameplay.cuttingboardS3 == "JustBun"))
         {
             hamburger.gameObject.GetComponent<MoveTopping>().slotInCuttingboard = 3;
-            Instantiate(hamburger, thirdPositionOnCuttingBoard, Quaternion.identity);
-            Destroy(gameObject);
+            moveCookFood = 3;
             Gameplay.cuttingboardS3 = "FullBun";
         }
     }
