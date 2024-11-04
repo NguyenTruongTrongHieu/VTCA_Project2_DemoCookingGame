@@ -146,4 +146,4 @@ MonoBehaviour:
   orderedFood: 
   havingFood: 0
   isOnEndDrag: 0
-  customer: {fileID: 2853975317846236818}
+  speed: 8

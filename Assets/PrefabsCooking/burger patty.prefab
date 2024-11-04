@@ -137,6 +137,7 @@ MonoBehaviour:
   slotInGrill: 1
   hamburger: {fileID: 3658568680699764519, guid: b792e7ca8d7b50a4d8864d97845d79a2, type: 3}
   cookingTime: 0
+  speedMove: 5
 --- !u!50 &7763066000552992484
 Rigidbody2D:
   serializedVersion: 4

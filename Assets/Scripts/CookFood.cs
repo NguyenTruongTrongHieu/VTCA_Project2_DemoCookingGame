@@ -13,6 +13,7 @@ public class CookFood : MonoBehaviour
     private float cookingTime = 0;
     private string ripeness;
     private int moveCookFood;
+    [SerializeField] private float speed = 5f;
 
     private Vector2 firstPositionOnCuttingBoard = new Vector2(-1, -1.25f);
     private Vector2 secondPositionOnCuttingBoard = new Vector2(0, -1.25f);
@@ -37,12 +38,12 @@ public class CookFood : MonoBehaviour
             GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
             ripeness = "notYet";
         }
-        if ((cookingTime > 3 && cookingTime <= 6) && (transform.position.x > 5))
+        else if ((cookingTime > 3 && cookingTime <= 6) && (transform.position.x > 5))
         { 
             GetComponent<SpriteRenderer>().color = new Color (1, 1, 0);
             ripeness = "ripe";
         }
-        if ((cookingTime > 6) && (transform.position.x > 5))
+        else if ((cookingTime > 6) && (transform.position.x > 5))
         {
             ripeness = "burn";
             GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
@@ -54,7 +55,7 @@ public class CookFood : MonoBehaviour
         //Neu bien move bat dau thay doi thi cho cook food chay
         if (moveCookFood != 0)
         {
-            this.transform.position -= new Vector3(0.25f, 0, 0);
+            this.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
         }
 
         //Neu chay toi diem dich roi thi dung
@@ -63,8 +64,10 @@ public class CookFood : MonoBehaviour
         {
             case 1:
                 {
-                    if (this.transform.position.x == firstPositionOnCuttingBoard.x)
+                    if (this.transform.position.x <= firstPositionOnCuttingBoard.x)
                     {
+                        //Gan vi tri tren thot cho mon an
+                        hamburger.gameObject.GetComponent<MoveTopping>().slotInCuttingboard = 1;
                         Instantiate(hamburger, firstPositionOnCuttingBoard, Quaternion.identity);
                         Destroy(this.gameObject);
                     }
@@ -72,8 +75,9 @@ public class CookFood : MonoBehaviour
                 }
             case 2:
                 {
-                    if (this.transform.position.x == secondPositionOnCuttingBoard.x)
+                    if (this.transform.position.x <= secondPositionOnCuttingBoard.x)
                     {
+                        hamburger.gameObject.GetComponent<MoveTopping>().slotInCuttingboard = 2;
                         Instantiate(hamburger, secondPositionOnCuttingBoard, Quaternion.identity);
                         Destroy(this.gameObject);
                     }
@@ -81,8 +85,9 @@ public class CookFood : MonoBehaviour
                 }
             case 3:
                 {
-                    if (this.transform.position.x == thirdPositionOnCuttingBoard.x)
+                    if (this.transform.position.x <= thirdPositionOnCuttingBoard.x)
                     {
+                        hamburger.gameObject.GetComponent<MoveTopping>().slotInCuttingboard = 3;
                         Instantiate(hamburger, thirdPositionOnCuttingBoard, Quaternion.identity);
                         Destroy(this.gameObject);
                     }
@@ -103,11 +108,11 @@ public class CookFood : MonoBehaviour
         {
             Gameplay.grillS1 = "empty";
         }
-        if (slotInGrill == 2)
+        else if (slotInGrill == 2)
         {
             Gameplay.grillS2 = "empty";
         }
-        if (slotInGrill == 3)
+        else if (slotInGrill == 3)
         {
             Gameplay.grillS3 = "empty";
         }
@@ -119,23 +124,21 @@ public class CookFood : MonoBehaviour
             return;
         }
 
+        //Setup cho slot cua thot va gan bien moveCookFood de cookfood co the di chuyen
         if ((Gameplay.cuttingboardS1 == "JustBun"))
         {
-            hamburger.gameObject.GetComponent<MoveTopping>().slotInCuttingboard = 1;
             moveCookFood = 1;
             Gameplay.cuttingboardS1 = "FullBun";
         }
         else
             if ((Gameplay.cuttingboardS2 == "JustBun"))
         {
-            hamburger.gameObject.GetComponent<MoveTopping>().slotInCuttingboard = 2;
             moveCookFood = 2;
             Gameplay.cuttingboardS2 = "FullBun";
         }
         else
             if ((Gameplay.cuttingboardS3 == "JustBun"))
         {
-            hamburger.gameObject.GetComponent<MoveTopping>().slotInCuttingboard = 3;
             moveCookFood = 3;
             Gameplay.cuttingboardS3 = "FullBun";
         }

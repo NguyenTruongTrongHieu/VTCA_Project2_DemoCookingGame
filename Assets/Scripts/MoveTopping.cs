@@ -38,11 +38,11 @@ public class MoveTopping : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         {
             Gameplay.cuttingboardS1 = "empty";
         }
-        if (slotInCuttingboard == 2)
+        else if (slotInCuttingboard == 2)
         {
             Gameplay.cuttingboardS2 = "empty";
         }
-        if (slotInCuttingboard == 3)
+        else if (slotInCuttingboard == 3)
         {
             Gameplay.cuttingboardS3 = "empty";
         }
