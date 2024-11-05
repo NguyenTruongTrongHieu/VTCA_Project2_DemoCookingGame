@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveSandwich : MonoBehaviour
+public class Materials : MonoBehaviour
 {
     public int slotInCuttingboard;
 

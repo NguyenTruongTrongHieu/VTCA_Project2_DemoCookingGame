@@ -67,7 +67,7 @@ public class CookFood : MonoBehaviour
                     if (this.transform.position.x <= firstPositionOnCuttingBoard.x)
                     {
                         //Gan vi tri tren thot cho mon an
-                        hamburger.gameObject.GetComponent<MoveTopping>().slotInCuttingboard = 1;
+                        hamburger.gameObject.GetComponent<Foods>().slotInCuttingboard = 1;
                         Instantiate(hamburger, firstPositionOnCuttingBoard, Quaternion.identity);
                         Destroy(this.gameObject);
                     }
@@ -77,7 +77,7 @@ public class CookFood : MonoBehaviour
                 {
                     if (this.transform.position.x <= secondPositionOnCuttingBoard.x)
                     {
-                        hamburger.gameObject.GetComponent<MoveTopping>().slotInCuttingboard = 2;
+                        hamburger.gameObject.GetComponent<Foods>().slotInCuttingboard = 2;
                         Instantiate(hamburger, secondPositionOnCuttingBoard, Quaternion.identity);
                         Destroy(this.gameObject);
                     }
@@ -87,7 +87,7 @@ public class CookFood : MonoBehaviour
                 {
                     if (this.transform.position.x <= thirdPositionOnCuttingBoard.x)
                     {
-                        hamburger.gameObject.GetComponent<MoveTopping>().slotInCuttingboard = 3;
+                        hamburger.gameObject.GetComponent<Foods>().slotInCuttingboard = 3;
                         Instantiate(hamburger, thirdPositionOnCuttingBoard, Quaternion.identity);
                         Destroy(this.gameObject);
                     }

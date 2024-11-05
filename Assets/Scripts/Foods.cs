@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MoveTopping : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     public int slotInCuttingboard;
     private bool isDragging;
@@ -65,7 +65,7 @@ public class MoveTopping : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         if (collision.gameObject.CompareTag("bun"))
         {
             //Xet 2 vi tri cua mon an hoan chinh va nguyen lieu ban dau, trung nhau thi moi huy
-            if (collision.GetComponent<MoveSandwich>().slotInCuttingboard == slotInCuttingboard)
+            if (collision.GetComponent<Materials>().slotInCuttingboard == slotInCuttingboard)
             {
                 Destroy(collision.gameObject);
             }
@@ -74,7 +74,7 @@ public class MoveTopping : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         if (collision.gameObject.CompareTag("Customer"))
         {
             Debug.Log("Cham phai khach");
-            var customer = collision.gameObject.GetComponent<Patron>();
+            var customer = collision.gameObject.GetComponent<Customers>();
             if (customer.orderedFood == this.gameObject.tag)
             {
                 customer.havingFood = true;
@@ -102,7 +102,7 @@ public class MoveTopping : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
         if (collision.gameObject.CompareTag("Customer"))
         {
-            var customer = collision.gameObject.GetComponent<Patron>();
+            var customer = collision.gameObject.GetComponent<Customers>();
             if (customer.orderedFood == this.gameObject.tag)
             {
                 customer.havingFood = false;
@@ -134,9 +134,9 @@ public class MoveTopping : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             //tuc la dang keo do an toi do thi bien isOnEndDrag cua cus do ve true, neu khong thi bo qua
             var customers = GameObject.FindGameObjectsWithTag("Customer");
             foreach (var customer in customers) {
-                if (customer.GetComponent<Patron>().havingFood)
+                if (customer.GetComponent<Customers>().havingFood)
                 {
-                    customer.GetComponent<Patron>().isOnEndDrag = true;
+                    customer.GetComponent<Customers>().isOnEndDrag = true;
                 }
             }
 
