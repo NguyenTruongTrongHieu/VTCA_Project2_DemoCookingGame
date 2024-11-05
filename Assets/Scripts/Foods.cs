@@ -75,6 +75,11 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         {
             Debug.Log("Cham phai khach");
             var customer = collision.gameObject.GetComponent<Customers>();
+            if (!customer.isWaiting)
+            {
+                return;
+            }
+
             if (customer.orderedFood == this.gameObject.tag)
             {
                 customer.havingFood = true;
