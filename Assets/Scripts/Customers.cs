@@ -5,9 +5,10 @@ using UnityEngine;
 public class Customers : MonoBehaviour
 {
     public string orderedFood;
-    public bool havingFood;
-    public bool isOnEndDrag = false;
+    public bool havingFood;//Xac dinh xem mon an co duoc keo den cho khach chua
+    public bool isOnEndDrag = false;//Xac dinh xem player da tha chuot chua
     public int slotInQueue;
+    public bool isWaiting;//Bien de xac dinh khach dang di chuyen hay da den ban
 
     [SerializeField] private float speed;
 
@@ -16,6 +17,8 @@ public class Customers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isWaiting = false;
+
         //Random 1 vi tri trong list orderedFood o class Gameplay
         int randomFood = Random.Range(0, Gameplay.orderedFood.Count);
         //Gan ten mon an o vi tri do cho Patron
@@ -68,6 +71,7 @@ public class Customers : MonoBehaviour
         {
             if (this.transform.position.x <= customerPosition)
             {
+                isWaiting = true;
                 return;
             }
         }
@@ -75,6 +79,7 @@ public class Customers : MonoBehaviour
         {
             if (this.transform.position.x <= customerPosition)
             {
+                isWaiting = true;
                 return;
             }
         }
@@ -82,6 +87,7 @@ public class Customers : MonoBehaviour
         {
             if (this.transform.position.x <= customerPosition)
             {
+                isWaiting = true;
                 return;
             }
         }
