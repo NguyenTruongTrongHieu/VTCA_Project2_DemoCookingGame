@@ -34,7 +34,7 @@ public class SpawnCustomer : MonoBehaviour
         }
 
         //Den luc sinh ra customer
-        var cus = customer.GetComponent<Patron>();
+        var cus = customer.GetComponent<Customers>();
         //Kiem tra vi tri trong hang doi cua customer
         if (Gameplay.queueS1 == "empty")
         {

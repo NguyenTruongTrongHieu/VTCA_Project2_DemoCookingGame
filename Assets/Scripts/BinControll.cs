@@ -43,19 +43,19 @@ public class BinControll : MonoBehaviour
         {
             if (Gameplay.cuttingboardS1 == "empty")
             {
-                bottomBunObj.gameObject.GetComponent<MoveSandwich>().slotInCuttingboard = 1;
+                bottomBunObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 1;
                 Instantiate(bottomBunObj, firstPositionOnCuttingBoard, Quaternion.identity);
                 Gameplay.cuttingboardS1 = "JustBun";
             }
             else if (Gameplay.cuttingboardS2 == "empty")
             {
-                bottomBunObj.gameObject.GetComponent<MoveSandwich>().slotInCuttingboard = 2;
+                bottomBunObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 2;
                 Instantiate(bottomBunObj, secondPositionOnCuttingBoard, Quaternion.identity);
                 Gameplay.cuttingboardS2 = "JustBun";
             }
             else if (Gameplay.cuttingboardS3 == "empty")
             {
-                bottomBunObj.gameObject.GetComponent<MoveSandwich>().slotInCuttingboard = 3;
+                bottomBunObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 3;
                 Instantiate(bottomBunObj, thirdPositionOnCuttingBoard, Quaternion.identity);
                 Gameplay.cuttingboardS3 = "JustBun";
             }
