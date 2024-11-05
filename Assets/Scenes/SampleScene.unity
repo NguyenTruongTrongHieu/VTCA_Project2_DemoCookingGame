@@ -990,10 +990,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0775ce66ee677214c8fb9fe90ecda1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialBunObj: {fileID: 0}
+  materialBunObj: {fileID: 2791097436799209272, guid: 021e90c88514a8143bf3fadc6606e7ef, type: 3}
   burgersObj: {fileID: 2098309102217729985, guid: 917e08c5794a946488ed5ba81b8e653c, type: 3}
-  materialRollObj: {fileID: 0}
-  sausageObj: {fileID: 0}
+  materialRollObj: {fileID: 4847306035191455086, guid: 6299c0a7a5feefa4c85f31e5365b56a4, type: 3}
+  sausageObj: {fileID: 3843382838478310304, guid: 171411282825f89449ec7fbf060675c6, type: 3}
 --- !u!61 &1002350485
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1050,6 +1050,7 @@ GameObject:
   - component: {fileID: 1248195049}
   - component: {fileID: 1248195048}
   - component: {fileID: 1248195050}
+  - component: {fileID: 1248195051}
   m_Layer: 0
   m_Name: hotdog bin_0
   m_TagString: sausage bin
@@ -1169,6 +1170,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.54, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &1248195051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248195047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0775ce66ee677214c8fb9fe90ecda1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialBunObj: {fileID: 2791097436799209272, guid: 021e90c88514a8143bf3fadc6606e7ef, type: 3}
+  burgersObj: {fileID: 2098309102217729985, guid: 917e08c5794a946488ed5ba81b8e653c, type: 3}
+  materialRollObj: {fileID: 4847306035191455086, guid: 6299c0a7a5feefa4c85f31e5365b56a4, type: 3}
+  sausageObj: {fileID: 3843382838478310304, guid: 171411282825f89449ec7fbf060675c6, type: 3}
 --- !u!1 &1312584759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,6 +1197,7 @@ GameObject:
   - component: {fileID: 1312584761}
   - component: {fileID: 1312584760}
   - component: {fileID: 1312584762}
+  - component: {fileID: 1312584763}
   m_Layer: 0
   m_Name: roll bin_0
   m_TagString: roll bin
@@ -1299,6 +1317,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.59, y: 0.24}
   m_EdgeRadius: 0
+--- !u!114 &1312584763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312584759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0775ce66ee677214c8fb9fe90ecda1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialBunObj: {fileID: 2791097436799209272, guid: 021e90c88514a8143bf3fadc6606e7ef, type: 3}
+  burgersObj: {fileID: 2098309102217729985, guid: 917e08c5794a946488ed5ba81b8e653c, type: 3}
+  materialRollObj: {fileID: 4847306035191455086, guid: 6299c0a7a5feefa4c85f31e5365b56a4, type: 3}
+  sausageObj: {fileID: 3843382838478310304, guid: 171411282825f89449ec7fbf060675c6, type: 3}
 --- !u!1 &1330098527
 GameObject:
   m_ObjectHideFlags: 0
