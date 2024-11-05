@@ -5,25 +5,21 @@ using UnityEngine;
 public class BinControll : MonoBehaviour
 {
     [SerializeField]
-    private Transform bottomBunObj;
-    [SerializeField]
-    private Transform topBunObj;
+    private Transform materialBunObj;
     [SerializeField]
     private Transform burgersObj;
     [SerializeField]
-    private Transform backRollObj;
+    private Transform materialRollObj;
     [SerializeField]
-    private Transform frontRollObj;
-    [SerializeField]
-    private Transform hotDogObj;
+    private Transform sausageObj;
 
     private Vector2 firstPositionOnCuttingBoard = new Vector2(-1, -1.25f);
     private Vector2 secondPositionOnCuttingBoard = new Vector2(0, -1.25f);
     private Vector2 thirdPositionOnCuttingBoard = new Vector2(1, -1.25f);
 
-    private Vector2 firstPositionOnGrill = new Vector2(5.5f, -1.25f);
-    private Vector2 secondPositionOnGrill = new Vector2(6.5f, -1.25f);
-    private Vector2 thirdPositionOnGrill = new Vector2(7.5f, -1.25f);
+    private Vector2 firstPositionOnGrill = new Vector2(-6f, -1.25f);
+    private Vector2 secondPositionOnGrill = new Vector2(-5f, -1.25f);
+    private Vector2 thirdPositionOnGrill = new Vector2(-4f, -1.25f);
 
     // Start is called before the first frame update
     void Start()
@@ -43,20 +39,20 @@ public class BinControll : MonoBehaviour
         {
             if (Gameplay.cuttingboardS1 == "empty")
             {
-                bottomBunObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 1;
-                Instantiate(bottomBunObj, firstPositionOnCuttingBoard, Quaternion.identity);
+                materialBunObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 1;
+                Instantiate(materialBunObj, firstPositionOnCuttingBoard, Quaternion.identity);
                 Gameplay.cuttingboardS1 = "JustBun";
             }
             else if (Gameplay.cuttingboardS2 == "empty")
             {
-                bottomBunObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 2;
-                Instantiate(bottomBunObj, secondPositionOnCuttingBoard, Quaternion.identity);
+                materialBunObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 2;
+                Instantiate(materialBunObj, secondPositionOnCuttingBoard, Quaternion.identity);
                 Gameplay.cuttingboardS2 = "JustBun";
             }
             else if (Gameplay.cuttingboardS3 == "empty")
             {
-                bottomBunObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 3;
-                Instantiate(bottomBunObj, thirdPositionOnCuttingBoard, Quaternion.identity);
+                materialBunObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 3;
+                Instantiate(materialBunObj, thirdPositionOnCuttingBoard, Quaternion.identity);
                 Gameplay.cuttingboardS3 = "JustBun";
             }
         }
@@ -83,11 +79,45 @@ public class BinControll : MonoBehaviour
         }
         if (gameObject.tag == "roll bin")
         {
-            
+            if (Gameplay.cuttingboardS1 == "empty")
+            {
+                materialBunObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 1;
+                Instantiate(materialBunObj, firstPositionOnCuttingBoard, Quaternion.identity);
+                Gameplay.cuttingboardS1 = "JustRoll";
+            }
+            else if (Gameplay.cuttingboardS2 == "empty")
+            {
+                materialBunObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 2;
+                Instantiate(materialBunObj, secondPositionOnCuttingBoard, Quaternion.identity);
+                Gameplay.cuttingboardS2 = "JustRoll";
+            }
+            else if (Gameplay.cuttingboardS3 == "empty")
+            {
+                materialBunObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 3;
+                Instantiate(materialBunObj, thirdPositionOnCuttingBoard, Quaternion.identity);
+                Gameplay.cuttingboardS3 = "JustRoll";
+            }
         }
         if (gameObject.tag == "hotdog bin")
         {
-
+            if (Gameplay.grillS1 == "empty")
+            {
+                burgersObj.gameObject.GetComponent<CookFood>().slotInGrill = 1;
+                var meat = Instantiate(burgersObj, firstPositionOnGrill, Quaternion.identity);
+                Gameplay.grillS1 = "full";
+            }
+            else if (Gameplay.grillS2 == "empty")
+            {
+                burgersObj.gameObject.GetComponent<CookFood>().slotInGrill = 2;
+                Instantiate(burgersObj, secondPositionOnGrill, Quaternion.identity);
+                Gameplay.grillS2 = "full";
+            }
+            else if (Gameplay.grillS3 == "empty")
+            {
+                burgersObj.gameObject.GetComponent<CookFood>().slotInGrill = 3;
+                Instantiate(burgersObj, thirdPositionOnGrill, Quaternion.identity);
+                Gameplay.grillS3 = "full";
+            }
         }
     }
 }

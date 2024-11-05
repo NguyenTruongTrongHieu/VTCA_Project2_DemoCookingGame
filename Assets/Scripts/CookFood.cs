@@ -7,43 +7,50 @@ using UnityEngine;
 public class CookFood : MonoBehaviour
 {
     public int slotInGrill;
-    [SerializeField] private GameObject hamburger;
+    [SerializeField] private GameObject food;
 
     [SerializeField]
     private float cookingTime = 0;
     private string ripeness;
     private int moveCookFood;
     [SerializeField] private float speed = 5f;
+    private bool isChoose;//Bien de xac dinh khi player chon mon an
 
     private Vector2 firstPositionOnCuttingBoard = new Vector2(-1, -1.25f);
     private Vector2 secondPositionOnCuttingBoard = new Vector2(0, -1.25f);
     private Vector2 thirdPositionOnCuttingBoard = new Vector2(1, -1.25f);
 
-    private Vector2 firstPositionOnGrill = new Vector2(5.5f, -1.25f);
-    private Vector2 secondPositionOnGrill = new Vector2(6.5f, -1.25f);
-    private Vector2 thirdPositionOnGrill = new Vector2(7.5f, -1.25f);
+    private Vector2 firstPositionOnGrill = new Vector2(-6f, -1.25f);
+    private Vector2 secondPositionOnGrill = new Vector2(-5f, -1.25f);
+    private Vector2 thirdPositionOnGrill = new Vector2(-4f, -1.25f);
 
     // Start is called before the first frame update
     void Start()
     {
         moveCookFood = 0;
+        isChoose = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isChoose)
+        {
+            return;
+        }
+
         cookingTime += Time.deltaTime;
         if (cookingTime <= 3)
         {
             GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
             ripeness = "notYet";
         }
-        else if ((cookingTime > 3 && cookingTime <= 6) && (transform.position.x > 5))
+        else if ((cookingTime > 3 && cookingTime <= 6))
         { 
             GetComponent<SpriteRenderer>().color = new Color (1, 1, 0);
             ripeness = "ripe";
         }
-        else if ((cookingTime > 6) && (transform.position.x > 5))
+        else if ((cookingTime > 6))
         {
             ripeness = "burn";
             GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
@@ -64,31 +71,31 @@ public class CookFood : MonoBehaviour
         {
             case 1:
                 {
-                    if (this.transform.position.x <= firstPositionOnCuttingBoard.x)
+                    if (this.transform.position.x >= firstPositionOnCuttingBoard.x)
                     {
                         //Gan vi tri tren thot cho mon an
-                        hamburger.gameObject.GetComponent<Foods>().slotInCuttingboard = 1;
-                        Instantiate(hamburger, firstPositionOnCuttingBoard, Quaternion.identity);
+                        food.gameObject.GetComponent<Foods>().slotInCuttingboard = 1;
+                        Instantiate(food, firstPositionOnCuttingBoard, Quaternion.identity);
                         Destroy(this.gameObject);
                     }
                     break;
                 }
             case 2:
                 {
-                    if (this.transform.position.x <= secondPositionOnCuttingBoard.x)
+                    if (this.transform.position.x >= secondPositionOnCuttingBoard.x)
                     {
-                        hamburger.gameObject.GetComponent<Foods>().slotInCuttingboard = 2;
-                        Instantiate(hamburger, secondPositionOnCuttingBoard, Quaternion.identity);
+                        food.gameObject.GetComponent<Foods>().slotInCuttingboard = 2;
+                        Instantiate(food, secondPositionOnCuttingBoard, Quaternion.identity);
                         Destroy(this.gameObject);
                     }
                     break;
                 }
             case 3:
                 {
-                    if (this.transform.position.x <= thirdPositionOnCuttingBoard.x)
+                    if (this.transform.position.x >= thirdPositionOnCuttingBoard.x)
                     {
-                        hamburger.gameObject.GetComponent<Foods>().slotInCuttingboard = 3;
-                        Instantiate(hamburger, thirdPositionOnCuttingBoard, Quaternion.identity);
+                        food.gameObject.GetComponent<Foods>().slotInCuttingboard = 3;
+                        Instantiate(food, thirdPositionOnCuttingBoard, Quaternion.identity);
                         Destroy(this.gameObject);
                     }
                     break;
@@ -103,6 +110,9 @@ public class CookFood : MonoBehaviour
         {
             return;
         }
+
+        isChoose = true;
+
         //Kiem tra thit o slot nao de lam trong slot do
         if (slotInGrill == 1)
         {
