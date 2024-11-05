@@ -134,10 +134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757e4cab90b3f004aa9605725ab4533f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotInGrill: 1
-  hamburger: {fileID: 3658568680699764519, guid: b792e7ca8d7b50a4d8864d97845d79a2, type: 3}
+  slotInGrill: 3
+  food: {fileID: 3658568680699764519, guid: b792e7ca8d7b50a4d8864d97845d79a2, type: 3}
   cookingTime: 0
-  speedMove: 5
+  speed: -5
 --- !u!50 &7763066000552992484
 Rigidbody2D:
   serializedVersion: 4

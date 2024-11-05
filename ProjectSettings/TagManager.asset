@@ -13,6 +13,8 @@ TagManager:
   - bun
   - UIDrag
   - Customer
+  - roll bin
+  - sausage bin
   layers:
   - Default
   - TransparentFX
