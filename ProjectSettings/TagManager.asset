@@ -15,6 +15,7 @@ TagManager:
   - Customer
   - roll bin
   - sausage bin
+  - sausage
   layers:
   - Default
   - TransparentFX
