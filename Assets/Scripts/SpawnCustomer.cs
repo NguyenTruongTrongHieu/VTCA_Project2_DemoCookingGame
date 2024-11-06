@@ -63,7 +63,7 @@ public class SpawnCustomer : MonoBehaviour
     void RandomTimer()
     {
         //random thoi gian de sinh ra customer
-        randomTime = Random.Range(beginRandomTime, endRandomTime + 1);
+        randomTime = Random.RandomRange(beginRandomTime, endRandomTime);
     }
 
     void RandomCustomer()

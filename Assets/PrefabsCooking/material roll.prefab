@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -776973461701987013}
   m_Layer: 0
   m_Name: material roll
-  m_TagString: Untagged
+  m_TagString: bun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,4 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf60bcd83073264abf76a4c28c09121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotInCuttingboard: 3
+  slotInCuttingboard: 2
