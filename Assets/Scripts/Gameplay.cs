@@ -20,7 +20,7 @@ public class Gameplay : MonoBehaviour
     public static string queueS3 = "empty";
 
     //list do an
-    public static List<string> orderedFood = new List<string>() { "hamburger", "hotDog" };
+    public static List<string> orderedFood = new List<string>() { "hamburger", "hotdog" };
     // Start is called before the first frame update
     void Start()
     {

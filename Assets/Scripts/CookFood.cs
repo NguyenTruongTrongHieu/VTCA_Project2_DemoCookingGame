@@ -29,7 +29,6 @@ public class CookFood : MonoBehaviour
     void Start()
     {
         name = this.gameObject.tag;
-        Debug.Log(name);
         moveCookFood = 0;
         isChoose = false;
     }
@@ -141,19 +140,17 @@ public class CookFood : MonoBehaviour
             moveCookFood = 1;
             Gameplay.cuttingboardS1 = "FullBun";
         }
-        else
-            if ((Gameplay.cuttingboardS2 == "JustBun") && name == "meat")
+        else if ((Gameplay.cuttingboardS2 == "JustBun") && name == "meat")
         {
             moveCookFood = 2;
             Gameplay.cuttingboardS2 = "FullBun";
         }
-        else
-            if ((Gameplay.cuttingboardS3 == "JustBun") && name == "meat")
+        else if ((Gameplay.cuttingboardS3 == "JustBun") && name == "meat")
         {
             moveCookFood = 3;
             Gameplay.cuttingboardS3 = "FullBun";
         }
-        else if ((Gameplay.cuttingboardS3 == "JustRoll") && name == "sausage")
+        else if ((Gameplay.cuttingboardS1 == "JustRoll") && name == "sausage")
         {
             moveCookFood = 1;
             Gameplay.cuttingboardS1 = "FullRoll";

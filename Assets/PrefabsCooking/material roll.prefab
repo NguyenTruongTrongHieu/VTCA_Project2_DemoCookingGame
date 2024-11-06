@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7913035577580029399}
   - component: {fileID: -776973461701987013}
   m_Layer: 0
-  m_Name: roll back
+  m_Name: material roll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 1018060731
   m_SortingLayer: 4
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: aafcef84595511d4188c459211ac9b6e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c04dc58deec29548a64ec02d9a3da53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,18 +118,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.020968437}
+  m_Offset: {x: -0.002485104, y: -0.0026369095}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8, y: 0.48}
+    oldSize: {x: 0.36523438, y: 0.6503906}
     newSize: {x: 0.8, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.2178917}
+  m_Size: {x: 0.30304748, y: 0.58315146}
   m_EdgeRadius: 0
 --- !u!114 &-776973461701987013
 MonoBehaviour:

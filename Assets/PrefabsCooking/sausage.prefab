@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4435645006782743271
+--- !u!1 &4649589669413195217
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2098309102217729985}
-  - component: {fileID: 1401328320326004317}
-  - component: {fileID: 2470154753670896959}
-  - component: {fileID: 4639549787528383773}
-  - component: {fileID: 7763066000552992484}
+  - component: {fileID: 3843382838478310304}
+  - component: {fileID: 7092949029987709833}
+  - component: {fileID: 579969045734581356}
+  - component: {fileID: -5155307390120500162}
   m_Layer: 0
-  m_Name: burger patty
-  m_TagString: meat
+  m_Name: sausage
+  m_TagString: sausage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2098309102217729985
+--- !u!4 &3843382838478310304
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4435645006782743271}
+  m_GameObject: {fileID: 4649589669413195217}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.3317757, y: -7.341104, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: -5.0173545, y: -6.300045, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1401328320326004317
+--- !u!212 &7092949029987709833
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4435645006782743271}
+  m_GameObject: {fileID: 4649589669413195217}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 1018060731
   m_SortingLayer: 4
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 4f78879741c1e4f47a70509f9572f5ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01fd53538227d8449a2359ddfecb63af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,13 +86,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &2470154753670896959
-CircleCollider2D:
+--- !u!61 &579969045734581356
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4435645006782743271}
+  m_GameObject: {fileID: 4649589669413195217}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -119,49 +118,32 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0062265396, y: -0.019781232}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.23828125, y: 0.62890625}
+    newSize: {x: 0.48, y: 0.48}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.24
---- !u!114 &4639549787528383773
+  m_Size: {x: 0.22679281, y: 0.596504}
+  m_EdgeRadius: 0
+--- !u!114 &-5155307390120500162
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4435645006782743271}
+  m_GameObject: {fileID: 4649589669413195217}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 757e4cab90b3f004aa9605725ab4533f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotInGrill: 3
-  food: {fileID: 3658568680699764519, guid: b792e7ca8d7b50a4d8864d97845d79a2, type: 3}
+  slotInGrill: 2
+  food: {fileID: 47320262387058189, guid: 6fe1c8085567365418e4993be3ac8a1a, type: 3}
   cookingTime: 0
   speed: -5
---- !u!50 &7763066000552992484
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4435645006782743271}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
