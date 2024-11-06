@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class SpawnCustomer : MonoBehaviour
 {
-    [SerializeField] private GameObject customer;
+    [SerializeField] private List<GameObject> customers = new List<GameObject>();
+    private GameObject customer;
 
     //Bien de tinh thoi gian random sinh customer
     [SerializeField] private int beginRandomTime;
@@ -16,6 +17,7 @@ public class SpawnCustomer : MonoBehaviour
     void Start()
     {
         RandomTimer();
+        RandomCustomer();
     }
 
     // Update is called once per frame
@@ -53,6 +55,7 @@ public class SpawnCustomer : MonoBehaviour
         }
         Instantiate(customer, this.transform.position, Quaternion.identity);
         RandomTimer();
+        RandomCustomer();
 
         //Khi spawn ra duoc thi se xet den vi tri cua customer
     }
@@ -61,5 +64,12 @@ public class SpawnCustomer : MonoBehaviour
     {
         //random thoi gian de sinh ra customer
         randomTime = Random.Range(beginRandomTime, endRandomTime + 1);
+    }
+
+    void RandomCustomer()
+    {
+        //Random customer
+        int random = Random.RandomRange(0, customers.Count);
+        customer = customers[random];
     }
 }
