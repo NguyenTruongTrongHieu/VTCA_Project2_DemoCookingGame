@@ -84,7 +84,6 @@ public class BinControll : MonoBehaviour
                 materialRollObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 1;
                 Instantiate(materialRollObj, firstPositionOnCuttingBoard, Quaternion.identity);
                 Gameplay.cuttingboardS1 = "JustRoll";
-                Debug.Log(Gameplay.cuttingboardS1);
             }
             else if (Gameplay.cuttingboardS2 == "empty")
             {
