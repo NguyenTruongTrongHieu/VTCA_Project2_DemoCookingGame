@@ -466,9 +466,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialBunObj: {fileID: 2903871301513307427, guid: 20b0f2bc0a32af74489fcc52478c04db, type: 3}
-  burgersObj: {fileID: 4435645006782743271, guid: 917e08c5794a946488ed5ba81b8e653c, type: 3}
-  materialRollObj: {fileID: 374340495698380063, guid: 6299c0a7a5feefa4c85f31e5365b56a4, type: 3}
-  sausageObj: {fileID: 4649589669413195217, guid: 171411282825f89449ec7fbf060675c6, type: 3}
+  burgersObj: {fileID: 2953451995347936872, guid: 0a625041694d8a4459e81edab4fcdf8f, type: 3}
+  materialRollObj: {fileID: 5637645137165057754, guid: b0ba2e83f90f8d84687fd9f3e4ef501a, type: 3}
+  sausageObj: {fileID: 2763178289912755722, guid: d33bc8689b4f48e4c9579107c8ccba15, type: 3}
+  hotdogObj: {fileID: 1534514288733176334, guid: 29041a3907885c44b983c7a36bee8dab, type: 3}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
 --- !u!61 &371990049
@@ -749,6 +750,7 @@ MonoBehaviour:
   burgersObj: {fileID: 2098309102217729985, guid: 917e08c5794a946488ed5ba81b8e653c, type: 3}
   materialRollObj: {fileID: 4847306035191455086, guid: 6299c0a7a5feefa4c85f31e5365b56a4, type: 3}
   sausageObj: {fileID: 3843382838478310304, guid: 171411282825f89449ec7fbf060675c6, type: 3}
+  hotdogObj: {fileID: 0}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
 --- !u!61 &737915667
@@ -1017,6 +1019,7 @@ MonoBehaviour:
   burgersObj: {fileID: 2098309102217729985, guid: 917e08c5794a946488ed5ba81b8e653c, type: 3}
   materialRollObj: {fileID: 4847306035191455086, guid: 6299c0a7a5feefa4c85f31e5365b56a4, type: 3}
   sausageObj: {fileID: 3843382838478310304, guid: 171411282825f89449ec7fbf060675c6, type: 3}
+  hotdogObj: {fileID: 0}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
 --- !u!61 &1002350485
@@ -1211,6 +1214,7 @@ MonoBehaviour:
   burgersObj: {fileID: 2098309102217729985, guid: 917e08c5794a946488ed5ba81b8e653c, type: 3}
   materialRollObj: {fileID: 4847306035191455086, guid: 6299c0a7a5feefa4c85f31e5365b56a4, type: 3}
   sausageObj: {fileID: 3843382838478310304, guid: 171411282825f89449ec7fbf060675c6, type: 3}
+  hotdogObj: {fileID: 0}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
 --- !u!1 &1312584759
@@ -1360,6 +1364,7 @@ MonoBehaviour:
   burgersObj: {fileID: 2098309102217729985, guid: 917e08c5794a946488ed5ba81b8e653c, type: 3}
   materialRollObj: {fileID: 4847306035191455086, guid: 6299c0a7a5feefa4c85f31e5365b56a4, type: 3}
   sausageObj: {fileID: 3843382838478310304, guid: 171411282825f89449ec7fbf060675c6, type: 3}
+  hotdogObj: {fileID: 0}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
 --- !u!1 &1330098527
@@ -1482,9 +1487,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialBunObj: {fileID: 2903871301513307427, guid: 20b0f2bc0a32af74489fcc52478c04db, type: 3}
-  burgersObj: {fileID: 374340495698380063, guid: 6299c0a7a5feefa4c85f31e5365b56a4, type: 3}
-  materialRollObj: {fileID: 4847306035191455086, guid: 6299c0a7a5feefa4c85f31e5365b56a4, type: 3}
-  sausageObj: {fileID: 3843382838478310304, guid: 171411282825f89449ec7fbf060675c6, type: 3}
+  burgersObj: {fileID: 2953451995347936872, guid: 0a625041694d8a4459e81edab4fcdf8f, type: 3}
+  materialRollObj: {fileID: 5637645137165057754, guid: b0ba2e83f90f8d84687fd9f3e4ef501a, type: 3}
+  sausageObj: {fileID: 2763178289912755722, guid: d33bc8689b4f48e4c9579107c8ccba15, type: 3}
+  hotdogObj: {fileID: 1534514288733176334, guid: 29041a3907885c44b983c7a36bee8dab, type: 3}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
 --- !u!61 &1390186750
@@ -1606,7 +1612,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.67600006, y: 0.46400002}
   m_AnchorMax: {x: 0.67600006, y: 0.46400002}
-  m_AnchoredPosition: {x: -3.119995, y: 1.1300011}
+  m_AnchoredPosition: {x: -3.119995, y: 1.1300049}
   m_SizeDelta: {x: 209.84, y: 192.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1439227026
@@ -1668,8 +1674,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialBunObj: {fileID: 2903871301513307427, guid: 20b0f2bc0a32af74489fcc52478c04db, type: 3}
   burgersObj: {fileID: 2953451995347936872, guid: 0a625041694d8a4459e81edab4fcdf8f, type: 3}
-  materialRollObj: {fileID: 0}
-  sausageObj: {fileID: 0}
+  materialRollObj: {fileID: 5637645137165057754, guid: b0ba2e83f90f8d84687fd9f3e4ef501a, type: 3}
+  sausageObj: {fileID: 2763178289912755722, guid: d33bc8689b4f48e4c9579107c8ccba15, type: 3}
+  hotdogObj: {fileID: 1534514288733176334, guid: 29041a3907885c44b983c7a36bee8dab, type: 3}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
 --- !u!114 &1439227028
@@ -1913,9 +1920,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialBunObj: {fileID: 2903871301513307427, guid: 20b0f2bc0a32af74489fcc52478c04db, type: 3}
-  burgersObj: {fileID: 374340495698380063, guid: 6299c0a7a5feefa4c85f31e5365b56a4, type: 3}
-  materialRollObj: {fileID: 0}
-  sausageObj: {fileID: 0}
+  burgersObj: {fileID: 2953451995347936872, guid: 0a625041694d8a4459e81edab4fcdf8f, type: 3}
+  materialRollObj: {fileID: 5637645137165057754, guid: b0ba2e83f90f8d84687fd9f3e4ef501a, type: 3}
+  sausageObj: {fileID: 2763178289912755722, guid: d33bc8689b4f48e4c9579107c8ccba15, type: 3}
+  hotdogObj: {fileID: 1534514288733176334, guid: 29041a3907885c44b983c7a36bee8dab, type: 3}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
 --- !u!114 &1774645285

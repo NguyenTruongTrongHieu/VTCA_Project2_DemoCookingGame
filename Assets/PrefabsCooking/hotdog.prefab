@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2953451995347936872
+--- !u!1 &1534514288733176334
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1752490325293874467}
-  - component: {fileID: 2406795153536239506}
-  - component: {fileID: 3870579746817160821}
-  - component: {fileID: 6274310712491580798}
-  - component: {fileID: 2394197647265076319}
-  - component: {fileID: 9096778613380635559}
+  - component: {fileID: 3000520156951452514}
+  - component: {fileID: 4069568136759542811}
+  - component: {fileID: 1923562779353800855}
+  - component: {fileID: 7965967982392635834}
+  - component: {fileID: 4535470453248490057}
+  - component: {fileID: 8056564440908414670}
   m_Layer: 7
-  m_Name: meat
-  m_TagString: meat
+  m_Name: hotdog
+  m_TagString: hotdog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1752490325293874467
+--- !u!224 &3000520156951452514
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2953451995347936872}
+  m_GameObject: {fileID: 1534514288733176334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,38 +37,38 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -174, y: -128}
-  m_SizeDelta: {x: 152.89, y: 145.16}
+  m_AnchoredPosition: {x: -166.57, y: -164.52}
+  m_SizeDelta: {x: 150.35, y: 218.73}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2406795153536239506
+--- !u!222 &4069568136759542811
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2953451995347936872}
+  m_GameObject: {fileID: 1534514288733176334}
   m_CullTransparentMesh: 1
---- !u!114 &3870579746817160821
+--- !u!114 &1923562779353800855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2953451995347936872}
+  m_GameObject: {fileID: 1534514288733176334}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.94716984, g: 0.8846209, b: 0.8846209, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 926c696b9871b0f4fa157f74d4cd0809, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8936d2c5680a12a4ba7649625e3af273, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -78,13 +78,40 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!58 &6274310712491580798
-CircleCollider2D:
+--- !u!50 &7965967982392635834
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2953451995347936872}
+  m_GameObject: {fileID: 1534514288733176334}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &4535470453248490057
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534514288733176334}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -110,55 +137,31 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.6614015, y: 0}
+  m_Offset: {x: 2.118082, y: -0.13156891}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 52.9793
---- !u!50 &2394197647265076319
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2953451995347936872}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &9096778613380635559
+  m_Size: {x: 73.01492, y: 191.36491}
+  m_EdgeRadius: 0
+--- !u!114 &8056564440908414670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2953451995347936872}
+  m_GameObject: {fileID: 1534514288733176334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 757e4cab90b3f004aa9605725ab4533f, type: 3}
+  m_Script: {fileID: 11500000, guid: fb7a757df27d526458b3aa3503105670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotInGrill: 1
-  isOnTheGrill: 0
-  food: {fileID: 3658568680699764519, guid: b792e7ca8d7b50a4d8864d97845d79a2, type: 3}
-  cookingTime: 6
-  speed: -5
-  imageMeat: {fileID: 3870579746817160821}
-  spriteMeat:
-  - {fileID: 21300000, guid: 926c696b9871b0f4fa157f74d4cd0809, type: 3}
-  - {fileID: 21300000, guid: 926c696b9871b0f4fa157f74d4cd0809, type: 3}
-  - {fileID: 21300000, guid: 926c696b9871b0f4fa157f74d4cd0809, type: 3}
+  slotInCuttingboard: 1
+  isReturnStartPosition: 0
+  rectTransform: {fileID: 0}
