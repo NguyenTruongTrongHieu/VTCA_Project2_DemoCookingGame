@@ -17,7 +17,7 @@ public class CookFood : MonoBehaviour
     private string ripeness;
     private int moveCookFood;
     [SerializeField] private float speed = 5f;
-    private bool isChoose;//Bien de xac dinh khi player chon mon an
+    public bool isChoose;//Bien de xac dinh khi player chon mon an
     [SerializeField] private Image imageMeat;
     [SerializeField] private List<Sprite> spriteMeat = new List<Sprite>();
 
@@ -34,7 +34,7 @@ public class CookFood : MonoBehaviour
     {
         name = this.gameObject.tag;
         moveCookFood = 0;
-        isChoose = false;
+        isChoose = true;
         isOnTheGrill = false;
 
         //Dua doi tuong hien tai tro thanh con cua canvas dung de keo tha

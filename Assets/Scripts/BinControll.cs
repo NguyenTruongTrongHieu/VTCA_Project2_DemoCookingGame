@@ -53,6 +53,7 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         isFullSlot = false;
         //Neu nguoi choi chi click chuot thi isDragging = false
         isDragging = false;
+        //De kiem tra xem bin duoc cham vao la gi, truoc tien can tat cac bien nay
         isSausage = false;
 
         if (gameObject.tag == "bun bin")
@@ -230,6 +231,9 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             }
             else
             {
+                //Bat dau nuong
+                cookFood.isChoose = false;
+
                 if (cookFood.slotInGrill == 1)
                 {
                     objDrag.transform.position = firstPositionOnGrill;
