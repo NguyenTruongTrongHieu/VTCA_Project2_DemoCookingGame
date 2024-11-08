@@ -3,10 +3,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CookFood : MonoBehaviour
 {
     public int slotInGrill;
+    public bool isOnTheGrill;
     private string name;
     [SerializeField] private GameObject food;
 
@@ -16,6 +18,8 @@ public class CookFood : MonoBehaviour
     private int moveCookFood;
     [SerializeField] private float speed = 5f;
     private bool isChoose;//Bien de xac dinh khi player chon mon an
+    [SerializeField] private Image imageMeat;
+    [SerializeField] private List<Sprite> spriteMeat = new List<Sprite>();
 
     private Vector2 firstPositionOnCuttingBoard = new Vector2(-1, -1.25f);
     private Vector2 secondPositionOnCuttingBoard = new Vector2(0, -1.25f);
@@ -31,6 +35,13 @@ public class CookFood : MonoBehaviour
         name = this.gameObject.tag;
         moveCookFood = 0;
         isChoose = false;
+        isOnTheGrill = false;
+
+        //Dua doi tuong hien tai tro thanh con cua canvas dung de keo tha
+        var dragCanvas = GameObject.FindGameObjectWithTag("UIDrag");
+        this.transform.SetParent(dragCanvas.transform);
+        //Chinh scale cua object lai
+        this.transform.localScale = new Vector3(1, 1, 1);
     }
 
     // Update is called once per frame
@@ -41,21 +52,23 @@ public class CookFood : MonoBehaviour
             return;
         }
 
-        cookingTime += Time.deltaTime;
-        if (cookingTime <= 3)
+        cookingTime -= Time.deltaTime;
+        if (cookingTime >= 3)
         {
-            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
-            ripeness = "notYet";
+            imageMeat.sprite = spriteMeat[0];
+            ripeness = "raw";
         }
-        else if ((cookingTime > 3 && cookingTime <= 6))
-        { 
-            GetComponent<SpriteRenderer>().color = new Color (1, 1, 0);
+        else if ((cookingTime < 3 && cookingTime >= 0))
+        {
+            imageMeat.sprite = spriteMeat[1];
             ripeness = "ripe";
+            Debug.Log("ripe");
         }
-        else if ((cookingTime > 6))
+        else if ((cookingTime < 0))
         {
+            imageMeat.sprite = spriteMeat[2];
             ripeness = "burn";
-            GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
+            Debug.Log("burn");
         }
     }
 
@@ -102,6 +115,22 @@ public class CookFood : MonoBehaviour
                     }
                     break;
                 }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("grill"))
+        {
+            isOnTheGrill = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("grill"))
+        {
+            isOnTheGrill = false;
         }
     }
 
