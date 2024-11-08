@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 
-public class Materials : MonoBehaviour
+public class Sausage : MonoBehaviour
 {
-    public int slotInCuttingboard;
-    public bool isOnTheCuttingBoard;
-
+    public bool isOntheRoll;
+    public int slotInCuttingBoard;
 
     // Start is called before the first frame update
     void Start()
@@ -17,8 +17,6 @@ public class Materials : MonoBehaviour
         this.transform.SetParent(dragCanvas.transform);
         //Chinh scale cua object lai
         this.transform.localScale = new Vector3(1, 1, 1);
-
-        isOnTheCuttingBoard = false;
     }
 
     // Update is called once per frame
@@ -28,17 +26,23 @@ public class Materials : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("cuttingBoard"))
+        if (collision.gameObject.CompareTag("roll"))
         {
-            isOnTheCuttingBoard = true;
+            Debug.Log("Cham roll");
+            isOntheRoll = true;
+
+            //Xet vi tri cua roll hien tai
+            var roll = collision.gameObject.GetComponent<Materials>();
+            slotInCuttingBoard = roll.slotInCuttingboard;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("cuttingBoard"))
+        if (collision.gameObject.CompareTag("roll"))
         {
-            isOnTheCuttingBoard = false;
+            Debug.Log("Roi khoi roll");
+            isOntheRoll = false;
         }
     }
 }

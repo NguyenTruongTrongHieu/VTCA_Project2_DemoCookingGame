@@ -19,6 +19,7 @@ TagManager:
   - hotdog
   - cuttingBoard
   - grill
+  - roll
   layers:
   - Default
   - TransparentFX

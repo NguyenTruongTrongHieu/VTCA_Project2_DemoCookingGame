@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1916421633953019244}
   m_Layer: 6
   m_Name: material bun
-  m_TagString: Untagged
+  m_TagString: bun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf60bcd83073264abf76a4c28c09121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotInCuttingboard: 1
+  slotInCuttingboard: 3
   isOnTheCuttingBoard: 0
 --- !u!58 &5436392091472525881
 CircleCollider2D:

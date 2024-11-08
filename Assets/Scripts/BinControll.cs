@@ -15,6 +15,9 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     [SerializeField]
     private GameObject sausageObj;
 
+    [SerializeField]
+    private GameObject hotdogObj;
+
     [SerializeField] private GameObject objDrag;
     [SerializeField] private RectTransform objDragRect;
 
@@ -28,6 +31,8 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     private bool isMaterials;
     private bool isFullSlot;
+    private bool isDragging;
+    private bool isSausage;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +51,9 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         //Chinh bien kiem tra xem co full slot o thot hoac vi nuong chua ve false
         //Neu slot can xet da full thi se xet lai o cac ham if ben trong
         isFullSlot = false;
+        //Neu nguoi choi chi click chuot thi isDragging = false
+        isDragging = false;
+        isSausage = false;
 
         if (gameObject.tag == "bun bin")
         {
@@ -104,54 +112,88 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         }
         if (gameObject.tag == "roll bin")
         {
+            isMaterials = true;
+
             if (Gameplay.cuttingboardS1 == "empty")
             {
                 materialRollObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 1;
-                Instantiate(materialRollObj, firstPositionOnCuttingBoard, Quaternion.identity);
-                Gameplay.cuttingboardS1 = "JustRoll";
+                objDrag = Instantiate(materialRollObj, this.transform.position, Quaternion.identity);
+                objDragRect = objDrag.gameObject.GetComponent<RectTransform>();
             }
             else if (Gameplay.cuttingboardS2 == "empty")
             {
                 materialRollObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 2;
-                Instantiate(materialRollObj, secondPositionOnCuttingBoard, Quaternion.identity);
-                Gameplay.cuttingboardS2 = "JustRoll";
+                objDrag = Instantiate(materialRollObj, this.transform.position, Quaternion.identity);
+                objDragRect = objDrag.gameObject.GetComponent<RectTransform>();
             }
             else if (Gameplay.cuttingboardS3 == "empty")
             {
                 materialRollObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 3;
-                Instantiate(materialRollObj, thirdPositionOnCuttingBoard, Quaternion.identity);
-                Gameplay.cuttingboardS3 = "JustRoll";
+                objDrag = Instantiate(materialRollObj, this.transform.position, Quaternion.identity);
+                objDragRect = objDrag.gameObject.GetComponent<RectTransform>();
+            }
+            else
+            {
+                isFullSlot = true;
             }
         }
         if (gameObject.tag == "sausage bin")
         {
-            if (Gameplay.grillS1 == "empty")
-            {
-                sausageObj.gameObject.GetComponent<CookFood>().slotInGrill = 1;
-                var meat = Instantiate(sausageObj, firstPositionOnGrill, Quaternion.identity);
-                Gameplay.grillS1 = "full";
-            }
-            else if (Gameplay.grillS2 == "empty")
-            {
-                sausageObj.gameObject.GetComponent<CookFood>().slotInGrill = 2;
-                Instantiate(sausageObj, secondPositionOnGrill, Quaternion.identity);
-                Gameplay.grillS2 = "full";
-            }
-            else if (Gameplay.grillS3 == "empty")
-            {
-                sausageObj.gameObject.GetComponent<CookFood>().slotInGrill = 3;
-                Instantiate(sausageObj, thirdPositionOnGrill, Quaternion.identity);
-                Gameplay.grillS3 = "full";
-            }
+            isSausage = true;
+
+            objDrag = Instantiate(sausageObj, this.transform.position, Quaternion.identity);
+            objDragRect = objDrag.gameObject.GetComponent<RectTransform>();
         }
     }
+
+    //ham pointer up hoac on mouse up de check xem objDrag co dang duoc drag hay khong, neu khong thi xoa no di
+    private void OnMouseUp()
+    {
+        if (!isDragging)
+        {
+            Destroy(objDrag.gameObject);
+        }
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("On begin drag");
+        isDragging = true;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (isSausage)
+        {
+            var sausage = objDrag.gameObject.GetComponent<Sausage>();
+
+            if (sausage.isOntheRoll)
+            {
+                if (sausage.slotInCuttingBoard == 1)
+                {
+                    hotdogObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 1;
+                    Instantiate(hotdogObj, firstPositionOnCuttingBoard, Quaternion.identity);
+                    Gameplay.cuttingboardS1 = "FullBun";
+                }
+                else if (sausage.slotInCuttingBoard == 2)
+                {
+                    hotdogObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 2;
+                    Instantiate(hotdogObj, secondPositionOnCuttingBoard, Quaternion.identity);
+                    Gameplay.cuttingboardS2 = "FullBun";
+                }
+                else if (sausage.slotInCuttingBoard == 3)
+                {
+                    hotdogObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 3;
+                    Instantiate(hotdogObj, thirdPositionOnCuttingBoard, Quaternion.identity);
+                    Gameplay.cuttingboardS3 = "FullBun";
+                }
+            }
+
+            Destroy(sausage.gameObject);
+            return;
+        }
+
+
         if (isMaterials)
         {
             var material = objDrag.gameObject.GetComponent<Materials>();
@@ -178,7 +220,7 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                 }
             }
         }
-        else 
+        else
         { 
             var cookFood = objDrag.gameObject.GetComponent<CookFood>();
 
