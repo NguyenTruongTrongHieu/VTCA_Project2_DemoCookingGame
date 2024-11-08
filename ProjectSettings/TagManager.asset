@@ -17,6 +17,8 @@ TagManager:
   - sausage bin
   - sausage
   - hotdog
+  - cuttingBoard
+  - grill
   layers:
   - Default
   - TransparentFX
