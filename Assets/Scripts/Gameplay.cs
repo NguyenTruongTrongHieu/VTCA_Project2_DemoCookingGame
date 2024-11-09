@@ -21,10 +21,13 @@ public class Gameplay : MonoBehaviour
 
     //list do an
     public static List<string> orderedFood = new List<string>() { "hamburger", "hotdog" };
+
+    //check player cham vao bin
+    public static bool isChooseBin;
     // Start is called before the first frame update
     void Start()
     {
-        
+        isChooseBin = false;
     }
 
     // Update is called once per frame
