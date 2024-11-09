@@ -48,6 +48,13 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (Gameplay.isChooseBin)
+        {
+            return;
+        }
+
+        //Chuyen bien isChooseBin thanh true
+        Gameplay.isChooseBin = true;
         //Chinh bien kiem tra xem co full slot o thot hoac vi nuong chua ve false
         //Neu slot can xet da full thi se xet lai o cac ham if ben trong
         isFullSlot = false;
@@ -83,7 +90,8 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             objDrag = Instantiate(materialBunObj, this.transform.position, Quaternion.identity);
             objDragRect = objDrag.gameObject.GetComponent<RectTransform>();
         }
-        if (gameObject.tag == "meat bin")
+
+        else if (gameObject.tag == "meat bin")
         {
             isMaterials = false;
 
@@ -109,34 +117,35 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             objDrag = Instantiate(burgersObj, this.transform.position, Quaternion.identity);
             objDragRect = objDrag.gameObject.GetComponent<RectTransform>();
         }
-        if (gameObject.tag == "roll bin")
+
+        else if (gameObject.tag == "roll bin")
         {
             isMaterials = true;
 
-            if (Gameplay.cuttingboardS1 == "empty")
+            if (Gameplay.cuttingboardS1 != "empty" && Gameplay.cuttingboardS2 != "empty" && Gameplay.cuttingboardS3 != "empty")
+            {
+                isFullSlot = true;
+                return;
+            }
+            else if (Gameplay.cuttingboardS1 == "empty")
             {
                 materialRollObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 1;
-                objDrag = Instantiate(materialRollObj, this.transform.position, Quaternion.identity);
-                objDragRect = objDrag.gameObject.GetComponent<RectTransform>();
             }
             else if (Gameplay.cuttingboardS2 == "empty")
             {
                 materialRollObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 2;
-                objDrag = Instantiate(materialRollObj, this.transform.position, Quaternion.identity);
-                objDragRect = objDrag.gameObject.GetComponent<RectTransform>();
             }
             else if (Gameplay.cuttingboardS3 == "empty")
             {
                 materialRollObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 3;
-                objDrag = Instantiate(materialRollObj, this.transform.position, Quaternion.identity);
-                objDragRect = objDrag.gameObject.GetComponent<RectTransform>();
             }
-            else
-            {
-                isFullSlot = true;
-            }
+
+            //Sinh ra obj
+            objDrag = Instantiate(materialRollObj, this.transform.position, Quaternion.identity);
+            objDragRect = objDrag.gameObject.GetComponent<RectTransform>();
         }
-        if (gameObject.tag == "sausage bin")
+
+        else if (gameObject.tag == "sausage bin")
         {
             isSausage = true;
 
@@ -147,6 +156,7 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        Gameplay.isChooseBin = false;
         if (!isDragging)
         {
             Destroy(objDrag.gameObject);
@@ -166,6 +176,9 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         {
             return;
         }
+
+        //Chinh lai isChooseBin de tiep tuc chon bin khac
+        Gameplay.isChooseBin = false;
 
         if (isSausage)
         {
