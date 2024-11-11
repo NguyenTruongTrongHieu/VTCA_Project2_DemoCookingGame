@@ -21,13 +21,13 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     [SerializeField] private GameObject objDrag;
     [SerializeField] private RectTransform objDragRect;
 
-    private Vector2 firstPositionOnCuttingBoard = new Vector2(-1, -1.25f);
-    private Vector2 secondPositionOnCuttingBoard = new Vector2(0, -1.25f);
-    private Vector2 thirdPositionOnCuttingBoard = new Vector2(1, -1.25f);
+    private Vector2 firstPositionOnCuttingBoard = new Vector2(-1, -2.69f);
+    private Vector2 secondPositionOnCuttingBoard = new Vector2(0, -2.69f);
+    private Vector2 thirdPositionOnCuttingBoard = new Vector2(1, -2.69f);
 
-    private Vector2 firstPositionOnGrill = new Vector2(-6f, -1.25f);
-    private Vector2 secondPositionOnGrill = new Vector2(-5f, -1.25f);
-    private Vector2 thirdPositionOnGrill = new Vector2(-4f, -1.25f);
+    private Vector2 firstPositionOnGrill = new Vector2(-6f, -2.69f);
+    private Vector2 secondPositionOnGrill = new Vector2(-5f, -2.69f);
+    private Vector2 thirdPositionOnGrill = new Vector2(-4f, -2.69f);
 
     private bool isMaterials;
     private bool isFullSlot;
