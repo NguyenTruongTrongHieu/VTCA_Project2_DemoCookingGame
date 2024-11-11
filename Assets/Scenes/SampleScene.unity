@@ -571,6 +571,8 @@ MonoBehaviour:
   hotdogObj: {fileID: 1534514288733176334, guid: 29041a3907885c44b983c7a36bee8dab, type: 3}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
+  positionOnCuttingBoard: {fileID: 1063938795}
+  positionOnGrill: {fileID: 1127852745}
 --- !u!61 &371990049
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -906,6 +908,8 @@ MonoBehaviour:
   hotdogObj: {fileID: 0}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
+  positionOnCuttingBoard: {fileID: 0}
+  positionOnGrill: {fileID: 0}
 --- !u!61 &737915667
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1188,6 +1192,8 @@ MonoBehaviour:
   hotdogObj: {fileID: 0}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
+  positionOnCuttingBoard: {fileID: 0}
+  positionOnGrill: {fileID: 0}
 --- !u!61 &1002350485
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1233,6 +1239,76 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1.24}
   m_EdgeRadius: 0
+--- !u!1 &1063938795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1063938796}
+  m_Layer: 7
+  m_Name: MaterialsPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1063938796
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063938795}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10046.511}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1809265953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 3, y: 67}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1127852745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1127852746}
+  m_Layer: 7
+  m_Name: MeatPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1127852746
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127852745}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10046.511}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1809265953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -510, y: -52.046494}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1248195047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,6 +1459,8 @@ MonoBehaviour:
   hotdogObj: {fileID: 0}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
+  positionOnCuttingBoard: {fileID: 0}
+  positionOnGrill: {fileID: 0}
 --- !u!1 &1312584759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,6 +1611,8 @@ MonoBehaviour:
   hotdogObj: {fileID: 0}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
+  positionOnCuttingBoard: {fileID: 0}
+  positionOnGrill: {fileID: 0}
 --- !u!1 &1330098527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,6 +1741,8 @@ MonoBehaviour:
   hotdogObj: {fileID: 1534514288733176334, guid: 29041a3907885c44b983c7a36bee8dab, type: 3}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
+  positionOnCuttingBoard: {fileID: 1063938795}
+  positionOnGrill: {fileID: 1127852745}
 --- !u!61 &1390186750
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1885,6 +1967,8 @@ MonoBehaviour:
   hotdogObj: {fileID: 1534514288733176334, guid: 29041a3907885c44b983c7a36bee8dab, type: 3}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
+  positionOnCuttingBoard: {fileID: 1063938795}
+  positionOnGrill: {fileID: 1127852745}
 --- !u!114 &1439227028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2170,6 +2254,8 @@ MonoBehaviour:
   hotdogObj: {fileID: 1534514288733176334, guid: 29041a3907885c44b983c7a36bee8dab, type: 3}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
+  positionOnCuttingBoard: {fileID: 1063938795}
+  positionOnGrill: {fileID: 1127852745}
 --- !u!114 &1774645285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2331,6 +2417,8 @@ RectTransform:
   - {fileID: 2039670812}
   - {fileID: 322214320}
   - {fileID: 296000598}
+  - {fileID: 1127852746}
+  - {fileID: 1063938796}
   m_Father: {fileID: 1715560019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

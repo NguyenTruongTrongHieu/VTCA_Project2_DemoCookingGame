@@ -21,6 +21,9 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     [SerializeField] private GameObject objDrag;
     [SerializeField] private RectTransform objDragRect;
 
+    [SerializeField] private GameObject positionOnCuttingBoard;
+    [SerializeField] private GameObject positionOnGrill;
+
     private Vector2 firstPositionOnCuttingBoard = new Vector2(-1, -2.69f);
     private Vector2 secondPositionOnCuttingBoard = new Vector2(0, -2.69f);
     private Vector2 thirdPositionOnCuttingBoard = new Vector2(1, -2.69f);
@@ -203,19 +206,19 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                 if (sausage.slotInCuttingBoard == 1)
                 {
                     hotdogObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 1;
-                    Instantiate(hotdogObj, firstPositionOnCuttingBoard, Quaternion.identity);
+                    Instantiate(hotdogObj, positionOnCuttingBoard.transform.position + new Vector3(-1, 0, 0), Quaternion.identity);
                     Gameplay.cuttingboardS1 = "FullBun";
                 }
                 else if (sausage.slotInCuttingBoard == 2)
                 {
                     hotdogObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 2;
-                    Instantiate(hotdogObj, secondPositionOnCuttingBoard, Quaternion.identity);
+                    Instantiate(hotdogObj, positionOnCuttingBoard.transform.position + new Vector3(0, 0, 0), Quaternion.identity);
                     Gameplay.cuttingboardS2 = "FullBun";
                 }
                 else if (sausage.slotInCuttingBoard == 3)
                 {
                     hotdogObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 3;
-                    Instantiate(hotdogObj, thirdPositionOnCuttingBoard, Quaternion.identity);
+                    Instantiate(hotdogObj, positionOnCuttingBoard.transform.position + new Vector3(1, 0, 0), Quaternion.identity);
                     Gameplay.cuttingboardS3 = "FullBun";
                 }
             }
@@ -236,17 +239,17 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             {
                 if (material.slotInCuttingboard == 1)
                 {
-                    objDrag.transform.position = firstPositionOnCuttingBoard;
+                    objDrag.transform.position = positionOnCuttingBoard.transform.position + new Vector3(-1, 0, 0);
                     Gameplay.cuttingboardS1 = "JustBun";
                 }
                 else if (material.slotInCuttingboard == 2)
                 {
-                    objDrag.transform.position = secondPositionOnCuttingBoard;
+                    objDrag.transform.position = positionOnCuttingBoard.transform.position + new Vector3(0, 0, 0);
                     Gameplay.cuttingboardS2 = "JustBun";
                 }
                 else if (material.slotInCuttingboard == 3)
                 {
-                    objDrag.transform.position = thirdPositionOnCuttingBoard;
+                    objDrag.transform.position = positionOnCuttingBoard.transform.position + new Vector3(1, 0, 0);
                     Gameplay.cuttingboardS3 = "JustBun";
                 }
             }
@@ -266,17 +269,17 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
                 if (cookFood.slotInGrill == 1)
                 {
-                    objDrag.transform.position = firstPositionOnGrill;
+                    objDrag.transform.position = positionOnGrill.transform.position + new Vector3(-1, 0, 0);
                     Gameplay. grillS1 = "full";
                 }
                 else if (cookFood.slotInGrill == 2)
                 {
-                    objDrag.transform.position = secondPositionOnGrill;
+                    objDrag.transform.position = positionOnGrill.transform.position + new Vector3(0, 0, 0);
                     Gameplay.grillS2 = "full";
                 }
                 else if (cookFood.slotInGrill == 3)
                 {
-                    objDrag.transform.position = thirdPositionOnGrill;
+                    objDrag.transform.position = positionOnGrill.transform.position + new Vector3(1, 0, 0);
                     Gameplay.grillS3 = "full";
                 }
             }
