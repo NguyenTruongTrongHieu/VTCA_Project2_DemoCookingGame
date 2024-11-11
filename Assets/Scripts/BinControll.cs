@@ -33,11 +33,12 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     private bool isFullSlot;
     private bool isDragging;
     private bool isSausage;
+    private bool isAbleToDrag;//Co the keo duoc khong
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        isAbleToDrag = true;
     }
 
     // Update is called once per frame
@@ -50,6 +51,7 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     {
         if (Gameplay.isChooseBin)
         {
+            isAbleToDrag = false;
             return;
         }
 
@@ -156,6 +158,11 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (!isAbleToDrag)
+        {
+            isAbleToDrag = true;
+        }
+
         Gameplay.isChooseBin = false;
         if (!isDragging)
         {
@@ -171,6 +178,13 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        //Neu khong the keo thi o End Drag can chinh ve co the keo lai
+        if (!isAbleToDrag)
+        { 
+            isAbleToDrag = true;
+            return;
+        }
+
         //Neu het cho roi thi khong can lam
         if (isFullSlot)
         {
@@ -271,6 +285,12 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!isAbleToDrag)
+        {
+            Debug.Log("khong the keo");
+            return;
+        }
+
         if (isFullSlot)
         {
             Debug.Log("Het cho");
