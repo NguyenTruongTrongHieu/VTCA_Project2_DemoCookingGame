@@ -114,16 +114,6 @@ public class CookFood : MonoBehaviour, IPointerDownHandler
                     }
                     break;
                 }
-            case 3:
-                {
-                    if (this.transform.position.x >= thirdPositionOnCuttingBoard.x)
-                    {
-                        food.gameObject.GetComponent<Foods>().slotInCuttingboard = 3;
-                        Instantiate(food, thirdPositionOnCuttingBoard, Quaternion.identity);
-                        Destroy(this.gameObject);
-                    }
-                    break;
-                }
         }
     }
 
@@ -143,68 +133,6 @@ public class CookFood : MonoBehaviour, IPointerDownHandler
         }
     }
 
-    //private void OnMouseDown()
-    //{
-    //    //Neu chua chin thi chua duoc dem di
-    //    if (ripeness == "notYet")
-    //    {
-    //        return;
-    //    }
-    //    //Neu bi khet thi huy
-    //    if (ripeness == "burn")
-    //    {
-    //        SetSlotInGrill();
-    //        Debug.Log("khet");
-    //        Destroy(gameObject);
-    //        return;
-    //    }
-
-    //    //Neu tren thot/ban/dia chua co mieng banh hay nguyen lieu nao thi return ve
-    //    if (name == "meat" && Gameplay.cuttingboardS1 != "JustBun" && Gameplay.cuttingboardS2 != "JustBun" && Gameplay.cuttingboardS3  != "JustBun")
-    //    {
-    //        return;
-    //    }
-    //    if (name == "sausage" && Gameplay.cuttingboardS1 != "JustRoll" && Gameplay.cuttingboardS2 != "JustRoll" && Gameplay.cuttingboardS3 != "JustRoll")
-    //    {
-    //        return;
-    //    }
-
-    //    isChoose = true;
-    //    SetSlotInGrill();
-
-    //    //Setup cho slot cua thot va gan bien moveCookFood de cookfood co the di chuyen
-    //    if ((Gameplay.cuttingboardS1 == "JustBun") && name == "meat")
-    //    {
-    //        moveCookFood = 1;
-    //        Gameplay.cuttingboardS1 = "FullBun";
-    //    }
-    //    else if ((Gameplay.cuttingboardS2 == "JustBun") && name == "meat")
-    //    {
-    //        moveCookFood = 2;
-    //        Gameplay.cuttingboardS2 = "FullBun";
-    //    }
-    //    else if ((Gameplay.cuttingboardS3 == "JustBun") && name == "meat")
-    //    {
-    //        moveCookFood = 3;
-    //        Gameplay.cuttingboardS3 = "FullBun";
-    //    }
-    //    else if ((Gameplay.cuttingboardS1 == "JustRoll") && name == "sausage")
-    //    {
-    //        moveCookFood = 1;
-    //        Gameplay.cuttingboardS1 = "FullRoll";
-    //    }
-    //    else if ((Gameplay.cuttingboardS2 == "JustRoll") && name == "sausage")
-    //    {
-    //        moveCookFood = 2;
-    //        Gameplay.cuttingboardS2 = "FullRoll";
-    //    }
-    //    else if ((Gameplay.cuttingboardS3 == "JustRoll") && name == "sausage")
-    //    {
-    //        moveCookFood = 3;
-    //        Gameplay.cuttingboardS3 = "FullRoll";
-    //    }
-    //}
-
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("PointerDown");
@@ -223,11 +151,11 @@ public class CookFood : MonoBehaviour, IPointerDownHandler
         }
 
         //Neu tren thot/ban/dia chua co mieng banh hay nguyen lieu nao thi return ve
-        if (name == "meat" && Gameplay.cuttingboardS1 != "JustBun" && Gameplay.cuttingboardS2 != "JustBun" && Gameplay.cuttingboardS3 != "JustBun")
+        if (name == "meat" && Gameplay.cuttingboardS1 != "JustBun" && Gameplay.cuttingboardS2 != "JustBun")
         {
             return;
         }
-        if (name == "sausage" && Gameplay.cuttingboardS1 != "JustRoll" && Gameplay.cuttingboardS2 != "JustRoll" && Gameplay.cuttingboardS3 != "JustRoll")
+        if (name == "sausage" && Gameplay.cuttingboardS1 != "JustRoll" && Gameplay.cuttingboardS2 != "JustRoll")
         {
             return;
         }
@@ -246,11 +174,6 @@ public class CookFood : MonoBehaviour, IPointerDownHandler
             moveCookFood = 2;
             Gameplay.cuttingboardS2 = "FullBun";
         }
-        else if ((Gameplay.cuttingboardS3 == "JustBun") && name == "meat")
-        {
-            moveCookFood = 3;
-            Gameplay.cuttingboardS3 = "FullBun";
-        }
         else if ((Gameplay.cuttingboardS1 == "JustRoll") && name == "sausage")
         {
             moveCookFood = 1;
@@ -260,11 +183,6 @@ public class CookFood : MonoBehaviour, IPointerDownHandler
         {
             moveCookFood = 2;
             Gameplay.cuttingboardS2 = "FullRoll";
-        }
-        else if ((Gameplay.cuttingboardS3 == "JustRoll") && name == "sausage")
-        {
-            moveCookFood = 3;
-            Gameplay.cuttingboardS3 = "FullRoll";
         }
     }
 
@@ -278,10 +196,6 @@ public class CookFood : MonoBehaviour, IPointerDownHandler
         else if (slotInGrill == 2)
         {
             Gameplay.grillS2 = "empty";
-        }
-        else if (slotInGrill == 3)
-        {
-            Gameplay.grillS3 = "empty";
         }
     }
 }

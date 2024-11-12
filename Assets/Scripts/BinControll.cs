@@ -73,7 +73,7 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             //Xac dinh xem nguyen lieu duoc chon la cook food hay materials
             isMaterials = true;
             //Set slot cho nguyen lieu vua duoc chon
-            if (Gameplay.cuttingboardS1 != "empty" && Gameplay.cuttingboardS2 != "empty" && Gameplay.cuttingboardS3 != "empty")
+            if (Gameplay.cuttingboardS1 != "empty" && Gameplay.cuttingboardS2 != "empty")
             {
                 isFullSlot = true;
                 return;
@@ -86,10 +86,6 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             {
                 materialBunObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 2;
             }
-            else if (Gameplay.cuttingboardS3 == "empty")
-            {
-                materialBunObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 3;
-            }
 
             //Sinh ra obj
             objDrag = Instantiate(materialBunObj, this.transform.position, Quaternion.identity);
@@ -100,7 +96,7 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         {
             isMaterials = false;
 
-            if (Gameplay.grillS1 != "empty" && Gameplay.grillS2 != "empty" && Gameplay.grillS3 != "empty")
+            if (Gameplay.grillS1 != "empty" && Gameplay.grillS2 != "empty")
             {
                 isFullSlot = true;
                 return;
@@ -113,10 +109,6 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             {
                 burgersObj.gameObject.GetComponent<CookFood>().slotInGrill = 2;
             }
-            else if (Gameplay.grillS3 == "empty")
-            {
-                burgersObj.gameObject.GetComponent<CookFood>().slotInGrill = 3;
-            }
 
             //Sinh ra obj
             objDrag = Instantiate(burgersObj, this.transform.position, Quaternion.identity);
@@ -127,7 +119,7 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         {
             isMaterials = true;
 
-            if (Gameplay.cuttingboardS1 != "empty" && Gameplay.cuttingboardS2 != "empty" && Gameplay.cuttingboardS3 != "empty")
+            if (Gameplay.cuttingboardS1 != "empty" && Gameplay.cuttingboardS2 != "empty")
             {
                 isFullSlot = true;
                 return;
@@ -139,10 +131,6 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             else if (Gameplay.cuttingboardS2 == "empty")
             {
                 materialRollObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 2;
-            }
-            else if (Gameplay.cuttingboardS3 == "empty")
-            {
-                materialRollObj.gameObject.GetComponent<Materials>().slotInCuttingboard = 3;
             }
 
             //Sinh ra obj
@@ -212,14 +200,8 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                 else if (sausage.slotInCuttingBoard == 2)
                 {
                     hotdogObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 2;
-                    Instantiate(hotdogObj, positionOnCuttingBoard.transform.position + new Vector3(0, 0, 0), Quaternion.identity);
-                    Gameplay.cuttingboardS2 = "FullBun";
-                }
-                else if (sausage.slotInCuttingBoard == 3)
-                {
-                    hotdogObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 3;
                     Instantiate(hotdogObj, positionOnCuttingBoard.transform.position + new Vector3(1, 0, 0), Quaternion.identity);
-                    Gameplay.cuttingboardS3 = "FullBun";
+                    Gameplay.cuttingboardS2 = "FullBun";
                 }
             }
 
@@ -244,13 +226,8 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                 }
                 else if (material.slotInCuttingboard == 2)
                 {
-                    objDrag.transform.position = positionOnCuttingBoard.transform.position + new Vector3(0, 0, 0);
-                    Gameplay.cuttingboardS2 = "JustBun";
-                }
-                else if (material.slotInCuttingboard == 3)
-                {
                     objDrag.transform.position = positionOnCuttingBoard.transform.position + new Vector3(1, 0, 0);
-                    Gameplay.cuttingboardS3 = "JustBun";
+                    Gameplay.cuttingboardS2 = "JustBun";
                 }
             }
         }
@@ -274,13 +251,8 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                 }
                 else if (cookFood.slotInGrill == 2)
                 {
-                    objDrag.transform.position = positionOnGrill.transform.position + new Vector3(0, 0, 0);
-                    Gameplay.grillS2 = "full";
-                }
-                else if (cookFood.slotInGrill == 3)
-                {
                     objDrag.transform.position = positionOnGrill.transform.position + new Vector3(1, 0, 0);
-                    Gameplay.grillS3 = "full";
+                    Gameplay.grillS2 = "full";
                 }
             }
         }
