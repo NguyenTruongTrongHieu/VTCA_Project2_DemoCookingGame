@@ -24,9 +24,9 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     [SerializeField] private GameObject positionOnCuttingBoard;
     [SerializeField] private GameObject positionOnGrill;
 
-    private Vector2 firstPositionOnCuttingBoard = new Vector2(-1, -2.69f);
-    private Vector2 secondPositionOnCuttingBoard = new Vector2(0, -2.69f);
-    private Vector2 thirdPositionOnCuttingBoard = new Vector2(1, -2.69f);
+    private Vector2 firstPositionOnCuttingBoard = new Vector2(-1, -1.78f);
+    private Vector2 secondPositionOnCuttingBoard = new Vector2(0, -1.78f);
+    private Vector2 thirdPositionOnCuttingBoard = new Vector2(1, -1.78f);
 
     private Vector2 firstPositionOnGrill = new Vector2(-6f, -2.69f);
     private Vector2 secondPositionOnGrill = new Vector2(-5f, -2.69f);
@@ -206,19 +206,19 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                 if (sausage.slotInCuttingBoard == 1)
                 {
                     hotdogObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 1;
-                    Instantiate(hotdogObj, positionOnCuttingBoard.transform.position + new Vector3(-1, 0, 0), Quaternion.identity);
+                    Instantiate(hotdogObj, firstPositionOnCuttingBoard, Quaternion.identity);
                     Gameplay.cuttingboardS1 = "FullBun";
                 }
                 else if (sausage.slotInCuttingBoard == 2)
                 {
                     hotdogObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 2;
-                    Instantiate(hotdogObj, positionOnCuttingBoard.transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+                    Instantiate(hotdogObj, secondPositionOnCuttingBoard, Quaternion.identity);
                     Gameplay.cuttingboardS2 = "FullBun";
                 }
                 else if (sausage.slotInCuttingBoard == 3)
                 {
                     hotdogObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 3;
-                    Instantiate(hotdogObj, positionOnCuttingBoard.transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+                    Instantiate(hotdogObj, thirdPositionOnCuttingBoard, Quaternion.identity);
                     Gameplay.cuttingboardS3 = "FullBun";
                 }
             }
