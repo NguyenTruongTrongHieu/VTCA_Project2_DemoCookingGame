@@ -23,6 +23,9 @@ public class CookFood : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Image imageMeat;
     [SerializeField] private List<Sprite> spriteMeat = new List<Sprite>();
 
+    [SerializeField] private GameObject positionOnCuttingBoard;
+    [SerializeField] private GameObject positionOnGrill;
+
     private Vector2 firstPositionOnCuttingBoard = new Vector2(-1, -2.69f);
     private Vector2 secondPositionOnCuttingBoard = new Vector2(0, -2.69f);
     private Vector2 thirdPositionOnCuttingBoard = new Vector2(1, -2.69f);
@@ -44,6 +47,10 @@ public class CookFood : MonoBehaviour, IPointerDownHandler
         this.transform.SetParent(dragCanvas.transform);
         //Chinh scale cua object lai
         this.transform.localScale = new Vector3(1, 1, 1);
+
+        //Tim 2 position
+        positionOnCuttingBoard = GameObject.FindGameObjectWithTag("MaterialPosition");
+        positionOnGrill = GameObject.FindGameObjectWithTag("MeatPosition");
     }
 
     // Update is called once per frame

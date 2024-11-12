@@ -20,9 +20,9 @@ public class Customers : MonoBehaviour
         isWaiting = false;
 
         //Random 1 vi tri trong list orderedFood o class Gameplay
-        int randomFood = Random.Range(0, Gameplay.orderedFood.Count);
+        int randomFood = Random.Range(0, GameplayFoods.instance.orderFoods.Length);
         //Gan ten mon an o vi tri do cho Patron
-        orderedFood = Gameplay.orderedFood[randomFood];
+        orderedFood = GameplayFoods.instance.orderFoods[randomFood].name;
         havingFood = false;
         isOnEndDrag = false;
 
