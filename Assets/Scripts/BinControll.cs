@@ -206,19 +206,19 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                 if (sausage.slotInCuttingBoard == 1)
                 {
                     hotdogObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 1;
-                    Instantiate(hotdogObj, firstPositionOnCuttingBoard, Quaternion.identity);
+                    Instantiate(hotdogObj, positionOnCuttingBoard.transform.position + new Vector3(-1, 0, 0), Quaternion.identity);
                     Gameplay.cuttingboardS1 = "FullBun";
                 }
                 else if (sausage.slotInCuttingBoard == 2)
                 {
                     hotdogObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 2;
-                    Instantiate(hotdogObj, secondPositionOnCuttingBoard, Quaternion.identity);
+                    Instantiate(hotdogObj, positionOnCuttingBoard.transform.position + new Vector3(0, 0, 0), Quaternion.identity);
                     Gameplay.cuttingboardS2 = "FullBun";
                 }
                 else if (sausage.slotInCuttingBoard == 3)
                 {
                     hotdogObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 3;
-                    Instantiate(hotdogObj, thirdPositionOnCuttingBoard, Quaternion.identity);
+                    Instantiate(hotdogObj, positionOnCuttingBoard.transform.position + new Vector3(1, 0, 0), Quaternion.identity);
                     Gameplay.cuttingboardS3 = "FullBun";
                 }
             }

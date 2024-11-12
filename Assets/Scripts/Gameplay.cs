@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Gameplay : MonoBehaviour
-{
+{ 
+
     //slot tren thot
     public static string cuttingboardS1 = "empty";
     public static string cuttingboardS2 = "empty";
@@ -18,9 +20,6 @@ public class Gameplay : MonoBehaviour
     public static string queueS1 = "empty";
     public static string queueS2 = "empty";
     public static string queueS3 = "empty";
-
-    //list do an
-    public static List<string> orderedFood = new List<string>() { "hamburger", "hotdog" };
 
     //check player cham vao bin
     public static bool isChooseBin;

@@ -1053,6 +1053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 816983296}
   - component: {fileID: 816983297}
+  - component: {fileID: 816983298}
   m_Layer: 0
   m_Name: Gameplay
   m_TagString: Untagged
@@ -1087,6 +1088,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5734a9489933945838e2e980354b38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &816983298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816983295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66735d3d701800949af2f2a0fc0a5b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderFoods:
+  - name: hamburger
+    sprite: {fileID: 21300000, guid: 7ba687c20cb259448a1858a93535efd6, type: 3}
+  - name: hotdog
+    sprite: {fileID: 21300000, guid: 8936d2c5680a12a4ba7649625e3af273, type: 3}
 --- !u!1 &1002350481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,7 +1268,7 @@ GameObject:
   - component: {fileID: 1063938796}
   m_Layer: 7
   m_Name: MaterialsPosition
-  m_TagString: Untagged
+  m_TagString: MaterialPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1285,7 +1303,7 @@ GameObject:
   - component: {fileID: 1127852746}
   m_Layer: 7
   m_Name: MeatPosition
-  m_TagString: Untagged
+  m_TagString: MeatPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
