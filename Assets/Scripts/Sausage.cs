@@ -28,7 +28,6 @@ public class Sausage : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("roll"))
         {
-            Debug.Log("Cham roll");
             isOntheRoll = true;
 
             //Xet vi tri cua roll hien tai
