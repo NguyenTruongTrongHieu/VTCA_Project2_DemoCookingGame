@@ -37,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: 259}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 6.9956, y: 276.8518}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4278880034970767700
 CanvasRenderer:
@@ -152,6 +152,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.3699646, y: -3.9403992}
   serializedVersion: 2
-  m_Radius: 46.81
+  m_Radius: 57.133575
