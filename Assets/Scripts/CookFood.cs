@@ -99,7 +99,7 @@ public class CookFood : MonoBehaviour, IPointerDownHandler
                     {
                         //Gan vi tri tren thot cho mon an
                         food.gameObject.GetComponent<Foods>().slotInCuttingboard = 1;
-                        Instantiate(food, firstPositionOnCuttingBoard, Quaternion.identity);
+                        Instantiate(food, positionOnCuttingBoard.transform.position + new Vector3(-1, 0, 0), Quaternion.identity);
                         Destroy(this.gameObject);
                     }
                     break;
@@ -109,7 +109,7 @@ public class CookFood : MonoBehaviour, IPointerDownHandler
                     if (this.transform.position.x >= secondPositionOnCuttingBoard.x)
                     {
                         food.gameObject.GetComponent<Foods>().slotInCuttingboard = 2;
-                        Instantiate(food, secondPositionOnCuttingBoard, Quaternion.identity);
+                        Instantiate(food, positionOnCuttingBoard.transform.position + new Vector3(1, 0, 0), Quaternion.identity);
                         Destroy(this.gameObject);
                     }
                     break;

@@ -47,20 +47,8 @@ public class Customers : MonoBehaviour
         if (isOnEndDrag == true)
         {
             Debug.Log("Destroy cus");
-            //Chinh lai slot o queue cua cus hien tai thanh empty
-            if (slotInQueue == 1)
-            {
-                Gameplay.queueS1 = "empty";
-            }
-            else if (slotInQueue == 2)
-            {
-                Gameplay.queueS2 = "empty";
-            }
-            else if (slotInQueue == 3)
-            {
-                Gameplay.queueS3 = "empty";
-            }
-            Destroy(this.gameObject);
+            this.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+            Destroy(this.gameObject, 2);
         }
     }
 
@@ -92,5 +80,22 @@ public class Customers : MonoBehaviour
             }
         }
         this.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+    }
+
+    private void OnDestroy()
+    {
+        //Chinh lai slot o queue cua cus hien tai thanh empty
+        if (slotInQueue == 1)
+        {
+            Gameplay.queueS1 = "empty";
+        }
+        else if (slotInQueue == 2)
+        {
+            Gameplay.queueS2 = "empty";
+        }
+        else if (slotInQueue == 3)
+        {
+            Gameplay.queueS3 = "empty";
+        }
     }
 }
