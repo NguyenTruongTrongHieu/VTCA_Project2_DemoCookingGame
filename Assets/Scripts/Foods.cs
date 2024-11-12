@@ -42,10 +42,6 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         {
             Gameplay.cuttingboardS2 = "empty";
         }
-        else if (slotInCuttingboard == 3)
-        {
-            Gameplay.cuttingboardS3 = "empty";
-        }
     }
 
     private void ReturnStartPosition()
