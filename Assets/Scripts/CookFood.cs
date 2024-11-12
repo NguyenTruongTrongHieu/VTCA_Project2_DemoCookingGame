@@ -209,7 +209,7 @@ public class CookFood : MonoBehaviour, IPointerDownHandler
     {
         Debug.Log("PointerDown");
         //Neu chua chin thi chua duoc dem di
-        if (ripeness == "notYet")
+        if (ripeness == "raw")
         {
             return;
         }
