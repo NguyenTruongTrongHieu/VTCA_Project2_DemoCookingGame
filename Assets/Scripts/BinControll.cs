@@ -33,9 +33,10 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     private Vector2 thirdPositionOnGrill = new Vector2(-4f, -2.69f);
 
     private bool isMaterials;
+    private bool isSausage;
+    private bool isCookFoods;
     private bool isFullSlot;
     private bool isDragging;
-    private bool isSausage;
     private bool isAbleToDrag;//Co the keo duoc khong
 
     // Start is called before the first frame update
@@ -67,6 +68,8 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         isDragging = false;
         //De kiem tra xem bin duoc cham vao la gi, truoc tien can tat cac bien nay
         isSausage = false;
+        isMaterials = false;
+        isCookFoods = false;
 
         if (gameObject.tag == "bun bin")
         {
@@ -94,7 +97,7 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
         else if (gameObject.tag == "meat bin")
         {
-            isMaterials = false;
+            isCookFoods = true;
 
             if (Gameplay.grillS1 != "empty" && Gameplay.grillS2 != "empty")
             {
@@ -208,9 +211,7 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             Destroy(sausage.gameObject);
             return;
         }
-
-
-        if (isMaterials)
+        else if (isMaterials)
         {
             var material = objDrag.gameObject.GetComponent<Materials>();
             if (!material.isOnTheCuttingBoard)
@@ -231,7 +232,7 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                 }
             }
         }
-        else
+        else if (isCookFoods)
         { 
             var cookFood = objDrag.gameObject.GetComponent<CookFood>();
 
