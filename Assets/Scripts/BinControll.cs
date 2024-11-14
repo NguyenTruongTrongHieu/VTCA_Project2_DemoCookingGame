@@ -24,14 +24,6 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     [SerializeField] private GameObject positionOnCuttingBoard;
     [SerializeField] private GameObject positionOnGrill;
 
-    private Vector2 firstPositionOnCuttingBoard = new Vector2(-1, -1.78f);
-    private Vector2 secondPositionOnCuttingBoard = new Vector2(0, -1.78f);
-    private Vector2 thirdPositionOnCuttingBoard = new Vector2(1, -1.78f);
-
-    private Vector2 firstPositionOnGrill = new Vector2(-6f, -2.69f);
-    private Vector2 secondPositionOnGrill = new Vector2(-5f, -2.69f);
-    private Vector2 thirdPositionOnGrill = new Vector2(-4f, -2.69f);
-
     private bool isMaterials;
     private bool isSausage;
     private bool isCookFoods;
@@ -53,7 +45,7 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (Gameplay.isChooseBin)
+        if (Gameplay.isChooseBin)//Phan nay va isChooseBin dung de check xem ng choi co dang keo 2 bin cung luc khong
         {
             isAbleToDrag = false;
             return;
@@ -244,6 +236,7 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             {
                 //Bat dau nuong
                 cookFood.isChoose = false;
+                cookFood.cookFoodPanel.SetActive(true);//Bat panel cua cook food len de nguoi choi xem thoi gian 
 
                 if (cookFood.slotInGrill == 1)
                 {
