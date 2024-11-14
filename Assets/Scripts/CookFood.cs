@@ -205,6 +205,7 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                 else//Neu o trang thai khac ngoai chin thi se quay ve vi tri cu
                 {
                     isChoose = false;
+                    cookFoodPanel.SetActive(true);
                     //Tra ve vi tri ban dau
                     this.transform.position = startPosition;
                     return;
