@@ -33,6 +33,7 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [SerializeField] private Slider sliderCookingTime;
     [SerializeField] private Image sliderImage;
     [SerializeField] private Color sliderColor;
+    [SerializeField] private GameObject fireBurnCookFood;//Gameobject chua anim chay cua cook food
 
     [SerializeField] private GameObject positionOnCuttingBoard;
     [SerializeField] private GameObject positionOnGrill;
@@ -53,6 +54,8 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         sliderCookingTime.maxValue = cookingTime;
         sliderCookingTime.minValue = 0;
         cookFoodPanel.SetActive(false);
+        fireBurnCookFood.SetActive(false);
+
 
         //Dua doi tuong hien tai tro thanh con cua canvas dung de keo tha
         var dragCanvas = GameObject.FindGameObjectWithTag("UIDrag");
@@ -106,6 +109,7 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             ripeness = "burn";
             sliderImage.color = Color.white;
             Debug.Log("burn");
+            fireBurnCookFood.SetActive(true);
         }
     }
 
