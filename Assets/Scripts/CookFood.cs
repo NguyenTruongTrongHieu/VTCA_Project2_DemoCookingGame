@@ -34,6 +34,8 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [SerializeField] private Image sliderImage;
     [SerializeField] private Color sliderColor;
     [SerializeField] private GameObject fireBurnCookFood;//Gameobject chua anim chay cua cook food
+    [SerializeField] private Image emojiImage;
+    [SerializeField] private Sprite[] emojis;
 
     [SerializeField] private GameObject positionOnCuttingBoard;
     [SerializeField] private GameObject positionOnGrill;
@@ -89,25 +91,33 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
         cookingTime -= Time.deltaTime;
         sliderCookingTime.value = cookingTime;
-        
-        if (cookingTime >= 3)
+
+        if (cookingTime >= 4)
         {
             imageMeat.sprite = spriteMeat[0];
             sliderImage.color = Color.yellow;
+            emojiImage.sprite = null;
             ripeness = "raw";
         }
-        else if ((cookingTime < 3 && cookingTime > 0))
+        else if ((cookingTime < 4 && cookingTime > 2))
         {
             imageMeat.sprite = spriteMeat[1];
             ripeness = "ripe";
             sliderImage.color = Color.green;
+            emojiImage.sprite = emojis[0];
             Debug.Log("ripe");
+        }
+        else if (cookingTime <= 2 && cookingTime > 0)
+        {
+            sliderImage.color = Color.red;
+            emojiImage.sprite = emojis[1];
         }
         else if ((cookingTime <= 0))
         {
             imageMeat.sprite = spriteMeat[2];
             ripeness = "burn";
             sliderImage.color = Color.white;
+            emojiImage.sprite = null;
             Debug.Log("burn");
             fireBurnCookFood.SetActive(true);
         }
