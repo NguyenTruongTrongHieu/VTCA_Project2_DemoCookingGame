@@ -11,6 +11,8 @@ public class Customers : MonoBehaviour
     public bool isWaiting;//Bien de xac dinh khach dang di chuyen hay da den ban
 
     [SerializeField] private float speed;
+    // them thoi gian doi do an 
+
 
     //Vi tri cua customer tren hang cho
     [SerializeField] private float customerPosition;
