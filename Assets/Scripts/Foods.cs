@@ -42,10 +42,6 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         {
             Gameplay.cuttingboardS2 = "empty";
         }
-        else if (slotInCuttingboard == 3)
-        {
-            Gameplay.cuttingboardS3 = "empty";
-        }
     }
 
     private void ReturnStartPosition()
@@ -84,7 +80,7 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         {
             Debug.Log("Cham phai khach");
             var customer = collision.gameObject.GetComponent<Customers>();
-            if (!customer.isWaiting)
+            if (!customer.isWaiting || customer.isAlreadyHaveFood)
             {
                 return;
             }
@@ -117,6 +113,12 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         if (collision.gameObject.CompareTag("Customer"))
         {
             var customer = collision.gameObject.GetComponent<Customers>();
+
+            if (!customer.isWaiting || customer.isAlreadyHaveFood)
+            {
+                return;
+            }
+
             if (customer.orderedFood == this.gameObject.tag)
             {
                 customer.havingFood = false;

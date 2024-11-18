@@ -7,7 +7,7 @@ using UnityEngine.Rendering;
 public class Sausage : MonoBehaviour
 {
     public bool isOntheRoll;
-    public int slotInCuttingBoard;
+    public int slotInCuttingBoard;//Vi tri cua roll ma sausage cham vao
 
     // Start is called before the first frame update
     void Start()
