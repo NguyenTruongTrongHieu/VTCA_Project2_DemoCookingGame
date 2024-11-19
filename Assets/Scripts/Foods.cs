@@ -80,7 +80,7 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         {
             Debug.Log("Cham phai khach");
             var customer = collision.gameObject.GetComponent<Customers>();
-            if (!customer.isWaiting || customer.isAlreadyHaveFood)
+            if (!customer.isWaiting || customer.isAlreadyHaveFood || customer.isOutOfTime)
             {
                 return;
             }

@@ -976,6 +976,7 @@ MonoBehaviour:
   isWaiting: 0
   orderPanel: {fileID: 3877050721904364719}
   timerSlider: {fileID: 6776496037817510927}
+  imageSlider: {fileID: 7230694541761053813}
   imageOrderFood: {fileID: 7234406729334584112}
   imageTick: {fileID: 21300000, guid: 44acd771467054549aacb0f755c7d6b3, type: 3}
   customerTime: 20

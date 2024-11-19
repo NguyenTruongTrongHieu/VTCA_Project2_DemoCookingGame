@@ -12,14 +12,15 @@ public class Customers : MonoBehaviour
     public int slotInQueue;
     public bool isWaiting;//Bien de xac dinh khach dang di chuyen hay da den ban
     private bool isContinueMoving;//Bien de xac dinh xem cus co duoc tiep tuc di chuyen chua
+    public bool isOutOfTime;
 
     //Thoi gian cho va order customer
     public GameObject orderPanel;
     [SerializeField] private Slider timerSlider;
+    [SerializeField] private Image imageSlider;
     [SerializeField] private Image imageOrderFood;
     [SerializeField] private Sprite imageTick;
     public float customerTime;
-    private bool stopTime;
 
     [SerializeField] private float speed;
 
@@ -32,7 +33,7 @@ public class Customers : MonoBehaviour
         isWaiting = false;
         isAlreadyHaveFood = false;
         isContinueMoving = false;
-        stopTime = false;
+        isOutOfTime = false;
 
         //Random 1 vi tri trong list orderedFood o class Gameplay
         int randomFood = Random.Range(0, GameplayFoods.instance.orderFoods.Length);
@@ -69,7 +70,7 @@ public class Customers : MonoBehaviour
     void Update()
     {
         //Khi nguoi choi dua mon an cho cus
-        if (isOnEndDrag == true)
+        if (isOnEndDrag == true || isOutOfTime)
         {
             if (isContinueMoving)
             {
@@ -92,6 +93,23 @@ public class Customers : MonoBehaviour
         if (isWaiting)
         {
             customerTime -= Time.deltaTime;
+            if (customerTime > 10)
+            {
+                imageSlider.color = Color.green;
+            }
+            else if (customerTime > 5)
+            {
+                imageSlider.color = Color.yellow;
+            }
+            else if (customerTime > 0)
+            {
+                imageSlider.color = Color.red;
+            }
+            //Khi customerTime = 0 thi het thoi gian 
+            else if (customerTime <= 0)
+            {
+                isOutOfTime = true;
+            }
             timerSlider.value = customerTime;
         }
     }
