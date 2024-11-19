@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
 {
     public Slider timerslider;
     public Text timerstext;
-    public float gametime;
+    public float customertime;
 
     private bool stoptime;
 
@@ -15,8 +15,8 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         stoptime = false;
-        timerslider.maxValue = gametime;
-        timerslider.value = gametime;
+        timerslider.maxValue = customertime;
+        timerslider.value = customertime;
 
     }
     private void Update()
@@ -24,7 +24,7 @@ public class Timer : MonoBehaviour
         if(stoptime) return;
 
 
-        float time = gametime - Time.timeSinceLevelLoad;
+        float time = customertime - Time.timeSinceLevelLoad;
         int minutes = Mathf.FloorToInt(time / 20);
         int seconds = Mathf.FloorToInt(time % 20);
         
@@ -32,11 +32,11 @@ public class Timer : MonoBehaviour
             {
                 stoptime = true;
             }
-           //if (stoptime == false)
+           if (stoptime == false)
 
             {
-             //  timerstext.text = texttime;
-               // timerslider.value = time;
+                
+                timerslider.value = time;
             }
 
         string texttime = string.Format("{0:0}:{0:20}", minutes, seconds);
