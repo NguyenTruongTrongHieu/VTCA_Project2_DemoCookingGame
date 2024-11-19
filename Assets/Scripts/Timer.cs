@@ -16,24 +16,31 @@ public class Timer : MonoBehaviour
     {
         stoptime = false;
         timerslider.maxValue = gametime;
-        timerslider.value = gametime; 
+        timerslider.value = gametime;
 
     }
     private void Update()
     {
-        float time = gametime - Time.time;
-        int minutes = Mathf.FloorToInt(time / 20);
-        int seconds = Mathf.FloorToInt(time - minutes * 20f);
-        string texttime = string.Format("{0:0}:{0:20}", minutes, seconds);
-        if (time <= 0)
-        {
-            stoptime = true;
-        }
-        if (stoptime == false) 
+        if(stoptime) return;
 
-        {
-                timerstext.text = texttime;
-                timerslider.value = time;
-        }
+
+        float time = gametime - Time.timeSinceLevelLoad;
+        int minutes = Mathf.FloorToInt(time / 20);
+        int seconds = Mathf.FloorToInt(time % 20);
+        
+            if (time <= 0)
+            {
+                stoptime = true;
+            }
+           //if (stoptime == false)
+
+            {
+             //  timerstext.text = texttime;
+               // timerslider.value = time;
+            }
+
+        string texttime = string.Format("{0:0}:{0:20}", minutes, seconds);
+        timerstext.text = texttime;
+        timerslider.value = time;
     }
 }
