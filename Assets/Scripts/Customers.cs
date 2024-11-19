@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Customers : MonoBehaviour
 {
@@ -12,7 +13,15 @@ public class Customers : MonoBehaviour
     public bool isWaiting;//Bien de xac dinh khach dang di chuyen hay da den ban
     private bool isContinueMoving;//Bien de xac dinh xem cus co duoc tiep tuc di chuyen chua
 
+    //Thoi gian cho va order customer
+    public GameObject orderPanel;
+    [SerializeField] private Slider timerSlider;
+    [SerializeField] private Image imageOrderFood;
+    public float customerTime;
+    private bool stopTime;
+
     [SerializeField] private float speed;
+
 
     //Vi tri cua customer tren hang cho
     [SerializeField] private float customerPosition;
@@ -22,11 +31,15 @@ public class Customers : MonoBehaviour
         isWaiting = false;
         isAlreadyHaveFood = false;
         isContinueMoving = false;
+        stopTime = false;
 
         //Random 1 vi tri trong list orderedFood o class Gameplay
         int randomFood = Random.Range(0, GameplayFoods.instance.orderFoods.Length);
         //Gan ten mon an o vi tri do cho Patron
         orderedFood = GameplayFoods.instance.orderFoods[randomFood].name;
+        //Gan sprite mon an do cho customer
+        imageOrderFood.sprite = GameplayFoods.instance.orderFoods[randomFood].sprite;
+
         havingFood = false;
         isOnEndDrag = false;
 
@@ -43,15 +56,23 @@ public class Customers : MonoBehaviour
         {
             customerPosition = 6.32f;
         }
+
+        //Setup slider
+        timerSlider.maxValue = customerTime;
+        timerSlider.minValue = 0;
+        //Tat panel order
+        orderPanel.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Khi nguoi choi dua mon an cho cus
         if (isOnEndDrag == true)
         {
             if (isContinueMoving)
             {
+                orderPanel.SetActive(false);
                 this.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
                 Destroy(this.gameObject, 2);
             }
@@ -64,6 +85,13 @@ public class Customers : MonoBehaviour
             isAlreadyHaveFood = true;
             StartCoroutine(SetAnimForCus());
             Debug.Log("Destroy cus");
+        }
+
+        //Cus dang doi
+        if (isWaiting)
+        {
+            customerTime -= Time.deltaTime;
+            timerSlider.value = customerTime;
         }
     }
 
@@ -83,6 +111,7 @@ public class Customers : MonoBehaviour
             if (this.transform.position.x <= customerPosition)
             {
                 isWaiting = true;
+                orderPanel.SetActive(true);
                 return;
             }
         }
@@ -91,6 +120,7 @@ public class Customers : MonoBehaviour
             if (this.transform.position.x <= customerPosition)
             {
                 isWaiting = true;
+                orderPanel.SetActive(true);
                 return;
             }
         }
@@ -99,6 +129,7 @@ public class Customers : MonoBehaviour
             if (this.transform.position.x <= customerPosition)
             {
                 isWaiting = true;
+                orderPanel.SetActive(true);
                 return;
             }
         }
