@@ -46,11 +46,11 @@ public class Customers : MonoBehaviour
         //Set up vi tri cho customer
         if (slotInQueue == 1)
         {
-            customerPosition = -6.32f;
+            customerPosition = -4.31f;
         }
         if (slotInQueue == 2)
         {
-            customerPosition = 0f;
+            customerPosition = 0.8f;
         }
         if (slotInQueue == 3)
         {
@@ -72,7 +72,6 @@ public class Customers : MonoBehaviour
         {
             if (isContinueMoving)
             {
-                orderPanel.SetActive(false);
                 this.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
                 Destroy(this.gameObject, 2);
             }
@@ -99,12 +98,19 @@ public class Customers : MonoBehaviour
     {
         Debug.Log("Bat anim");
         yield return new WaitForSeconds(2);
+        orderPanel.SetActive(false);
         Debug.Log("Tat anim");
         isContinueMoving = true;//Sau khi thuc hien anim vui ve hoac hien emote gi do thi cus moi duoc tiep tuc di chuyen
     }
 
     private void FixedUpdate()
     {
+        //Neu dang doi thi khong can di chuyen nua
+        if (isWaiting)
+        {
+            return;   
+        }
+
         //Neu customer di chuyen den vi tri tren hang cho thi dung
         if (slotInQueue == 1)
         {
