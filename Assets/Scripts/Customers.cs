@@ -17,6 +17,7 @@ public class Customers : MonoBehaviour
     public GameObject orderPanel;
     [SerializeField] private Slider timerSlider;
     [SerializeField] private Image imageOrderFood;
+    [SerializeField] private Sprite imageTick;
     public float customerTime;
     private bool stopTime;
 
@@ -82,6 +83,7 @@ public class Customers : MonoBehaviour
             }
 
             isAlreadyHaveFood = true;
+            imageOrderFood.sprite = imageTick;
             StartCoroutine(SetAnimForCus());
             Debug.Log("Destroy cus");
         }
