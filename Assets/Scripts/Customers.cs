@@ -11,11 +11,12 @@ public class Customers : MonoBehaviour
 
     public bool havingFood;//Xac dinh xem mon an co duoc keo den cho khach chua
     public bool isOnEndDrag = false;//Xac dinh xem player da tha chuot chua
-    public bool isAlreadyHaveFood = false;//Bien de xac dinh xem player da keo tha food vao cus chua
+    public bool isAlreadyDone = false;//Bien de xac dinh xem player da keo tha food vao cus chua
     public int slotInQueue;
     public bool isWaiting;//Bien de xac dinh khach dang di chuyen hay da den ban
     private bool isContinueMoving;//Bien de xac dinh xem cus co duoc tiep tuc di chuyen chua
     public bool isOutOfTime;
+    private bool isAnyOrder;//Kiem tra xem con order nao chua hoan thanh khong, false la het order
 
     //Thoi gian cho va order customer
     public GameObject orderPanel;
@@ -34,10 +35,12 @@ public class Customers : MonoBehaviour
     void Start()
     {
         isWaiting = false;
-        isAlreadyHaveFood = false;
+        havingFood = false;
+        isAlreadyDone = false;
         isContinueMoving = false;
         isOutOfTime = false;
         orderFoodChoose = 0; 
+        isAnyOrder = true;
 
         //random so luong order cua cus
         amountOfOrderFoods = Random.Range(1, 3);
@@ -82,13 +85,24 @@ public class Customers : MonoBehaviour
         //Kiem tra xem order nao da duoc hoan thanh
         if (isOnEndDrag && orderedFoods.Count != 0)
         {
-            orderedFoods.RemoveAt(orderFoodChoose - 1);
+            orderedFoods[orderFoodChoose - 1] = "";//Loi khi dua cho cus mon an dau tien thi mon an thu 2 se bi dua len tro thanh mon 1, lam cho imageFood bi khong thay doi duoc
             imageOrderFoods[orderFoodChoose - 1].sprite = imageTick;
             isOnEndDrag = false;
+
+            //Kiem tra con order nao khong
+            foreach (var order in orderedFoods)
+            {
+                if (order != "")
+                {
+                    return;
+                }
+            }
+            //Khi duyet qua het cac order thi luc nay da hoan thanh xong order
+            isAnyOrder = false;
         }
 
         //Khi nguoi choi dua mon an cho cus
-        if (orderedFoods.Count == 0 || isOutOfTime)
+        if (!isAnyOrder || isOutOfTime)
         {
             if (isContinueMoving)
             {
@@ -96,12 +110,12 @@ public class Customers : MonoBehaviour
                 Destroy(this.gameObject, 2);
             }
 
-            if (isAlreadyHaveFood)
+            if (isAlreadyDone)
             {
                 return;
             }
 
-            isAlreadyHaveFood = true;
+            isAlreadyDone = true;
             //imageOrderFood1.sprite = imageTick;
             StartCoroutine(SetAnimForCus());
             Debug.Log("Destroy cus");
