@@ -78,17 +78,22 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
         if (collision.gameObject.CompareTag("Customer"))
         {
-            Debug.Log("Cham phai khach");
             var customer = collision.gameObject.GetComponent<Customers>();
             if (!customer.isWaiting || customer.isAlreadyHaveFood || customer.isOutOfTime)
             {
                 return;
             }
 
-            if (customer.orderedFood == this.gameObject.tag)
+            for (int i = 0; i < customer.orderedFoods.Count; i++)
             {
-                customer.havingFood = true;
-                isReturnStartPosition = false;
+                if (customer.orderedFoods[i] == this.gameObject.tag)
+                {
+                    customer.havingFood = true;
+                    customer.orderFoodChoose = i + 1;
+                    Debug.Log(customer.orderFoodChoose);
+                    isReturnStartPosition = false;
+                    return;
+                }
             }
         }
     }
@@ -119,10 +124,14 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
                 return;
             }
 
-            if (customer.orderedFood == this.gameObject.tag)
+            for (int i = 0; i < customer.orderedFoods.Count; i++)
             {
-                customer.havingFood = false;
-                isReturnStartPosition = true;
+                if (customer.orderedFoods[i] == this.gameObject.tag)
+                {
+                    customer.havingFood = false;
+                    isReturnStartPosition = true;
+                    return;
+                }
             }
         }
     }
@@ -134,7 +143,6 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("On end drag");
         //Kiem tra xem sau khi tha object co can quay ve cho cu khong
         if (isReturnStartPosition)
         {
@@ -153,6 +161,7 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
                 if (customer.GetComponent<Customers>().havingFood)
                 {
                     customer.GetComponent<Customers>().isOnEndDrag = true;
+                    Debug.Log("On end drag");
                 }
             }
 

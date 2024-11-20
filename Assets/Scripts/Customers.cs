@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class Customers : MonoBehaviour
 {
-    public string orderedFood;
+    public List<string> orderedFoods = new List<string>();
+    private int amountOfOrderFoods;
+    public int orderFoodChoose;//Xac dinh xem mon an co duoc keo den cho khach chua va vi tri cua mon an do trong list orderFoods
+
     public bool havingFood;//Xac dinh xem mon an co duoc keo den cho khach chua
     public bool isOnEndDrag = false;//Xac dinh xem player da tha chuot chua
     public bool isAlreadyHaveFood = false;//Bien de xac dinh xem player da keo tha food vao cus chua
@@ -18,7 +21,7 @@ public class Customers : MonoBehaviour
     public GameObject orderPanel;
     [SerializeField] private Slider timerSlider;
     [SerializeField] private Image imageSlider;
-    [SerializeField] private Image imageOrderFood;
+    [SerializeField] private Image[] imageOrderFoods;
     [SerializeField] private Sprite imageTick;
     public float customerTime;
 
@@ -34,13 +37,20 @@ public class Customers : MonoBehaviour
         isAlreadyHaveFood = false;
         isContinueMoving = false;
         isOutOfTime = false;
+        orderFoodChoose = 0; 
 
-        //Random 1 vi tri trong list orderedFood o class Gameplay
-        int randomFood = Random.Range(0, GameplayFoods.instance.orderFoods.Length);
-        //Gan ten mon an o vi tri do cho Patron
-        orderedFood = GameplayFoods.instance.orderFoods[randomFood].name;
-        //Gan sprite mon an do cho customer
-        imageOrderFood.sprite = GameplayFoods.instance.orderFoods[randomFood].sprite;
+        //random so luong order cua cus
+        amountOfOrderFoods = Random.Range(1, 3);
+
+        for (int i = 0; i < amountOfOrderFoods; i++)
+        {
+            //Random 1 vi tri trong list orderedFood o class Gameplay
+            int randomFood = Random.Range(0, GameplayFoods.instance.orderFoods.Length);
+            //Gan ten mon an o vi tri do cho cus
+            orderedFoods.Add(GameplayFoods.instance.orderFoods[randomFood].name);
+            //Gan sprite mon an do cho customer
+            imageOrderFoods[i].sprite = GameplayFoods.instance.orderFoods[randomFood].sprite;
+        }
 
         havingFood = false;
         isOnEndDrag = false;
@@ -69,8 +79,16 @@ public class Customers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Kiem tra xem order nao da duoc hoan thanh
+        if (isOnEndDrag && orderedFoods.Count != 0)
+        {
+            orderedFoods.RemoveAt(orderFoodChoose - 1);
+            imageOrderFoods[orderFoodChoose - 1].sprite = imageTick;
+            isOnEndDrag = false;
+        }
+
         //Khi nguoi choi dua mon an cho cus
-        if (isOnEndDrag == true || isOutOfTime)
+        if (orderedFoods.Count == 0 || isOutOfTime)
         {
             if (isContinueMoving)
             {
@@ -84,7 +102,7 @@ public class Customers : MonoBehaviour
             }
 
             isAlreadyHaveFood = true;
-            imageOrderFood.sprite = imageTick;
+            //imageOrderFood1.sprite = imageTick;
             StartCoroutine(SetAnimForCus());
             Debug.Log("Destroy cus");
         }
