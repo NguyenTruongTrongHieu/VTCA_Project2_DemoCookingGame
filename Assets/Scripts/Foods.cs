@@ -79,7 +79,7 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         if (collision.gameObject.CompareTag("Customer"))
         {
             var customer = collision.gameObject.GetComponent<Customers>();
-            if (!customer.isWaiting || customer.isAlreadyHaveFood || customer.isOutOfTime)
+            if (!customer.isWaiting || customer.isAlreadyDone || customer.isOutOfTime)
             {
                 return;
             }
@@ -119,7 +119,7 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         {
             var customer = collision.gameObject.GetComponent<Customers>();
 
-            if (!customer.isWaiting || customer.isAlreadyHaveFood)
+            if (!customer.isWaiting || customer.isAlreadyDone)
             {
                 return;
             }
