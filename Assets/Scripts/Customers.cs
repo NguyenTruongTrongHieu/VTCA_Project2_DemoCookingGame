@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +18,7 @@ public class Customers : MonoBehaviour
     private bool isContinueMoving;//Bien de xac dinh xem cus co duoc tiep tuc di chuyen chua
     public bool isOutOfTime;
     private bool isAnyOrder;//Kiem tra xem con order nao chua hoan thanh khong, false la het order
+    private string customerEmotion;
 
     //Thoi gian cho va order customer
     public GameObject orderPanel;
@@ -26,14 +28,23 @@ public class Customers : MonoBehaviour
     [SerializeField] private Sprite imageTick;
     public float customerTime;
 
-    [SerializeField] private float speed;
+    private SpriteRenderer customerSpriteRenderer;
+    [SerializeField] private Sprite[] emoteCustomer;
 
+    [SerializeField] private float speed;
+    //Di chuyen len xuong
+    private float sinCenterY;
+    [SerializeField] private float amplitude = 2;
+    [SerializeField] private float frequency = 2;
 
     //Vi tri cua customer tren hang cho
     [SerializeField] private float customerPosition;
     // Start is called before the first frame update
     void Start()
     {
+        customerSpriteRenderer = this.GetComponent<SpriteRenderer>();
+        sinCenterY = this.transform.position.y;
+
         isWaiting = false;
         havingFood = false;
         isAlreadyDone = false;
@@ -41,6 +52,7 @@ public class Customers : MonoBehaviour
         isOutOfTime = false;
         orderFoodChoose = 0; 
         isAnyOrder = true;
+        customerEmotion = "normal";
 
         //random so luong order cua cus
         amountOfOrderFoods = Random.Range(1, 3);
@@ -107,6 +119,9 @@ public class Customers : MonoBehaviour
             if (isContinueMoving)
             {
                 this.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+                //Di chuyen nhap nho
+                float sin = Mathf.Sin(this.transform.position.x * frequency) * amplitude;
+                this.transform.position = new Vector3(this.transform.position.x, sinCenterY + sin, this.transform.position.z);
                 Destroy(this.gameObject, 2);
             }
 
@@ -128,14 +143,19 @@ public class Customers : MonoBehaviour
             if (customerTime > 10)
             {
                 imageSlider.color = Color.green;
+                customerSpriteRenderer.sprite = emoteCustomer[0];
             }
             else if (customerTime > 5)
             {
                 imageSlider.color = Color.yellow;
+                customerSpriteRenderer.sprite = emoteCustomer[1];
+                customerEmotion = "impatient";
             }
             else if (customerTime > 0)
             {
                 imageSlider.color = Color.red;
+                customerSpriteRenderer.sprite = emoteCustomer[2];
+                customerEmotion = "angry";
             }
             //Khi customerTime = 0 thi het thoi gian 
             else if (customerTime <= 0)
@@ -192,6 +212,9 @@ public class Customers : MonoBehaviour
             }
         }
         this.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+        //Di chuyen nhap nho
+        float sin = Mathf.Sin(this.transform.position.x * frequency) * amplitude;
+        this.transform.position = new Vector3(this.transform.position.x, sinCenterY + sin, this.transform.position.z);
     }
 
     private void OnDestroy()
