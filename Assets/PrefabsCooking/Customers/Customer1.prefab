@@ -878,6 +878,7 @@ GameObject:
   - component: {fileID: 839226128420458728}
   - component: {fileID: 7825730047826965615}
   - component: {fileID: 1239766893871789966}
+  - component: {fileID: 5856234452716959120}
   m_Layer: 0
   m_Name: Customer1
   m_TagString: Customer
@@ -894,7 +895,7 @@ Transform:
   m_GameObject: {fileID: 5940967601362701535}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.41, y: -0.28, z: 0}
+  m_LocalPosition: {x: 12.41, y: 0.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -946,7 +947,7 @@ SpriteRenderer:
   m_SortingLayerID: 323348233
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a9658b72ca981eb41b0012d36f12b485, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e88dba000e26d9a4d85ac7af194d0982, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -973,7 +974,7 @@ MonoBehaviour:
   orderFoodChoose: 0
   havingFood: 0
   isOnEndDrag: 0
-  isAlreadyHaveFood: 0
+  isAlreadyDone: 0
   slotInQueue: 3
   isWaiting: 0
   isOutOfTime: 0
@@ -985,7 +986,14 @@ MonoBehaviour:
   - {fileID: 1080432545208057999}
   imageTick: {fileID: 21300000, guid: 44acd771467054549aacb0f755c7d6b3, type: 3}
   customerTime: 20
-  speed: 8
+  customerSpriteRenderer: {fileID: 839226128420458728}
+  emoteCustomer:
+  - {fileID: 21300000, guid: e88dba000e26d9a4d85ac7af194d0982, type: 3}
+  - {fileID: 21300000, guid: 1b66ea0bec32ef942a53628f41a6bca3, type: 3}
+  - {fileID: 21300000, guid: 3525a86d20e37314a9c1ef9937b4e97a, type: 3}
+  speed: 5
+  amplitude: 0.1
+  frequency: 2.5
   customerPosition: 0
 --- !u!61 &1239766893871789966
 BoxCollider2D:
@@ -1023,7 +1031,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.6857142, y: 9.885715}
+    oldSize: {x: 3.4921875, y: 8.4375}
     newSize: {x: 5.6, y: 9.33}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1032,6 +1040,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.6106892, y: 4.2900004}
   m_EdgeRadius: 0
+--- !u!95 &5856234452716959120
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5940967601362701535}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ceaa81149a49fc0498b559bfaa6ecc20, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7854875209689990497
 GameObject:
   m_ObjectHideFlags: 0
