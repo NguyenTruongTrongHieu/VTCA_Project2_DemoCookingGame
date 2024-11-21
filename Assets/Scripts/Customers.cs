@@ -28,6 +28,7 @@ public class Customers : MonoBehaviour
     [SerializeField] private Sprite imageTick;
     public float customerTime;
 
+    private Animator animator;
     private SpriteRenderer customerSpriteRenderer;
     [SerializeField] private Sprite[] emoteCustomer;
 
@@ -42,6 +43,7 @@ public class Customers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = this.GetComponent<Animator>();
         customerSpriteRenderer = this.GetComponent<SpriteRenderer>();
         sinCenterY = this.transform.position.y;
 
@@ -143,18 +145,38 @@ public class Customers : MonoBehaviour
             if (customerTime > 10)
             {
                 imageSlider.color = Color.green;
-                customerSpriteRenderer.sprite = emoteCustomer[0];
+
+                if (!animator.GetBool("isNormal"))//Kiem tra xem da set int chua, neu chua set thi lam, da set roi thi khong can
+                {
+                    animator.SetInteger("statesCustomer", 1);
+                    StartCoroutine(SetDefaultStatusAnimator());
+                    animator.SetBool("isNormal", true);
+                }
             }
             else if (customerTime > 5)
             {
                 imageSlider.color = Color.yellow;
-                customerSpriteRenderer.sprite = emoteCustomer[1];
+
+                if (!animator.GetBool("isImpatient"))
+                {
+                    animator.SetInteger("statesCustomer", 2); 
+                    StartCoroutine(SetDefaultStatusAnimator());
+                    animator.SetBool("isImpatient", true);
+                }
+
                 customerEmotion = "impatient";
             }
             else if (customerTime > 0)
             {
                 imageSlider.color = Color.red;
-                customerSpriteRenderer.sprite = emoteCustomer[2];
+
+                if (!animator.GetBool("isAngry"))
+                {
+                    animator.SetInteger("statesCustomer", 3);
+                    StartCoroutine(SetDefaultStatusAnimator());
+                    animator.SetBool("isAngry", true);
+                }
+
                 customerEmotion = "angry";
             }
             //Khi customerTime = 0 thi het thoi gian 
@@ -166,10 +188,32 @@ public class Customers : MonoBehaviour
         }
     }
 
+    IEnumerator SetDefaultStatusAnimator()
+    {
+        yield return new WaitForSeconds(0.5f);
+        animator.SetInteger("statesCustomer", 0);
+    }
+
     IEnumerator SetAnimForCus()
     {
         Debug.Log("Bat anim");
-        yield return new WaitForSeconds(2);
+        if (customerEmotion == "normal")
+        {
+            animator.SetInteger("statesCustomer", 1);
+            StartCoroutine(SetDefaultStatusAnimator());
+        }
+        else if (customerEmotion == "impatient")
+        {
+            animator.SetInteger("statesCustomer", 2);
+            StartCoroutine(SetDefaultStatusAnimator());
+        }
+        else if (customerEmotion == "angry")
+        {
+            animator.SetInteger("statesCustomer", 3);
+            StartCoroutine(SetDefaultStatusAnimator());
+        }
+
+        yield return new WaitForSeconds(1);
         orderPanel.SetActive(false);
         Debug.Log("Tat anim");
         isContinueMoving = true;//Sau khi thuc hien anim vui ve hoac hien emote gi do thi cus moi duoc tiep tuc di chuyen
