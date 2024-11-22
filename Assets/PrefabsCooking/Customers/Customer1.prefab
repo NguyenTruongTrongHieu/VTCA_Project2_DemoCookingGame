@@ -975,7 +975,7 @@ MonoBehaviour:
   havingFood: 0
   isOnEndDrag: 0
   isAlreadyDone: 0
-  slotInQueue: 3
+  slotInQueue: 2
   isWaiting: 0
   isOutOfTime: 0
   orderPanel: {fileID: 3877050721904364719}
@@ -986,12 +986,11 @@ MonoBehaviour:
   - {fileID: 1080432545208057999}
   imageTick: {fileID: 21300000, guid: 44acd771467054549aacb0f755c7d6b3, type: 3}
   customerTime: 20
-  customerSpriteRenderer: {fileID: 839226128420458728}
   emoteCustomer:
   - {fileID: 21300000, guid: e88dba000e26d9a4d85ac7af194d0982, type: 3}
   - {fileID: 21300000, guid: 1b66ea0bec32ef942a53628f41a6bca3, type: 3}
   - {fileID: 21300000, guid: 3525a86d20e37314a9c1ef9937b4e97a, type: 3}
-  speed: 5
+  speed: 6
   amplitude: 0.1
   frequency: 2.5
   customerPosition: 0

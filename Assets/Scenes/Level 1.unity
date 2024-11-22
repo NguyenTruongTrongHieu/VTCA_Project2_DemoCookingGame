@@ -2381,6 +2381,9 @@ MonoBehaviour:
   - {fileID: 5940967601362701535, guid: 2bd83ddfbbe0fc246a6ebef161af18ed, type: 3}
   beginRandomTime: 2
   endRandomTime: 3
+  customerTime: 20
+  safeTime: 10
+  warningTime: 5
 --- !u!4 &1788426965
 Transform:
   m_ObjectHideFlags: 0

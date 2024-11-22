@@ -11,6 +11,9 @@ public class SpawnCustomer : MonoBehaviour
     //Bien de tinh thoi gian random sinh customer
     [SerializeField] private int beginRandomTime;
     [SerializeField] private int endRandomTime;
+    [SerializeField] private float customerTime;
+    [SerializeField] private float safeTime;
+    [SerializeField] private float warningTime;
     private float randomTime;
 
     // Start is called before the first frame update
@@ -37,6 +40,9 @@ public class SpawnCustomer : MonoBehaviour
 
         //Den luc sinh ra customer
         var cus = customer.GetComponent<Customers>();
+        cus.customerTime = customerTime;
+        cus.safeTime = safeTime;
+        cus.warningTime = warningTime;
         //Kiem tra vi tri trong hang doi cua customer
         if (Gameplay.queueS1 == "empty")
         {

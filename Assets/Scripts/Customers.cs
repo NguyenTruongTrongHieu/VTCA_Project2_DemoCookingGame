@@ -27,10 +27,10 @@ public class Customers : MonoBehaviour
     [SerializeField] private Image[] imageOrderFoods;
     [SerializeField] private Sprite imageTick;
     public float customerTime;
+    public float safeTime;
+    public float warningTime;
 
     private Animator animator;
-    private SpriteRenderer customerSpriteRenderer;
-    [SerializeField] private Sprite[] emoteCustomer;
 
     [SerializeField] private float speed;
     //Di chuyen len xuong
@@ -44,7 +44,6 @@ public class Customers : MonoBehaviour
     void Start()
     {
         animator = this.GetComponent<Animator>();
-        customerSpriteRenderer = this.GetComponent<SpriteRenderer>();
         sinCenterY = this.transform.position.y;
 
         isWaiting = false;
@@ -124,7 +123,7 @@ public class Customers : MonoBehaviour
                 //Di chuyen nhap nho
                 float sin = Mathf.Sin(this.transform.position.x * frequency) * amplitude;
                 this.transform.position = new Vector3(this.transform.position.x, sinCenterY + sin, this.transform.position.z);
-                Destroy(this.gameObject, 2);
+                Destroy(this.gameObject, 2.8f);
             }
 
             if (isAlreadyDone)
@@ -142,7 +141,7 @@ public class Customers : MonoBehaviour
         if (isWaiting)
         {
             customerTime -= Time.deltaTime;
-            if (customerTime > 10)
+            if (customerTime > safeTime)
             {
                 imageSlider.color = Color.green;
 
@@ -153,7 +152,7 @@ public class Customers : MonoBehaviour
                     animator.SetBool("isNormal", true);
                 }
             }
-            else if (customerTime > 5)
+            else if (customerTime > warningTime)
             {
                 imageSlider.color = Color.yellow;
 
