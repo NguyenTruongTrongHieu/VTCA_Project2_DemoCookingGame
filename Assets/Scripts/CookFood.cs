@@ -36,6 +36,8 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [SerializeField] private GameObject fireBurnCookFood;//Gameobject chua anim chay cua cook food
     [SerializeField] private Image emojiImage;
     [SerializeField] private Sprite[] emojis;
+    private float emojiChangeScaleTime = 0.25f;
+    private bool isSetScaleForRipe = false;
 
     [SerializeField] private GameObject positionOnCuttingBoard;
     [SerializeField] private GameObject positionOnGrill;
@@ -105,12 +107,23 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             ripeness = "ripe";
             sliderImage.color = Color.green;
             emojiImage.sprite = emojis[0];
-            Debug.Log("ripe");
+
+            if (!isSetScaleForRipe)//Dieu kien de chi set scale cho emoji 1 lan duy nhat o moi trang thai
+            {
+                StartCoroutine(SetScaleForEmojiImage());
+                isSetScaleForRipe = true;
+            }
         }
         else if (cookingTime <= 2 && cookingTime > 0)
         {
-            sliderImage.color = Color.red;
+            sliderImage.color = Color.red; 
             emojiImage.sprite = emojis[1];
+
+            if (isSetScaleForRipe)
+            {
+                StartCoroutine(SetScaleForEmojiImage());
+                isSetScaleForRipe = false;
+            }
         }
         else if ((cookingTime <= 0))
         {
@@ -118,8 +131,22 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             ripeness = "burn";
             sliderImage.color = Color.white;
             emojiImage.sprite = null;
-            Debug.Log("burn");
             fireBurnCookFood.SetActive(true);
+        }
+    }
+
+    IEnumerator SetScaleForEmojiImage()//Ham de phong to emoji len nham cho nguoi choi de nhan biet
+    {
+        emojiImage.rectTransform.localScale = new Vector3( 5, 5, 1);
+        var scale = emojiImage.rectTransform.localScale;
+        Debug.Log("Phong to");
+        while (scale.x > 1.5f)
+        {
+            scale.x -= (scale.x - 1) / emojiChangeScaleTime * Time.deltaTime;
+            scale.y -= (scale.y - 1) / emojiChangeScaleTime * Time.deltaTime;
+            emojiImage.rectTransform.localScale = scale;
+
+            yield return null;
         }
     }
 
