@@ -2379,8 +2379,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customers:
   - {fileID: 5940967601362701535, guid: 2bd83ddfbbe0fc246a6ebef161af18ed, type: 3}
+  - {fileID: 5940967601362701535, guid: 18e66eea17cb73844ba2cecd1153d001, type: 3}
+  - {fileID: 5940967601362701535, guid: bcf0d101a8b620a42837e5fe5a92fef9, type: 3}
+  - {fileID: 5940967601362701535, guid: a6765f67d7d11e64cba03fa4e0c12792, type: 3}
   beginRandomTime: 2
   endRandomTime: 3
+  customerTime: 20
+  safeTime: 10
+  warningTime: 5
 --- !u!4 &1788426965
 Transform:
   m_ObjectHideFlags: 0
