@@ -1541,7 +1541,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 1499715079
+  m_SortingLayerID: -1001553151
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1240148721
@@ -3104,10 +3104,10 @@ RectTransform:
   - {fileID: 871035280}
   m_Father: {fileID: 1240148721}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -8.07, y: -56.410004}
-  m_SizeDelta: {x: 987.21, y: 112.8}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 436.59998, y: -48.58}
+  m_SizeDelta: {x: 873.2, y: 97.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2083120995
 MonoBehaviour:

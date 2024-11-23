@@ -144,7 +144,6 @@ public class Customers : MonoBehaviour
             if (isOutOfTime)
             {
                 Debug.Log("Het gio, tru tim khong cong diem");
-                return;
             }
             else
             {
