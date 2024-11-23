@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Gameplay : MonoBehaviour
-{ 
+{
+    //Diem so trong man choi
+    public static uint score;
+    public TextMeshProUGUI textScore;
+
     //slot tren thot
     public static string cuttingboardS1 = "empty";
     public static string cuttingboardS2 = "empty";
@@ -23,6 +28,8 @@ public class Gameplay : MonoBehaviour
 
     private void Awake()
     {
+        score = 0;
+
         isChooseBin = false;
 
         cuttingboardS1 = "empty";
@@ -39,11 +46,16 @@ public class Gameplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isChooseBin = false;
+        UpdateTextScore();
     }
 
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void UpdateTextScore()
+    {
+        textScore.text = $"Score: {score}";
     }
 }

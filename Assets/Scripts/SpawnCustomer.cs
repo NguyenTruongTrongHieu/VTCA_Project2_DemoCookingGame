@@ -15,6 +15,9 @@ public class SpawnCustomer : MonoBehaviour
     [SerializeField] private float safeTime;
     [SerializeField] private float warningTime;
     [SerializeField] private int randomAmountOfOrders;
+    [SerializeField] private uint highScore;
+    [SerializeField] private uint mediumScore;
+    [SerializeField] private uint lowScore;
     private float randomTime;
 
     // Start is called before the first frame update
@@ -41,10 +44,14 @@ public class SpawnCustomer : MonoBehaviour
 
         //Den luc sinh ra customer
         var cus = customer.GetComponent<Customers>();
+        //Gan cac chi so can thiet cho cus
         cus.customerTime = customerTime;
         cus.safeTime = safeTime;
         cus.warningTime = warningTime;
         cus.randomAmountOfOrders = randomAmountOfOrders;
+        cus.highScore = highScore;
+        cus.mediumScore = mediumScore;
+        cus.lowScore = lowScore;
         //Kiem tra vi tri trong hang doi cua customer
         if (Gameplay.queueS1 == "empty")
         {
