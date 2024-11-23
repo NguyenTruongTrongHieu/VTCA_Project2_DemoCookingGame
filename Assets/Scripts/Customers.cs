@@ -8,6 +8,7 @@ public class Customers : MonoBehaviour
 {
     public List<string> orderedFoods = new List<string>();
     private int amountOfOrderFoods;
+    public int randomAmountOfOrders;
     public int orderFoodChoose;//Xac dinh xem mon an co duoc keo den cho khach chua va vi tri cua mon an do trong list orderFoods
 
     public bool havingFood;//Xac dinh xem mon an co duoc keo den cho khach chua
@@ -56,7 +57,7 @@ public class Customers : MonoBehaviour
         customerEmotion = "normal";
 
         //random so luong order cua cus
-        amountOfOrderFoods = Random.Range(1, 3);
+        amountOfOrderFoods = Random.Range(1, randomAmountOfOrders + 1);
 
         for (int i = 0; i < amountOfOrderFoods; i++)
         {

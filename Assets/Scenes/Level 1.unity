@@ -2387,6 +2387,7 @@ MonoBehaviour:
   customerTime: 20
   safeTime: 10
   warningTime: 5
+  randomAmountOfOrders: 2
 --- !u!4 &1788426965
 Transform:
   m_ObjectHideFlags: 0
