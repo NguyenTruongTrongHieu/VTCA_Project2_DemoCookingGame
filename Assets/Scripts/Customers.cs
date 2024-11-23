@@ -41,6 +41,12 @@ public class Customers : MonoBehaviour
 
     //Vi tri cua customer tren hang cho
     [SerializeField] private float customerPosition;
+
+    //Diem so player nhan duoc khi hoan thanh order cua customer
+    public uint highScore;
+    public uint mediumScore;
+    public uint lowScore;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -133,9 +139,35 @@ public class Customers : MonoBehaviour
             }
 
             isAlreadyDone = true;
+
+            //Tinh diem cho player
+            if (isOutOfTime)
+            {
+                Debug.Log("Het gio, tru tim khong cong diem");
+            }
+            else
+            {
+                //Kiem tra trang thai cua cus
+                if (customerEmotion == "normal")
+                {
+                    Gameplay.score += highScore;
+                }
+                else if (customerEmotion == "impatient")
+                {
+                    Gameplay.score += mediumScore;
+                }
+                else if (customerEmotion == "angry")
+                {
+                    Gameplay.score += lowScore;
+                }
+
+                //Update text score
+                Gameplay gameplay = GameObject.FindGameObjectWithTag("GameController").GetComponent<Gameplay>();
+                gameplay.UpdateTextScore();
+            }
+
             //imageOrderFood1.sprite = imageTick;
             StartCoroutine(SetAnimForCus());
-            Debug.Log("Destroy cus");
         }
 
         //Cus dang doi
