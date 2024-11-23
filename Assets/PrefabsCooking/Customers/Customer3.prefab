@@ -689,6 +689,7 @@ GameObject:
   - component: {fileID: 839226128420458728}
   - component: {fileID: 7825730047826965615}
   - component: {fileID: 7990341170140226995}
+  - component: {fileID: 2065625526091674836}
   m_Layer: 0
   m_Name: Customer3
   m_TagString: Customer
@@ -757,7 +758,7 @@ SpriteRenderer:
   m_SortingLayerID: 323348233
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6a034023d330cc44db745e9dde2e5a76, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fdf2157665825bc469326c443b6b83d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -788,17 +789,19 @@ MonoBehaviour:
   slotInQueue: 2
   isWaiting: 0
   isOutOfTime: 0
-  orderPanel: {fileID: 0}
-  timerSlider: {fileID: 0}
-  imageSlider: {fileID: 0}
-  imageOrderFoods: []
-  imageTick: {fileID: 0}
-  customerTime: 0
+  orderPanel: {fileID: 6737312601568092911}
+  timerSlider: {fileID: 5754973785286899037}
+  imageSlider: {fileID: 6482410731250352620}
+  imageOrderFoods:
+  - {fileID: 8668930697377484204}
+  - {fileID: 750599114280536864}
+  imageTick: {fileID: 21300000, guid: 44acd771467054549aacb0f755c7d6b3, type: 3}
+  customerTime: 20
   safeTime: 0
   warningTime: 0
-  speed: 8
-  amplitude: 2
-  frequency: 2
+  speed: 6
+  amplitude: 0.1
+  frequency: 2.5
   customerPosition: 0
 --- !u!61 &7990341170140226995
 BoxCollider2D:
@@ -836,7 +839,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.970588, y: 8.882353}
+    oldSize: {x: 3.578125, y: 8.4375}
     newSize: {x: 5.6, y: 9.33}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -845,6 +848,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.277794, y: 4.057473}
   m_EdgeRadius: 0
+--- !u!95 &2065625526091674836
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5940967601362701535}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f2df24e7f2f50e24389d76d48b5324e5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6737312601568092911
 GameObject:
   m_ObjectHideFlags: 0
