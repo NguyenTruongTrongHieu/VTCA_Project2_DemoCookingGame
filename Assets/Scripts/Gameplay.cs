@@ -20,6 +20,22 @@ public class Gameplay : MonoBehaviour
 
     //check player cham vao bin
     public static bool isChooseBin;
+
+    private void Awake()
+    {
+        isChooseBin = false;
+
+        cuttingboardS1 = "empty";
+        cuttingboardS2 = "empty";
+
+        grillS1 = "empty";
+        grillS2 = "empty";
+
+        queueS1 = "empty";
+        queueS2 = "empty";
+        queueS3 = "empty";
+    }
+
     // Start is called before the first frame update
     void Start()
     {
