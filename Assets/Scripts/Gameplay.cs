@@ -56,6 +56,6 @@ public class Gameplay : MonoBehaviour
 
     public void UpdateTextScore()
     {
-        textScore.text = $"Score: {score}";
+        textScore.text = $"$: {score}";
     }
 }

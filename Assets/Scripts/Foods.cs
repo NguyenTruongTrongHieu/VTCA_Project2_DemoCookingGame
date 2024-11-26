@@ -139,10 +139,20 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("On begin drag");
+
+        //Zoom thung rac to len
+        var trashBin = GameObject.FindGameObjectWithTag("TrashBin").GetComponent<RectTransform>();
+        trashBin.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+        trashBin.transform.position += new Vector3(0, 0.2f, 0);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        //Zoom thung rac nho xuong
+        var trashBin = GameObject.FindGameObjectWithTag("TrashBin").GetComponent<RectTransform>();
+        trashBin.transform.localScale = new Vector3(1, 1, 1);
+        trashBin.transform.position -= new Vector3(0, 0.2f, 0);
+
         //Kiem tra xem sau khi tha object co can quay ve cho cu khong
         if (isReturnStartPosition)
         {

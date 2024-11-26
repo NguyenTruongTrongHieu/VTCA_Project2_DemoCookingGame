@@ -212,10 +212,20 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         isChoose = true;
         cookFoodPanel.SetActive(false);
+
+        //Zoom thung rac to len
+        var trashBin = GameObject.FindGameObjectWithTag("TrashBin").GetComponent<RectTransform>();
+        trashBin.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+        trashBin.transform.position += new Vector3(0, 0.2f, 0);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        //Zoom thung rac nho xuong
+        var trashBin = GameObject.FindGameObjectWithTag("TrashBin").GetComponent<RectTransform>();
+        trashBin.transform.localScale = new Vector3(1, 1, 1);
+        trashBin.transform.position -= new Vector3(0, 0.2f, 0);
+
         if (isReturnStartPosition)
         {
             isChoose = false;
