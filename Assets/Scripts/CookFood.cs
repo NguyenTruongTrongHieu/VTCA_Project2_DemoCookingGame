@@ -94,14 +94,17 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         cookingTime -= Time.deltaTime;
         sliderCookingTime.value = cookingTime;
 
-        if (cookingTime >= 4)
+        if (cookingTime >= 4 && ripeness != "raw")
         {
             imageMeat.sprite = spriteMeat[0];
             sliderImage.color = Color.yellow;
             emojiImage.sprite = null;
             ripeness = "raw";
+
+            //Them am thanh
+            AudioManager.audioInstance.PlaySFX("CookFoodGrilled");
         }
-        else if ((cookingTime < 4 && cookingTime > 2))
+        else if ((cookingTime < 4 && cookingTime > 2) && ripeness != "ripe")
         {
             imageMeat.sprite = spriteMeat[1];
             ripeness = "ripe";
@@ -113,6 +116,9 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                 StartCoroutine(SetScaleForEmojiImage());
                 isSetScaleForRipe = true;
             }
+
+            //Them am thanh
+            AudioManager.audioInstance.PlaySFX("CookFoodRipe");
         }
         else if (cookingTime <= 2 && cookingTime > 0)
         {
@@ -123,15 +129,21 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             {
                 StartCoroutine(SetScaleForEmojiImage());
                 isSetScaleForRipe = false;
+
+                //Them am thanh
+                AudioManager.audioInstance.PlaySFX("CookFoodWarning");
             }
         }
-        else if ((cookingTime <= 0))
+        else if ((cookingTime <= 0) && ripeness != "burn")
         {
             imageMeat.sprite = spriteMeat[2];
             ripeness = "burn";
             sliderImage.color = Color.white;
             emojiImage.sprite = null;
             fireBurnCookFood.SetActive(true);
+
+            //Them am thanh
+            AudioManager.audioInstance.PlaySFX("CookFoodBurn");
         }
     }
 
@@ -238,6 +250,10 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             if (slotBunInCuttingBoard != 0)//Kiem tra xem co cham vao bun khong
             {
                 Debug.Log("Co cham vao bun");
+
+                //Them am thanh
+                AudioManager.audioInstance.PlaySFX("FoodAppear");
+
                 //Kiem tra xem mieng thit co dang chin khong, neu chin thi moi duoc lam
                 if (ripeness == "ripe")
                 {
@@ -261,6 +277,11 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                     this.transform.position = startPosition;
                     return;
                 }
+            }
+            else //Neu khong cham vao bun thi la thung rac
+            {
+                //Them am thanh
+                AudioManager.audioInstance.PlaySFX("TrashBin");
             }
             
             //Xoa cook food va reset lai slot

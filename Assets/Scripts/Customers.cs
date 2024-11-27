@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Customers : MonoBehaviour
 {
+    [SerializeField] bool isMale;
+
     public List<string> orderedFoods = new List<string>();
     private int amountOfOrderFoods;
     public int randomAmountOfOrders;
@@ -144,6 +146,16 @@ public class Customers : MonoBehaviour
             if (isOutOfTime)
             {
                 Debug.Log("Het gio, tru tim khong cong diem");
+
+                //Them am thanh
+                if (isMale)
+                {
+                    AudioManager.audioInstance.PlaySFX("MaleTimeOut");
+                }
+                else
+                {
+                    AudioManager.audioInstance.PlaySFX("FemaleTimeOut");
+                }
             }
             else
             {
@@ -159,6 +171,16 @@ public class Customers : MonoBehaviour
                 else if (customerEmotion == "angry")
                 {
                     Gameplay.score += lowScore;
+
+                    //Them am thanh
+                    if (isMale)
+                    {
+                        AudioManager.audioInstance.PlaySFX("MaleAngry");
+                    }
+                    else
+                    {
+                        AudioManager.audioInstance.PlaySFX("FemaleAngry");
+                    }
                 }
 
                 //Update text score
@@ -183,6 +205,16 @@ public class Customers : MonoBehaviour
                     animator.SetInteger("statesCustomer", 1);
                     StartCoroutine(SetDefaultStatusAnimator());
                     animator.SetBool("isNormal", true);
+
+                    //Them am thanh
+                    if (isMale)
+                    {
+                        AudioManager.audioInstance.PlaySFX("MaleNormal");
+                    }
+                    else
+                    {
+                        AudioManager.audioInstance.PlaySFX("FemaleNormal");
+                    }
                 }
             }
             else if (customerTime > warningTime)
@@ -194,6 +226,16 @@ public class Customers : MonoBehaviour
                     animator.SetInteger("statesCustomer", 2); 
                     StartCoroutine(SetDefaultStatusAnimator());
                     animator.SetBool("isImpatient", true);
+
+                    //Them am thanh
+                    if (isMale)
+                    {
+                        AudioManager.audioInstance.PlaySFX("MaleImpatient");
+                    }
+                    else
+                    {
+                        AudioManager.audioInstance.PlaySFX("FemaleImpatient");
+                    }
                 }
 
                 customerEmotion = "impatient";
@@ -207,6 +249,16 @@ public class Customers : MonoBehaviour
                     animator.SetInteger("statesCustomer", 3);
                     StartCoroutine(SetDefaultStatusAnimator());
                     animator.SetBool("isAngry", true);
+
+                    //Them am thanh
+                    if (isMale)
+                    {
+                        AudioManager.audioInstance.PlaySFX("MaleAngry");
+                    }
+                    else
+                    {
+                        AudioManager.audioInstance.PlaySFX("FemaleAngry");
+                    }
                 }
 
                 customerEmotion = "angry";
@@ -233,11 +285,31 @@ public class Customers : MonoBehaviour
         {
             animator.SetInteger("statesCustomer", 1);
             StartCoroutine(SetDefaultStatusAnimator());
+
+            //Them am thanh
+            if (isMale)
+            {
+                AudioManager.audioInstance.PlaySFX("MaleNormal");
+            }
+            else
+            {
+                AudioManager.audioInstance.PlaySFX("FemaleNormal");
+            }
         }
         else if (customerEmotion == "impatient")
         {
             animator.SetInteger("statesCustomer", 2);
             StartCoroutine(SetDefaultStatusAnimator());
+
+            //Them am thanh
+            if (isMale)
+            {
+                AudioManager.audioInstance.PlaySFX("MaleImpatient");
+            }
+            else
+            {
+                AudioManager.audioInstance.PlaySFX("FemaleImpatient");
+            }
         }
         else if (customerEmotion == "angry")
         {
