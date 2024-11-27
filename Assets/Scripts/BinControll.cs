@@ -198,6 +198,9 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                     Instantiate(hotdogObj, positionOnCuttingBoard.transform.position + new Vector3(1, 0, 0), Quaternion.identity);
                     Gameplay.cuttingboardS2 = "FullBun";
                 }
+
+                //Them am thanh
+                AudioManager.audioInstance.PlaySFX("FoodAppear");
             }
 
             Destroy(sausage.gameObject);
@@ -222,6 +225,9 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                     objDrag.transform.position = positionOnCuttingBoard.transform.position + new Vector3(1, 0, 0);
                     Gameplay.cuttingboardS2 = "JustBun";
                 }
+
+                //Them am thanh
+                AudioManager.audioInstance.PlaySFX("MaterialOnTable");
             }
         }
         else if (isCookFoods)
