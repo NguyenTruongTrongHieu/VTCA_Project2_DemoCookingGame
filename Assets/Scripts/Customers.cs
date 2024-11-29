@@ -45,9 +45,9 @@ public class Customers : MonoBehaviour
     [SerializeField] private float customerPosition;
 
     //Diem so player nhan duoc khi hoan thanh order cua customer
-    public uint highScore;
-    public uint mediumScore;
-    public uint lowScore;
+    public int highScore;
+    public int mediumScore;
+    public int lowScore;
 
     // Start is called before the first frame update
     void Start()
