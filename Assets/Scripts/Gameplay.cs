@@ -7,7 +7,7 @@ using UnityEngine;
 public class Gameplay : MonoBehaviour
 {
     //Diem so trong man choi
-    public static uint score;
+    public static int score;
     public TextMeshProUGUI textScore;
 
     //slot tren thot
@@ -25,6 +25,11 @@ public class Gameplay : MonoBehaviour
 
     //check player cham vao bin
     public static bool isChooseBin;
+
+    private Gameplay()
+    { 
+        
+    }
 
     private void Awake()
     {
