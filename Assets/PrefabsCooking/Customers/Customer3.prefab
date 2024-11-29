@@ -798,6 +798,7 @@ MonoBehaviour:
   - {fileID: 8668930697377484204}
   - {fileID: 750599114280536864}
   imageTick: {fileID: 21300000, guid: 44acd771467054549aacb0f755c7d6b3, type: 3}
+  coin: {fileID: 1976533750093040424, guid: 0316828548d08364eb3430f32b550c41, type: 3}
   customerTime: 20
   safeTime: 10
   warningTime: 5

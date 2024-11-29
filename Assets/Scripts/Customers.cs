@@ -29,6 +29,7 @@ public class Customers : MonoBehaviour
     [SerializeField] private Image imageSlider;
     [SerializeField] private Image[] imageOrderFoods;
     [SerializeField] private Sprite imageTick;
+    [SerializeField] private GameObject coin;
     public float customerTime;
     public float safeTime;
     public float warningTime;
@@ -123,7 +124,7 @@ public class Customers : MonoBehaviour
             isAnyOrder = false;
         }
 
-        //Khi nguoi choi dua mon an cho cus
+        //Khi nguoi choi hoan thanh order cho cus hoac het thoi gian
         if (!isAnyOrder || isOutOfTime)
         {
             if (isContinueMoving)
@@ -143,7 +144,7 @@ public class Customers : MonoBehaviour
             isAlreadyDone = true;
 
             //Tinh diem cho player
-            if (isOutOfTime)
+            if (isOutOfTime)//Neu het gio doi cua cus thi khong tinh diem
             {
                 Debug.Log("Het gio, tru tim khong cong diem");
 
@@ -163,6 +164,7 @@ public class Customers : MonoBehaviour
                 if (customerEmotion == "normal")
                 {
                     Gameplay.score += highScore;
+                    
                 }
                 else if (customerEmotion == "impatient")
                 {
@@ -186,6 +188,9 @@ public class Customers : MonoBehaviour
                 //Update text score
                 Gameplay gameplay = GameObject.FindGameObjectWithTag("GameController").GetComponent<Gameplay>();
                 gameplay.UpdateTextScore();
+
+                //Hien coin
+                Instantiate(coin, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
             }
 
             //imageOrderFood1.sprite = imageTick;
