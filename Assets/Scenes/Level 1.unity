@@ -387,7 +387,7 @@ MonoBehaviour:
   - name: CookFoodWarning
     audioCLip: {fileID: 8300000, guid: cdda8c855c1cf584b954ed1e0f5517cc, type: 3}
   - name: CookFoodBurn
-    audioCLip: {fileID: 8300000, guid: 865de28f8686d35499784e028a641bae, type: 3}
+    audioCLip: {fileID: 8300000, guid: fbcd0dd47e823e54cb38d4714ce2f59d, type: 3}
   - name: MaleNormal
     audioCLip: {fileID: 8300000, guid: 38793d6ccf42cd844af1bec3d969a093, type: 3}
   - name: MaleImpatient
@@ -412,6 +412,8 @@ MonoBehaviour:
     audioCLip: {fileID: 8300000, guid: ff7ac7a093d0104439c4d0a549ace4f9, type: 3}
   - name: ReceiveFood
     audioCLip: {fileID: 8300000, guid: 1e36150d9d7f55b4682db4ca9cbab2ac, type: 3}
+  - name: EarnCoin
+    audioCLip: {fileID: 8300000, guid: 58cc6f7b8e09cd14ea7e11d9570688d7, type: 3}
   musicSource: {fileID: 358298868}
   sfxSource: {fileID: 1435319538}
 --- !u!4 &233618844
@@ -1329,7 +1331,7 @@ GameObject:
   - component: {fileID: 871035281}
   m_Layer: 5
   m_Name: ScoreText
-  m_TagString: Untagged
+  m_TagString: TextScore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2636,6 +2638,41 @@ MonoBehaviour:
   executeInUpdate: 1
   anchorType: 2
   anchorOffset: {x: -3.86, y: 3.38, z: 0}
+--- !u!1 &1597326855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1597326856}
+  m_Layer: 5
+  m_Name: TextScorePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1597326856
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597326855}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2083120994}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 303, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1715560015
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,6 +3517,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 871035280}
+  - {fileID: 1597326856}
   m_Father: {fileID: 1240148721}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}

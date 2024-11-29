@@ -22,6 +22,7 @@ TagManager:
   - roll
   - MaterialPosition
   - MeatPosition
+  - TextScore
   layers:
   - Default
   - TransparentFX
