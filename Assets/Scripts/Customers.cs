@@ -148,6 +148,20 @@ public class Customers : MonoBehaviour
             {
                 Debug.Log("Het gio, tru tim khong cong diem");
 
+                //Tru mang
+                if (Gameplay.heart > 0)
+                {
+                    Gameplay.heart--;
+                    Debug.Log($"tru mang: {Gameplay.heart}");
+
+                    Gameplay gameplay = GameObject.FindGameObjectWithTag("GameController").GetComponent<Gameplay>();
+                    gameplay.heartImage[Gameplay.heart].gameObject.SetActive(false);
+                }
+                else
+                { 
+                    //Hien panel thua
+                }
+
                 //Them am thanh
                 if (isMale)
                 {
