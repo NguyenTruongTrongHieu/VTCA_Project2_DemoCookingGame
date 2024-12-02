@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gameplay : MonoBehaviour
 {
     //Diem so trong man choi
     public static int score;
     public TextMeshProUGUI textScore;
+
+    //So mang trong man choi
+    public static int heart;
+    public Image[] heartImage;
 
     //slot tren thot
     public static string cuttingboardS1 = "empty";
@@ -34,6 +39,11 @@ public class Gameplay : MonoBehaviour
     private void Awake()
     {
         score = 0;
+        heart = 3;
+        foreach (var heart in heartImage)
+        { 
+            heart.gameObject.SetActive(true);
+        }
 
         isChooseBin = false;
 
