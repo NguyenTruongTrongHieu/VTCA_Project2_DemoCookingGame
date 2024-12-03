@@ -50,7 +50,7 @@ public class MenuAnimation : MonoBehaviour
 
     public async void CloseMenu()
     {
-        isMenuOn = true;
+        isMenuOn = false;
         await MenuOutro();
         canvasGroup.DOFade(0, tweenDuration).SetUpdate(true);
         menuPanel.SetActive(!menuPanel.activeSelf);
