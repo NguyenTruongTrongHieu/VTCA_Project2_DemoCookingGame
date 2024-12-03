@@ -1296,6 +1296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textScore: {fileID: 871035281}
+  heartImage: []
 --- !u!114 &816983298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2699,7 +2700,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 025617fac9091cd4ca9a90c8a31e05ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4dda15eb1ef7b641b1ad8dfff2b4af6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
