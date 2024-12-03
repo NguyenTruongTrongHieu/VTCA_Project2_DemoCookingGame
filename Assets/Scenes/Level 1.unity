@@ -4101,6 +4101,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3352005090906989856, guid: d122c08c3fedf3142879b4e051b2e191, type: 3}
+      propertyPath: m_TagString
+      value: TextScore
+      objectReference: {fileID: 0}
     - target: {fileID: 3585518893898159070, guid: d122c08c3fedf3142879b4e051b2e191, type: 3}
       propertyPath: m_Sprite
       value: 
