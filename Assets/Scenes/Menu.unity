@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9518a2873aa01b4a81a98d4e0b8a3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockedLevel: 0
+  levels: 0
 --- !u!4 &18992588
 Transform:
   m_ObjectHideFlags: 0
@@ -428,37 +428,37 @@ MonoBehaviour:
   musics: []
   sfx:
   - name: CookFoodGrilled
-    audioCLip: {fileID: 8300000, guid: 14b5a045a02c57745bab254f5c5fd0fc, type: 3}
+    audioClip: {fileID: 0}
   - name: CookFoodRipe
-    audioCLip: {fileID: 8300000, guid: 5906aa4986115db4d984a325742a3ed7, type: 3}
+    audioClip: {fileID: 0}
   - name: CookFoodWarning
-    audioCLip: {fileID: 8300000, guid: cdda8c855c1cf584b954ed1e0f5517cc, type: 3}
+    audioClip: {fileID: 0}
   - name: CookFoodBurn
-    audioCLip: {fileID: 8300000, guid: 865de28f8686d35499784e028a641bae, type: 3}
+    audioClip: {fileID: 0}
   - name: MaleNormal
-    audioCLip: {fileID: 8300000, guid: 38793d6ccf42cd844af1bec3d969a093, type: 3}
+    audioClip: {fileID: 0}
   - name: MaleImpatient
-    audioCLip: {fileID: 8300000, guid: 0371e2b43623eef4e8ef204aef6af221, type: 3}
+    audioClip: {fileID: 0}
   - name: MaleAngry
-    audioCLip: {fileID: 8300000, guid: d7d9a543649e51a4482cff3ac83715ca, type: 3}
+    audioClip: {fileID: 0}
   - name: MaleTimeOut
-    audioCLip: {fileID: 8300000, guid: 1efaca976445dfb48aeb392d5294fa31, type: 3}
+    audioClip: {fileID: 0}
   - name: FemaleNormal
-    audioCLip: {fileID: 8300000, guid: bb6121c478d8a5c4da99856da0d0565a, type: 3}
+    audioClip: {fileID: 0}
   - name: FemaleImpatient
-    audioCLip: {fileID: 8300000, guid: e4c8cbc10b46e674692a9b60911baaa5, type: 3}
+    audioClip: {fileID: 0}
   - name: FemaleAngry
-    audioCLip: {fileID: 8300000, guid: f9f1412e2ebd12d49a15e4db911089d2, type: 3}
+    audioClip: {fileID: 0}
   - name: FemaleTimeOut
-    audioCLip: {fileID: 8300000, guid: 426744c3c7fe706448c53189a9ce3ac8, type: 3}
+    audioClip: {fileID: 0}
   - name: MaterialOnTable
-    audioCLip: {fileID: 8300000, guid: f148c7a53d1275340a46f88d9a9de5a7, type: 3}
+    audioClip: {fileID: 0}
   - name: FoodAppear
-    audioCLip: {fileID: 8300000, guid: f1b00b8723fc5304a999027888db93be, type: 3}
+    audioClip: {fileID: 0}
   - name: TrashBin
-    audioCLip: {fileID: 8300000, guid: ff7ac7a093d0104439c4d0a549ace4f9, type: 3}
+    audioClip: {fileID: 0}
   - name: ReceiveFood
-    audioCLip: {fileID: 8300000, guid: 1e36150d9d7f55b4682db4ca9cbab2ac, type: 3}
+    audioClip: {fileID: 0}
   musicSource: {fileID: 596490746}
   sfxSource: {fileID: 1621235514}
 --- !u!4 &923627927
@@ -732,6 +732,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2105668874698722199, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 98565144d9def714682878d516d2a737, type: 2}
+    - target: {fileID: 2105668874698722199, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3239173951760547038, guid: 98565144d9def714682878d516d2a737, type: 2}
+    - target: {fileID: 2105668874698722199, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2217392184024702290, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
       propertyPath: buttons.Array.size
       value: 6
@@ -932,6 +944,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5409340382671165472, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 98565144d9def714682878d516d2a737, type: 2}
+    - target: {fileID: 5409340382671165472, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3239173951760547038, guid: 98565144d9def714682878d516d2a737, type: 2}
+    - target: {fileID: 5409340382671165472, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5504573710157785908, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 98565144d9def714682878d516d2a737, type: 2}
+    - target: {fileID: 5504573710157785908, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3239173951760547038, guid: 98565144d9def714682878d516d2a737, type: 2}
+    - target: {fileID: 5504573710157785908, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5820145931854853150, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -986,6 +1022,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6515325570439960545, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135808167726175949, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 98565144d9def714682878d516d2a737, type: 2}
+    - target: {fileID: 7135808167726175949, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3239173951760547038, guid: 98565144d9def714682878d516d2a737, type: 2}
+    - target: {fileID: 7135808167726175949, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531141843951810465, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 98565144d9def714682878d516d2a737, type: 2}
+    - target: {fileID: 7531141843951810465, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3239173951760547038, guid: 98565144d9def714682878d516d2a737, type: 2}
+    - target: {fileID: 7531141843951810465, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859063971890776396, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 98565144d9def714682878d516d2a737, type: 2}
+    - target: {fileID: 8859063971890776396, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3239173951760547038, guid: 98565144d9def714682878d516d2a737, type: 2}
+    - target: {fileID: 8859063971890776396, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8950396716624714549, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 98565144d9def714682878d516d2a737, type: 2}
+    - target: {fileID: 8950396716624714549, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3239173951760547038, guid: 98565144d9def714682878d516d2a737, type: 2}
+    - target: {fileID: 8950396716624714549, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
