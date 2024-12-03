@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
         {
             remainingtime -= Time.deltaTime;
         }
-        else
+        else//Het thoi gian 1 man choi
         {
             remainingtime = 0;
             timetext.color = Color.red;

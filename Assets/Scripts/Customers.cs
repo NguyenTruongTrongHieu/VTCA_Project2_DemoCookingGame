@@ -75,6 +75,7 @@ public class Customers : MonoBehaviour
             //Gan ten mon an o vi tri do cho cus
             orderedFoods.Add(GameplayFoods.instance.orderFoods[randomFood].name);
             //Gan sprite mon an do cho customer
+            imageOrderFoods[i].gameObject.SetActive(true);
             imageOrderFoods[i].sprite = GameplayFoods.instance.orderFoods[randomFood].sprite;
         }
 
