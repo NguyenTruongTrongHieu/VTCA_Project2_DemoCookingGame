@@ -970,13 +970,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8db00ca45a0593f458f749c686467483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMale: 0
   orderedFoods: []
-  randomAmountOfOrders: 0
+  randomAmountOfOrders: 2
   orderFoodChoose: 0
   havingFood: 0
   isOnEndDrag: 0
   isAlreadyDone: 0
-  slotInQueue: 2
+  slotInQueue: 1
   isWaiting: 0
   isOutOfTime: 0
   orderPanel: {fileID: 3877050721904364719}
@@ -986,16 +987,17 @@ MonoBehaviour:
   - {fileID: 7234406729334584112}
   - {fileID: 1080432545208057999}
   imageTick: {fileID: 21300000, guid: 44acd771467054549aacb0f755c7d6b3, type: 3}
+  coin: {fileID: 1976533750093040424, guid: 0316828548d08364eb3430f32b550c41, type: 3}
   customerTime: 20
-  safeTime: 0
-  warningTime: 0
+  safeTime: 10
+  warningTime: 5
   speed: 6
   amplitude: 0.1
   frequency: 2.5
   customerPosition: 0
-  highScore: 0
-  mediumScore: 0
-  lowScore: 0
+  highScore: 10
+  mediumScore: 5
+  lowScore: 1
 --- !u!61 &1239766893871789966
 BoxCollider2D:
   m_ObjectHideFlags: 0

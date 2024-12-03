@@ -10,6 +10,7 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     private bool isDragging;
 
     public bool isReturnStartPosition;
+    private bool isOnTrashBin = false;
     private Vector3 startPosition;
 
     [SerializeField] private RectTransform rectTransform;
@@ -55,6 +56,7 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         {
             Debug.Log("Cham phai thung rac");
             isReturnStartPosition = false;
+            isOnTrashBin = true;
         }
 
         //Neu cham phai phan nguyen lieu banh thi huy phan nguyen lieu di
@@ -113,6 +115,7 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
             //Dua object ve cho cu
             Debug.Log("Roi khoi thung rac");
             isReturnStartPosition = true;
+            isOnTrashBin = false;
         }
 
         if (collision.gameObject.CompareTag("Customer"))
@@ -139,10 +142,20 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("On begin drag");
+
+        //Zoom thung rac to len
+        var trashBin = GameObject.FindGameObjectWithTag("TrashBin").GetComponent<RectTransform>();
+        trashBin.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+        trashBin.transform.position += new Vector3(0, 0.2f, 0);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        //Zoom thung rac nho xuong
+        var trashBin = GameObject.FindGameObjectWithTag("TrashBin").GetComponent<RectTransform>();
+        trashBin.transform.localScale = new Vector3(1, 1, 1);
+        trashBin.transform.position -= new Vector3(0, 0.2f, 0);
+
         //Kiem tra xem sau khi tha object co can quay ve cho cu khong
         if (isReturnStartPosition)
         {
@@ -154,6 +167,13 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
             //Khi huy object thi slot o cuttingboard se bi trong
             SetSlotInCuttingBoard();
 
+            //Neu food dang o trash bin
+            if (isOnTrashBin)
+            {
+                //Them am thanh
+                AudioManager.audioInstance.PlaySFX("TrashBin");
+            }
+
             //Tim tat ca customer dang hoat dong, customer nao co havingFood = true
             //tuc la dang keo do an toi do thi bien isOnEndDrag cua cus do ve true, neu khong thi bo qua
             var customers = GameObject.FindGameObjectsWithTag("Customer");
@@ -162,6 +182,9 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
                 {
                     customer.GetComponent<Customers>().isOnEndDrag = true;
                     Debug.Log("On end drag");
+
+                    //Them am thanh
+                    AudioManager.audioInstance.PlaySFX("ReceiveFood");
                 }
             }
 

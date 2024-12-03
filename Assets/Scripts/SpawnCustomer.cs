@@ -15,9 +15,9 @@ public class SpawnCustomer : MonoBehaviour
     [SerializeField] private float safeTime;
     [SerializeField] private float warningTime;
     [SerializeField] private int randomAmountOfOrders;
-    [SerializeField] private uint highScore;
-    [SerializeField] private uint mediumScore;
-    [SerializeField] private uint lowScore;
+    [SerializeField] private int highScore;
+    [SerializeField] private int mediumScore;
+    [SerializeField] private int lowScore;
     private float randomTime;
 
     // Start is called before the first frame update
