@@ -5,15 +5,17 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    private GameObject target;
     private Vector3 targetDirection;
     private Rigidbody2D rb2D;
 
     private float speed = 0.5f;
-    private float coinScale = 0.8f;
+    private float coinScale = 0.15f;
 
     // Start is called before the first frame update
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("TextScore");
         targetDirection = GameObject.FindGameObjectWithTag("TextScore").transform.position;
         this.transform.localScale = Vector3.zero;
         rb2D = this.GetComponent<Rigidbody2D>();
@@ -25,7 +27,7 @@ public class Coin : MonoBehaviour
     {
         if (this.transform.localScale.x < coinScale)//Phong to scale cua coin tu tu len den khi vua thi moi di chuyen ( hieu ung xuat hien )
         {
-            this.transform.localScale += new Vector3(speed * 10 * Time.deltaTime, speed * 10 * Time.deltaTime, speed * 10 * Time.deltaTime);
+            this.transform.localScale += new Vector3(speed * 2 * Time.deltaTime, speed * 2 * Time.deltaTime, speed * 2 * Time.deltaTime);
         }
         else
         {
@@ -42,6 +44,7 @@ public class Coin : MonoBehaviour
     {
         //Them am thanh
         Debug.Log("Huy coin");
+        Gameplay.isDestroyStar = true;
         AudioManager.audioInstance.PlaySFX("EarnScore");
     }
 }

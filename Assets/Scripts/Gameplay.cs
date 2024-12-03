@@ -4,12 +4,15 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class Gameplay : MonoBehaviour
 {
     //Diem so trong man choi
     public static int score;
     public TextMeshProUGUI textScore;
+    public GameObject star;
+    public static bool isDestroyStar;
 
     //So mang trong man choi
     public static int heart;
@@ -39,6 +42,8 @@ public class Gameplay : MonoBehaviour
     private void Awake()
     {
         score = 0;
+        isDestroyStar = false;
+
         heart = 3;
         foreach (var heart in heartImage)
         { 
@@ -67,10 +72,29 @@ public class Gameplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDestroyStar)
+        {
+            StartCoroutine(SetSCaleForStar());
+            isDestroyStar = false;
+        }
     }
 
     public void UpdateTextScore()
     {
-        textScore.text = $"$: {score}";
+        textScore.text = $"{score}";
+    }
+
+    IEnumerator SetSCaleForStar()
+    {
+        while (star.transform.localScale.x < 1.2f)
+        {
+            star.transform.localScale += new Vector3(6 * Time.deltaTime, 6 * Time.deltaTime, 6 * Time.deltaTime);
+            yield return null;
+        }
+        while (star.transform.localScale.x > 0.6f)
+        {
+            star.transform.localScale -= new Vector3(6 * Time.deltaTime, 6 * Time.deltaTime, 6 * Time.deltaTime);
+            yield return null;
+        }
     }
 }
