@@ -2575,6 +2575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CloseButton: {fileID: 2407222509036045763}
   MenuButton: {fileID: 192923891607934846}
+  isMenuOn: 1
   menuPanel: {fileID: 2767863402466142426}
   menuPanelRect: {fileID: 7144627461266122948}
   menuCoverRect: {fileID: 6516782990255213928}
