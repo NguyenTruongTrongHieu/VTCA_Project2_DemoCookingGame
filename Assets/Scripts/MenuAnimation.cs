@@ -11,7 +11,7 @@ public class MenuAnimation : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] private Button CloseButton;
     [SerializeField] private Button MenuButton;
-     private bool isMenuOn = true;
+     private bool isMenuOn = false;
 
     [SerializeField] private GameObject menuPanel;
 
