@@ -14,6 +14,7 @@ public class MenuAnimation : MonoBehaviour
      private bool isMenuOn = false;
 
     [SerializeField] private GameObject menuPanel;
+    [SerializeField] private GameObject menuBG;
 
     [SerializeField] RectTransform menuPanelRect;
     [SerializeField] RectTransform menuCoverRect;
@@ -24,6 +25,7 @@ public class MenuAnimation : MonoBehaviour
     public void Start()
     {
         menuPanel.SetActive(false);
+        menuBG.SetActive(false);
 
     }
 
@@ -45,6 +47,7 @@ public class MenuAnimation : MonoBehaviour
          MenuIntro();
         canvasGroup.DOFade(1, tweenDuration).SetUpdate(true);
         menuPanel.SetActive(!menuPanel.activeSelf);
+        menuBG.SetActive(!menuBG.activeSelf);
         Time.timeScale = 0.0f;
     }
 
@@ -54,6 +57,7 @@ public class MenuAnimation : MonoBehaviour
         await MenuOutro();
         canvasGroup.DOFade(0, tweenDuration).SetUpdate(true);
         menuPanel.SetActive(!menuPanel.activeSelf);
+        menuBG.SetActive(!menuBG.activeSelf);
         Time.timeScale = 1.0f;
     }
 
