@@ -1,46 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public Slider timerslider;
-    public Text timerstext;
-    public float customertime;
+    [SerializeField] TextMeshProUGUI timetext;  
+    [SerializeField] float remainingtime = 90; 
 
-    private bool stoptime;
-
-
-    private void Start()
+    void Update()
     {
-        stoptime = false;
-        timerslider.maxValue = customertime;
-        timerslider.value = customertime;
-
-    }
-    private void Update()
-    {
-        if(stoptime) return;
-
-
-        float time = customertime - Time.timeSinceLevelLoad;
-        int minutes = Mathf.FloorToInt(time / 20);
-        int seconds = Mathf.FloorToInt(time % 20);
         
-            if (time <= 0)
-            {
-                stoptime = true;
-            }
-           if (stoptime == false)
+        if (remainingtime > 0)
+        {
+            remainingtime -= Time.deltaTime;
+        }
+        else
+        {
+            remainingtime = 0;
+            timetext.color = Color.red;
+        }
 
-            {
-                
-                timerslider.value = time;
-            }
+        
+        int minutes = Mathf.FloorToInt(remainingtime / 60);
+        int seconds = Mathf.FloorToInt(remainingtime % 60);
 
-        string texttime = string.Format("{0:0}:{0:20}", minutes, seconds);
-        timerstext.text = texttime;
-        timerslider.value = time;
+        
+        timetext.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
