@@ -7,6 +7,7 @@ public class Coin : MonoBehaviour
 {
     private Vector3 targetDirection;
     private Rigidbody2D rb2D;
+
     private float speed = 0.5f;
     private float coinScale = 0.8f;
 
