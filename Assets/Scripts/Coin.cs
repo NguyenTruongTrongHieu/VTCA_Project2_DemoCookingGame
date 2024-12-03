@@ -41,6 +41,6 @@ public class Coin : MonoBehaviour
     {
         //Them am thanh
         Debug.Log("Huy coin");
-        AudioManager.audioInstance.PlaySFX("EarnCoin");
+        AudioManager.audioInstance.PlaySFX("EarnScore");
     }
 }
