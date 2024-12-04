@@ -131,6 +131,7 @@ public class Customers : MonoBehaviour
             if (isContinueMoving)
             {
                 this.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+                this.GetComponent<SpriteRenderer>().sortingOrder = 0;
                 //Di chuyen nhap nho
                 float sin = Mathf.Sin(this.transform.position.x * frequency) * amplitude;
                 this.transform.position = new Vector3(this.transform.position.x, sinCenterY + sin, this.transform.position.z);
@@ -358,6 +359,7 @@ public class Customers : MonoBehaviour
             {
                 isWaiting = true;
                 orderPanel.SetActive(true);
+                this.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 return;
             }
         }
@@ -367,6 +369,7 @@ public class Customers : MonoBehaviour
             {
                 isWaiting = true;
                 orderPanel.SetActive(true);
+                this.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 return;
             }
         }
@@ -376,10 +379,12 @@ public class Customers : MonoBehaviour
             {
                 isWaiting = true;
                 orderPanel.SetActive(true);
+                this.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 return;
             }
         }
         this.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+        this.GetComponent<SpriteRenderer>().sortingOrder = 0;
         //Di chuyen nhap nho
         float sin = Mathf.Sin(this.transform.position.x * frequency) * amplitude;
         this.transform.position = new Vector3(this.transform.position.x, sinCenterY + sin, this.transform.position.z);
