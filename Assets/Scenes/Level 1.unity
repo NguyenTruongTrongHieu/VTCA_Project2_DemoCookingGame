@@ -546,6 +546,7 @@ RectTransform:
   - {fileID: 371990047}
   - {fileID: 1390186748}
   - {fileID: 1439227025}
+  - {fileID: 806811316}
   - {fileID: 1774645282}
   m_Father: {fileID: 1715560019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -785,6 +786,8 @@ MonoBehaviour:
   materialRollObj: {fileID: 5637645137165057754, guid: b0ba2e83f90f8d84687fd9f3e4ef501a, type: 3}
   sausageObj: {fileID: 2763178289912755722, guid: d33bc8689b4f48e4c9579107c8ccba15, type: 3}
   hotdogObj: {fileID: 1534514288733176334, guid: 29041a3907885c44b983c7a36bee8dab, type: 3}
+  vegetableObj: {fileID: 2763178289912755722, guid: a60f638272e477945a7d9d53ec90bbab, type: 3}
+  hamburgerWithVegetableObj: {fileID: 3658568680699764519, guid: 285b4a8e3b52ce14f866e85da64f390f, type: 3}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
   positionOnCuttingBoard: {fileID: 1063938795}
@@ -1407,6 +1410,8 @@ MonoBehaviour:
   materialRollObj: {fileID: 4847306035191455086, guid: 6299c0a7a5feefa4c85f31e5365b56a4, type: 3}
   sausageObj: {fileID: 3843382838478310304, guid: 171411282825f89449ec7fbf060675c6, type: 3}
   hotdogObj: {fileID: 0}
+  vegetableObj: {fileID: 0}
+  hamburgerWithVegetableObj: {fileID: 0}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
   positionOnCuttingBoard: {fileID: 0}
@@ -1672,6 +1677,189 @@ Transform:
   m_Children: []
   m_Father: {fileID: 866106101}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &806811315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 806811316}
+  - component: {fileID: 806811322}
+  - component: {fileID: 806811321}
+  - component: {fileID: 806811320}
+  - component: {fileID: 806811319}
+  - component: {fileID: 806811318}
+  - component: {fileID: 806811323}
+  m_Layer: 7
+  m_Name: vegetable bin
+  m_TagString: vegetable bin
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &806811316
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806811315}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 286901174}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.67600006, y: 0.46400002}
+  m_AnchorMax: {x: 0.67600006, y: 0.46400002}
+  m_AnchoredPosition: {x: 412.21936, y: 131.37724}
+  m_SizeDelta: {x: 167.76, y: 160.63}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &806811318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806811315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!61 &806811319
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806811315}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.8530006, y: -1.4264526}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 160.76541, y: 137.9419}
+  m_EdgeRadius: 0
+--- !u!114 &806811320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806811315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0775ce66ee677214c8fb9fe90ecda1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialBunObj: {fileID: 2903871301513307427, guid: 20b0f2bc0a32af74489fcc52478c04db, type: 3}
+  burgersObj: {fileID: 2953451995347936872, guid: 0a625041694d8a4459e81edab4fcdf8f, type: 3}
+  materialRollObj: {fileID: 5637645137165057754, guid: b0ba2e83f90f8d84687fd9f3e4ef501a, type: 3}
+  sausageObj: {fileID: 2763178289912755722, guid: d33bc8689b4f48e4c9579107c8ccba15, type: 3}
+  hotdogObj: {fileID: 1534514288733176334, guid: 29041a3907885c44b983c7a36bee8dab, type: 3}
+  vegetableObj: {fileID: 2763178289912755722, guid: a60f638272e477945a7d9d53ec90bbab, type: 3}
+  hamburgerWithVegetableObj: {fileID: 3658568680699764519, guid: 285b4a8e3b52ce14f866e85da64f390f, type: 3}
+  objDrag: {fileID: 0}
+  objDragRect: {fileID: 0}
+  positionOnCuttingBoard: {fileID: 1063938795}
+  positionOnGrill: {fileID: 1127852745}
+--- !u!114 &806811321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806811315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 004c408bd4f6e9249a7a88eb7235767b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &806811322
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806811315}
+  m_CullTransparentMesh: 1
+--- !u!114 &806811323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806811315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741576777c4d0d6498ef9cde2732b221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executeInUpdate: 1
+  anchorType: 2
+  anchorOffset: {x: -1.78, y: 3.55, z: 0}
 --- !u!1 &816983295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1740,6 +1928,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7ba687c20cb259448a1858a93535efd6, type: 3}
   - name: hotdog
     sprite: {fileID: 21300000, guid: 8936d2c5680a12a4ba7649625e3af273, type: 3}
+  - name: hamburgerWithVegetable
+    sprite: {fileID: 21300000, guid: 98ca1075a02ad224b88ca16d283308db, type: 3}
 --- !u!1 &866106099
 GameObject:
   m_ObjectHideFlags: 0
@@ -2088,6 +2278,8 @@ MonoBehaviour:
   materialRollObj: {fileID: 4847306035191455086, guid: 6299c0a7a5feefa4c85f31e5365b56a4, type: 3}
   sausageObj: {fileID: 3843382838478310304, guid: 171411282825f89449ec7fbf060675c6, type: 3}
   hotdogObj: {fileID: 0}
+  vegetableObj: {fileID: 0}
+  hamburgerWithVegetableObj: {fileID: 0}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
   positionOnCuttingBoard: {fileID: 0}
@@ -2355,6 +2547,8 @@ MonoBehaviour:
   materialRollObj: {fileID: 4847306035191455086, guid: 6299c0a7a5feefa4c85f31e5365b56a4, type: 3}
   sausageObj: {fileID: 3843382838478310304, guid: 171411282825f89449ec7fbf060675c6, type: 3}
   hotdogObj: {fileID: 0}
+  vegetableObj: {fileID: 0}
+  hamburgerWithVegetableObj: {fileID: 0}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
   positionOnCuttingBoard: {fileID: 0}
@@ -2507,6 +2701,8 @@ MonoBehaviour:
   materialRollObj: {fileID: 4847306035191455086, guid: 6299c0a7a5feefa4c85f31e5365b56a4, type: 3}
   sausageObj: {fileID: 3843382838478310304, guid: 171411282825f89449ec7fbf060675c6, type: 3}
   hotdogObj: {fileID: 0}
+  vegetableObj: {fileID: 0}
+  hamburgerWithVegetableObj: {fileID: 0}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
   positionOnCuttingBoard: {fileID: 0}
@@ -2648,6 +2844,8 @@ MonoBehaviour:
   materialRollObj: {fileID: 5637645137165057754, guid: b0ba2e83f90f8d84687fd9f3e4ef501a, type: 3}
   sausageObj: {fileID: 2763178289912755722, guid: d33bc8689b4f48e4c9579107c8ccba15, type: 3}
   hotdogObj: {fileID: 1534514288733176334, guid: 29041a3907885c44b983c7a36bee8dab, type: 3}
+  vegetableObj: {fileID: 2763178289912755722, guid: a60f638272e477945a7d9d53ec90bbab, type: 3}
+  hamburgerWithVegetableObj: {fileID: 3658568680699764519, guid: 285b4a8e3b52ce14f866e85da64f390f, type: 3}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
   positionOnCuttingBoard: {fileID: 1063938795}
@@ -2874,6 +3072,8 @@ MonoBehaviour:
   materialRollObj: {fileID: 5637645137165057754, guid: b0ba2e83f90f8d84687fd9f3e4ef501a, type: 3}
   sausageObj: {fileID: 2763178289912755722, guid: d33bc8689b4f48e4c9579107c8ccba15, type: 3}
   hotdogObj: {fileID: 1534514288733176334, guid: 29041a3907885c44b983c7a36bee8dab, type: 3}
+  vegetableObj: {fileID: 2763178289912755722, guid: a60f638272e477945a7d9d53ec90bbab, type: 3}
+  hamburgerWithVegetableObj: {fileID: 3658568680699764519, guid: 285b4a8e3b52ce14f866e85da64f390f, type: 3}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
   positionOnCuttingBoard: {fileID: 1063938795}
@@ -3299,6 +3499,8 @@ MonoBehaviour:
   materialRollObj: {fileID: 5637645137165057754, guid: b0ba2e83f90f8d84687fd9f3e4ef501a, type: 3}
   sausageObj: {fileID: 2763178289912755722, guid: d33bc8689b4f48e4c9579107c8ccba15, type: 3}
   hotdogObj: {fileID: 1534514288733176334, guid: 29041a3907885c44b983c7a36bee8dab, type: 3}
+  vegetableObj: {fileID: 2763178289912755722, guid: a60f638272e477945a7d9d53ec90bbab, type: 3}
+  hamburgerWithVegetableObj: {fileID: 3658568680699764519, guid: 285b4a8e3b52ce14f866e85da64f390f, type: 3}
   objDrag: {fileID: 0}
   objDragRect: {fileID: 0}
   positionOnCuttingBoard: {fileID: 1063938795}

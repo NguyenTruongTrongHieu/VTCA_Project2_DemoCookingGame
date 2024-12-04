@@ -78,6 +78,15 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
             }
         }
 
+        //Tuong tu voi bun
+        if (collision.gameObject.CompareTag("hamburger"))
+        {
+            if (collision.GetComponent<Foods>().slotInCuttingboard == slotInCuttingboard)
+            {
+                Destroy(collision.gameObject);
+            }
+        }
+
         if (collision.gameObject.CompareTag("Customer"))
         {
             var customer = collision.gameObject.GetComponent<Customers>();
