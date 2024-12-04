@@ -23,6 +23,8 @@ TagManager:
   - MaterialPosition
   - MeatPosition
   - TextScore
+  - vegetable bin
+  - hamburgerWithVegetable
   layers:
   - Default
   - TransparentFX

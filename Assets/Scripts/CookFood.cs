@@ -262,6 +262,7 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                     {
                         food.GetComponent<Foods>().slotInCuttingboard = 1;
                         Instantiate(food, positionOnCuttingBoard.transform.position + new Vector3(-1, 0, 0), Quaternion.identity);
+                        Debug.Log(Gameplay.cuttingboardS1);
                     }
                     else if (slotBunInCuttingBoard == 2)
                     {

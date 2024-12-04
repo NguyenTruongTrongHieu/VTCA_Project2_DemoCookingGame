@@ -14,9 +14,12 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     private GameObject materialRollObj;
     [SerializeField]
     private GameObject sausageObj;
-
     [SerializeField]
     private GameObject hotdogObj;
+    [SerializeField]
+    private GameObject vegetableObj;
+    [SerializeField]
+    private GameObject hamburgerWithVegetableObj;
 
     [SerializeField] private GameObject objDrag;
     [SerializeField] private RectTransform objDragRect;
@@ -27,6 +30,7 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     private bool isMaterials;
     private bool isSausage;
     private bool isCookFoods;
+    private bool isVegetable;
     private bool isFullSlot;
     private bool isDragging;
     private bool isAbleToDrag;//Co the keo duoc khong
@@ -62,6 +66,7 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         isSausage = false;
         isMaterials = false;
         isCookFoods = false;
+        isVegetable = false;
 
         if (gameObject.tag == "bun bin")
         {
@@ -140,6 +145,14 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             objDrag = Instantiate(sausageObj, this.transform.position, Quaternion.identity);
             objDragRect = objDrag.gameObject.GetComponent<RectTransform>();
         }
+
+        else if (gameObject.tag == "vegetable bin")
+        {
+            isVegetable = true;
+
+            objDrag = Instantiate(vegetableObj, this.transform.position, Quaternion.identity);            
+            objDragRect = objDrag.gameObject.GetComponent<RectTransform>();
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -206,6 +219,34 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             Destroy(sausage.gameObject);
             return;
         }
+
+        if (isVegetable)
+        {
+            var vegetable = objDrag.gameObject.GetComponent<Vegetable>();
+
+            if (vegetable.isOnTheHamburger)
+            {
+                if (vegetable.slotInCuttingBoard == 1)
+                {
+                    hamburgerWithVegetableObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 1;
+                    Instantiate(hamburgerWithVegetableObj, positionOnCuttingBoard.transform.position + new Vector3(-1, 0, 0), Quaternion.identity);
+                    Gameplay.cuttingboardS1 = "FullBun";
+                }
+                else if (vegetable.slotInCuttingBoard == 2)
+                {
+                    hamburgerWithVegetableObj.gameObject.GetComponent<Foods>().slotInCuttingboard = 2;
+                    Instantiate(hamburgerWithVegetableObj, positionOnCuttingBoard.transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+                    Gameplay.cuttingboardS2 = "FullBun";
+                }
+
+                //Them am thanh
+                AudioManager.audioInstance.PlaySFX("FoodAppear");
+            }
+
+            Destroy(vegetable.gameObject);
+            return;
+        }
+
         else if (isMaterials)
         {
             var material = objDrag.gameObject.GetComponent<Materials>();
@@ -230,6 +271,7 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                 AudioManager.audioInstance.PlaySFX("MaterialOnTable");
             }
         }
+
         else if (isCookFoods)
         { 
             var cookFood = objDrag.gameObject.GetComponent<CookFood>();
