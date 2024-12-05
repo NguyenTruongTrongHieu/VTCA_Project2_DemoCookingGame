@@ -36,6 +36,12 @@ public class SaveAndLoad : MonoBehaviour
 
         LoadDataWithPlayerPrefs();
 
+        //Set cac thong so co ban cho game
+        levels = 1;
+        oneStar = 30;
+        twoStar = 60;
+        threeStar = 100;
+
         if (levelScores == null)
         {
             Debug.Log("list null");
@@ -47,16 +53,21 @@ public class SaveAndLoad : MonoBehaviour
             LevelScore level1 = new LevelScore("Level 1", 0);
             levelScores.Add(level1);
         }
+
+        //Kiem tra moi khi co update level moi thi se tang cho nguoi choi len level moi neu nguoi choi da choi het tat ca level truoc do
+        if (levelScores[levelScores.Count - 1].score >= oneStar)
+        {
+            if (levels > levelScores.Count)
+            {
+                LevelScore newLevel = new LevelScore($"Level {levelScores.Count + 1}", 0);
+                levelScores.Add(newLevel);
+            }
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //Dem so luong man choi co trong game
-        levels = 1;
-        oneStar = 30;
-        twoStar = 60;
-        threeStar = 100;
     }
 
     // Update is called once per frame
