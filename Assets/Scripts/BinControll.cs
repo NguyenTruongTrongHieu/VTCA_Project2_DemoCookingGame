@@ -171,7 +171,6 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("On begin drag");
         isDragging = true;
     }
 

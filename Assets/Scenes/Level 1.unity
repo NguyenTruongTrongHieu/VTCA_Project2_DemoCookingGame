@@ -436,6 +436,7 @@ RectTransform:
   - {fileID: 1439227025}
   - {fileID: 806811316}
   - {fileID: 1774645282}
+  - {fileID: 1210273037}
   m_Father: {fileID: 1715560019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -6814,6 +6815,189 @@ RectTransform:
   m_AnchoredPosition: {x: -510, y: -52.046494}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1210273036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1210273037}
+  - component: {fileID: 1210273043}
+  - component: {fileID: 1210273042}
+  - component: {fileID: 1210273041}
+  - component: {fileID: 1210273040}
+  - component: {fileID: 1210273039}
+  - component: {fileID: 1210273038}
+  m_Layer: 7
+  m_Name: mayonnaise bin
+  m_TagString: sausage bin
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1210273037
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210273036}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 286901174}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.771, y: 0.43714815}
+  m_AnchorMax: {x: 0.771, y: 0.43714815}
+  m_AnchoredPosition: {x: -593.9945, y: -133.24545}
+  m_SizeDelta: {x: 77.18, y: 159.79}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1210273038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210273036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741576777c4d0d6498ef9cde2732b221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executeInUpdate: 1
+  anchorType: 1
+  anchorOffset: {x: -0.66, y: 1.04, z: 0}
+--- !u!114 &1210273039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210273036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!61 &1210273040
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210273036}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.1619568, y: -6.458603}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 59.58628, y: 184.05505}
+  m_EdgeRadius: 0
+--- !u!114 &1210273041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210273036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0775ce66ee677214c8fb9fe90ecda1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialBunObj: {fileID: 2903871301513307427, guid: 20b0f2bc0a32af74489fcc52478c04db, type: 3}
+  burgersObj: {fileID: 2953451995347936872, guid: 0a625041694d8a4459e81edab4fcdf8f, type: 3}
+  materialRollObj: {fileID: 5637645137165057754, guid: b0ba2e83f90f8d84687fd9f3e4ef501a, type: 3}
+  sausageObj: {fileID: 2763178289912755722, guid: d33bc8689b4f48e4c9579107c8ccba15, type: 3}
+  hotdogObj: {fileID: 1534514288733176334, guid: 29041a3907885c44b983c7a36bee8dab, type: 3}
+  vegetableObj: {fileID: 2763178289912755722, guid: a60f638272e477945a7d9d53ec90bbab, type: 3}
+  hamburgerWithVegetableObj: {fileID: 3658568680699764519, guid: 285b4a8e3b52ce14f866e85da64f390f, type: 3}
+  objDrag: {fileID: 0}
+  objDragRect: {fileID: 0}
+  positionOnCuttingBoard: {fileID: 1063938795}
+  positionOnGrill: {fileID: 1127852745}
+--- !u!114 &1210273042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210273036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 55f89b70266c9e4419e85725357602a1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1210273043
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210273036}
+  m_CullTransparentMesh: 1
 --- !u!114 &1281091480 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3986651829882333248, guid: b96aaf168a916324f92f99431f89756e, type: 3}

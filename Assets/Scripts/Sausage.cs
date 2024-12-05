@@ -40,7 +40,6 @@ public class Sausage : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("roll"))
         {
-            Debug.Log("Roi khoi roll");
             isOntheRoll = false;
         }
     }

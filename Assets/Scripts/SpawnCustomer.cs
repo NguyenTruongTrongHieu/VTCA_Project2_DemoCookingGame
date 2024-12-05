@@ -84,7 +84,6 @@ public class SpawnCustomer : MonoBehaviour
     {
         //random thoi gian de sinh ra customer
         randomTime = Random.RandomRange(beginRandomTime, endRandomTime);
-        Debug.Log(randomTime);
     }
 
     void RandomCustomer()

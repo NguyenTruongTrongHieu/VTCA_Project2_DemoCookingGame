@@ -151,7 +151,6 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         emojiImage.rectTransform.localScale = new Vector3( 5, 5, 1);
         var scale = emojiImage.rectTransform.localScale;
-        Debug.Log("Phong to");
         while (scale.x > 1.5f)
         {
             scale.x -= (scale.x - 1) / emojiChangeScaleTime * Time.deltaTime;
@@ -180,7 +179,6 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         if (collision.gameObject.CompareTag("bun"))
         {
-            Debug.Log("Cham bun");
             slotBunInCuttingBoard = collision.gameObject.GetComponent<Materials>().slotInCuttingboard;
             isReturnStartPosition = false;
         }
@@ -195,14 +193,12 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
         if (collision.gameObject.CompareTag("bun"))
         {
-            Debug.Log("Roi khoi bun");
             slotBunInCuttingBoard = 0;
             isReturnStartPosition = true;
         }
 
         if (collision.gameObject.CompareTag("TrashBin"))
         {
-            Debug.Log("Roi thung rac");
             isReturnStartPosition = true;
         }
     }
@@ -249,8 +245,6 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         {
             if (slotBunInCuttingBoard != 0)//Kiem tra xem co cham vao bun khong
             {
-                Debug.Log("Co cham vao bun");
-
                 //Them am thanh
                 AudioManager.audioInstance.PlaySFX("FoodAppear");
 
@@ -262,7 +256,6 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                     {
                         food.GetComponent<Foods>().slotInCuttingboard = 1;
                         Instantiate(food, positionOnCuttingBoard.transform.position + new Vector3(-1, 0, 0), Quaternion.identity);
-                        Debug.Log(Gameplay.cuttingboardS1);
                     }
                     else if (slotBunInCuttingBoard == 2)
                     {
