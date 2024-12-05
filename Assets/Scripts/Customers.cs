@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Customers : MonoBehaviour
@@ -49,6 +50,10 @@ public class Customers : MonoBehaviour
     public int highScore;
     public int mediumScore;
     public int lowScore;
+    public int minusScore;
+
+    //Gameover
+    public GameObject gameOverPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -145,24 +150,34 @@ public class Customers : MonoBehaviour
 
             isAlreadyDone = true;
 
+            //Chinh lai slot o queue cua cus hien tai thanh empty
+            SetSlotInQueue();
+
             //Tinh diem cho player
             if (isOutOfTime)//Neu het gio doi cua cus thi khong tinh diem
             {
-                Debug.Log("Het gio, tru tim khong cong diem");
-
                 //Tru mang
-                if (Gameplay.heart > 0)
+                Gameplay.heart--;
+                if (Gameplay.score >= minusScore)
                 {
-                    Gameplay.heart--;
-                    Debug.Log($"tru mang: {Gameplay.heart}");
-
-                    Gameplay gameplay = GameObject.FindGameObjectWithTag("GameController").GetComponent<Gameplay>();
-                    gameplay.heartImage[Gameplay.heart].gameObject.SetActive(false);
+                    Gameplay.score -= minusScore;
                 }
                 else
-                { 
-                    //Hien panel thua
+                {
+                    Gameplay.score = 0;
                 }
+
+                Gameplay gameplay = GameObject.FindGameObjectWithTag("GameController").GetComponent<Gameplay>();
+                gameplay.heartImage[Gameplay.heart].gameObject.SetActive(false);
+
+                if (Gameplay.heart <= 0)
+                {
+                    Gameplay.score = 0;
+
+                    TurnOnGameOverPanel();
+                }
+                //Update text score
+                gameplay.UpdateTextScore();
 
                 //Them am thanh
                 if (isMale)
@@ -390,7 +405,7 @@ public class Customers : MonoBehaviour
         this.transform.position = new Vector3(this.transform.position.x, sinCenterY + sin, this.transform.position.z);
     }
 
-    private void OnDestroy()
+    private void SetSlotInQueue()
     {
         //Chinh lai slot o queue cua cus hien tai thanh empty
         if (slotInQueue == 1)
@@ -405,5 +420,70 @@ public class Customers : MonoBehaviour
         {
             Gameplay.queueS3 = "empty";
         }
+    }
+
+    void TurnOnGameOverPanel()
+    {
+        //Test save and load
+        var levelScore = SaveAndLoad.saveLoadInstance.levelScores.Find(x => x.level == SceneManager.GetActiveScene().name);//Tim level hien tai o trong list
+        if (levelScore == null)
+        {
+            Debug.Log("khong tim thay level hien tai trong list");
+            return;
+        }
+
+        //Kiem tra xem diem cua level hien tai ma nguoi choi vua hoan thanh co qua duoc moc de win khong
+        if (Gameplay.score >= SaveAndLoad.saveLoadInstance.oneStar)
+        {
+            //Hien panel win
+            Debug.Log("Hien panel win");
+            Gameplay.isWinning = true;
+
+            //Win
+            if (levelScore.score < SaveAndLoad.saveLoadInstance.oneStar)//Neu nguoi choi chua vuot qua man nay truoc do thi se can tao ra 1 man moi luu vao list
+            {
+                //Kiem tra so luong man choi trong game voi so luong man choi ma nguoi choi da mo khoa duoc
+                //Neu nguoi choi da mo khoa het cac man choi thi khong can them man nua
+                if (SaveAndLoad.saveLoadInstance.levels <= SaveAndLoad.saveLoadInstance.levelScores.Count)
+                {
+                    Debug.Log("Da het man choi");
+                }
+                else
+                {
+                    string newLevel = "Level " + (SaveAndLoad.saveLoadInstance.levelScores.Count + 1);//Lay ten cua level moi
+                    LevelScore newLevelScore = new LevelScore(newLevel, 0);
+                    SaveAndLoad.saveLoadInstance.levelScores.Add(newLevelScore);//Luu man choi moi duoc mo khoa vao list
+                }
+            }
+            else//Neu nguoi choi da vuot qua man nay truoc do thi se khong can tao ra 1 man moi
+            {
+                Debug.Log("Da vuot qua man choi truoc do");
+            }
+        }
+        else
+        {
+            //Lose
+            //Hien panel lose
+            Debug.Log("Hien panel lose");
+            Gameplay.isWinning = false;
+        }
+
+        //Cho panel game over chay
+        StartCoroutine(WaitForSecond());
+
+        //Neu diem cua level hien tai ma nguoi choi vua hoan thanh lon hon diem duoc luu thi luu lai
+        if (Gameplay.score > levelScore.score)
+        {
+            levelScore.score = Gameplay.score;
+        }
+        //Luu list lai
+        SaveAndLoad.saveLoadInstance.SaveDataWithPlayerPrefs();
+    }
+
+    IEnumerator WaitForSecond()
+    {
+        yield return new WaitForSeconds(2f);
+        gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

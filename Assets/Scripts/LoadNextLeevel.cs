@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoadNextLeevel : MonoBehaviour
 {
     [SerializeField] GameObject gameOverPanel;
+    [SerializeField] private Button nextLevelButton;
+    [SerializeField] private Button restartButton;
+    [SerializeField] private TextMeshProUGUI title;
 
     // Start is called before the first frame update
     void Start()
@@ -16,11 +21,32 @@ public class LoadNextLeevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Gameplay.isWinning)
+        {
+            title.text = "You Win";
+            restartButton.gameObject.SetActive(false);
+            nextLevelButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            title.text = "You Lose";
+            restartButton.gameObject.SetActive(true);
+            nextLevelButton.gameObject.SetActive(false);
+        }
     }
 
     public void ToNextLevel()
     {
+        //Kiem tra xem level hien tai da la level cuoi cung hay chua
+        var scene = SceneManager.GetActiveScene().name;
+        var currentLevel = scene[scene.Length - 1];
+        int level = int.Parse(currentLevel.ToString());
+        if (level >= SaveAndLoad.saveLoadInstance.levels)
+        {
+            Debug.Log("Da het man choi");
+            return;
+        }
+
        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex +  1);
         Time.timeScale = 1.0f;
     }
@@ -41,11 +67,5 @@ public class LoadNextLeevel : MonoBehaviour
     {
         gameOverPanel.SetActive(!gameOverPanel.activeSelf);
         Time.timeScale = 0.0f;
-    }
-
-    public void BackToGame()
-    {
-        gameOverPanel.SetActive(false);
-        Time.timeScale = 1.0f;
     }
 }

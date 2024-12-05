@@ -257,7 +257,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &596490745
+--- !u!114 &707612326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8830645577559262178, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
+  m_PrefabInstance: {fileID: 1555008312}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &736489633
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -265,22 +276,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 596490747}
-  - component: {fileID: 596490746}
+  - component: {fileID: 736489635}
+  - component: {fileID: 736489634}
   m_Layer: 0
-  m_Name: MusicSource
+  m_Name: SfxSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!82 &596490746
+--- !u!82 &736489634
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 596490745}
+  m_GameObject: {fileID: 736489633}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -288,7 +299,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -370,113 +381,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!4 &596490747
+--- !u!4 &736489635
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 596490745}
+  m_GameObject: {fileID: 736489633}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 923627927}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &707612326 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8830645577559262178, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
-  m_PrefabInstance: {fileID: 1555008312}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &923627925
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 923627927}
-  - component: {fileID: 923627926}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &923627926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923627925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e124163b3ac6974cabd46d8872c773a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musics: []
-  sfx:
-  - name: CookFoodGrilled
-    audioClip: {fileID: 0}
-  - name: CookFoodRipe
-    audioClip: {fileID: 0}
-  - name: CookFoodWarning
-    audioClip: {fileID: 0}
-  - name: CookFoodBurn
-    audioClip: {fileID: 0}
-  - name: MaleNormal
-    audioClip: {fileID: 0}
-  - name: MaleImpatient
-    audioClip: {fileID: 0}
-  - name: MaleAngry
-    audioClip: {fileID: 0}
-  - name: MaleTimeOut
-    audioClip: {fileID: 0}
-  - name: FemaleNormal
-    audioClip: {fileID: 0}
-  - name: FemaleImpatient
-    audioClip: {fileID: 0}
-  - name: FemaleAngry
-    audioClip: {fileID: 0}
-  - name: FemaleTimeOut
-    audioClip: {fileID: 0}
-  - name: MaterialOnTable
-    audioClip: {fileID: 0}
-  - name: FoodAppear
-    audioClip: {fileID: 0}
-  - name: TrashBin
-    audioClip: {fileID: 0}
-  - name: ReceiveFood
-    audioClip: {fileID: 0}
-  musicSource: {fileID: 596490746}
-  sfxSource: {fileID: 1621235514}
---- !u!4 &923627927
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923627925}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04909525, y: -0.60166013, z: 1.6928196}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 596490747}
-  - {fileID: 1621235515}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1185572520}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1122918802
 GameObject:
@@ -568,6 +486,92 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1185572518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1185572520}
+  - component: {fileID: 1185572519}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1185572519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185572518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e124163b3ac6974cabd46d8872c773a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musics:
+  - name: InGame
+    audioClip: {fileID: 8300000, guid: f72aea84185734b4280448dc3dffaa41, type: 3}
+  sfx:
+  - name: CookFoodGrilled
+    audioClip: {fileID: 8300000, guid: 14b5a045a02c57745bab254f5c5fd0fc, type: 3}
+  - name: CookFoodRipe
+    audioClip: {fileID: 8300000, guid: 5906aa4986115db4d984a325742a3ed7, type: 3}
+  - name: CookFoodWarning
+    audioClip: {fileID: 8300000, guid: cdda8c855c1cf584b954ed1e0f5517cc, type: 3}
+  - name: CookFoodBurn
+    audioClip: {fileID: 8300000, guid: fbcd0dd47e823e54cb38d4714ce2f59d, type: 3}
+  - name: MaleNormal
+    audioClip: {fileID: 8300000, guid: 38793d6ccf42cd844af1bec3d969a093, type: 3}
+  - name: MaleImpatient
+    audioClip: {fileID: 8300000, guid: 0371e2b43623eef4e8ef204aef6af221, type: 3}
+  - name: MaleAngry
+    audioClip: {fileID: 8300000, guid: d7d9a543649e51a4482cff3ac83715ca, type: 3}
+  - name: MaleTimeOut
+    audioClip: {fileID: 8300000, guid: 1efaca976445dfb48aeb392d5294fa31, type: 3}
+  - name: FemaleNormal
+    audioClip: {fileID: 8300000, guid: bb6121c478d8a5c4da99856da0d0565a, type: 3}
+  - name: FemaleImpatient
+    audioClip: {fileID: 8300000, guid: e4c8cbc10b46e674692a9b60911baaa5, type: 3}
+  - name: FemaleAngry
+    audioClip: {fileID: 8300000, guid: f9f1412e2ebd12d49a15e4db911089d2, type: 3}
+  - name: FemaleTimeOut
+    audioClip: {fileID: 8300000, guid: 426744c3c7fe706448c53189a9ce3ac8, type: 3}
+  - name: MaterialOnTable
+    audioClip: {fileID: 8300000, guid: f148c7a53d1275340a46f88d9a9de5a7, type: 3}
+  - name: FoodAppear
+    audioClip: {fileID: 8300000, guid: f1b00b8723fc5304a999027888db93be, type: 3}
+  - name: TrashBin
+    audioClip: {fileID: 8300000, guid: ff7ac7a093d0104439c4d0a549ace4f9, type: 3}
+  - name: ReceiveFood
+    audioClip: {fileID: 8300000, guid: 1e36150d9d7f55b4682db4ca9cbab2ac, type: 3}
+  - name: EarnScore
+    audioClip: {fileID: 8300000, guid: 58cc6f7b8e09cd14ea7e11d9570688d7, type: 3}
+  musicSource: {fileID: 1729253814}
+  sfxSource: {fileID: 736489634}
+--- !u!4 &1185572520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185572518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.04909525, y: -0.60166013, z: 1.6928196}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1729253815}
+  - {fileID: 736489635}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1208843349 stripped
@@ -1077,7 +1081,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dd58f84182689b46868cb150e004a78, type: 3}
---- !u!1 &1621235513
+--- !u!1 &1729253813
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1085,22 +1089,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1621235515}
-  - component: {fileID: 1621235514}
+  - component: {fileID: 1729253815}
+  - component: {fileID: 1729253814}
   m_Layer: 0
-  m_Name: SfxSource
+  m_Name: MusicSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!82 &1621235514
+--- !u!82 &1729253814
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621235513}
+  m_GameObject: {fileID: 1729253813}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -1108,7 +1112,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1190,20 +1194,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!4 &1621235515
+--- !u!4 &1729253815
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621235513}
+  m_GameObject: {fileID: 1729253813}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 923627927}
+  m_Father: {fileID: 1185572520}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1957738539 stripped
 MonoBehaviour:
@@ -1223,5 +1227,5 @@ SceneRoots:
   - {fileID: 1122918805}
   - {fileID: 1555008312}
   - {fileID: 43496370}
-  - {fileID: 923627927}
   - {fileID: 18992588}
+  - {fileID: 1185572520}
