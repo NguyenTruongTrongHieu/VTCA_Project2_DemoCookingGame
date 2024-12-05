@@ -54,7 +54,6 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     {
         if (collision.gameObject.CompareTag("TrashBin"))
         {
-            Debug.Log("Cham phai thung rac");
             isReturnStartPosition = false;
             isOnTrashBin = true;
         }
@@ -101,7 +100,6 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
                 {
                     customer.havingFood = true;
                     customer.orderFoodChoose = i + 1;
-                    Debug.Log(customer.orderFoodChoose);
                     isReturnStartPosition = false;
                     return;
                 }
@@ -122,7 +120,6 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         if (collision.gameObject.CompareTag("TrashBin"))
         {
             //Dua object ve cho cu
-            Debug.Log("Roi khoi thung rac");
             isReturnStartPosition = true;
             isOnTrashBin = false;
         }
@@ -150,8 +147,6 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("On begin drag");
-
         //Zoom thung rac to len
         var trashBin = GameObject.FindGameObjectWithTag("TrashBin").GetComponent<RectTransform>();
         trashBin.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
@@ -190,7 +185,6 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
                 if (customer.GetComponent<Customers>().havingFood)
                 {
                     customer.GetComponent<Customers>().isOnEndDrag = true;
-                    Debug.Log("On end drag");
 
                     //Them am thanh
                     AudioManager.audioInstance.PlaySFX("ReceiveFood");

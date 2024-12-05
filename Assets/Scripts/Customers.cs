@@ -316,7 +316,6 @@ public class Customers : MonoBehaviour
 
     IEnumerator SetAnimForCus()
     {
-        Debug.Log("Bat anim");
         if (customerEmotion == "normal")
         {
             animator.SetInteger("statesCustomer", 1);
@@ -355,7 +354,6 @@ public class Customers : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         orderPanel.SetActive(false);
-        Debug.Log("Tat anim");
         isContinueMoving = true;//Sau khi thuc hien anim vui ve hoac hien emote gi do thi cus moi duoc tiep tuc di chuyen
     }
 

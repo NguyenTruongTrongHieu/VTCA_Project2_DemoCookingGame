@@ -19,7 +19,6 @@ public class Coin : MonoBehaviour
         targetDirection = GameObject.FindGameObjectWithTag("TextScore").transform.position;
         this.transform.localScale = Vector3.zero;
         rb2D = this.GetComponent<Rigidbody2D>();
-        Debug.Log("Sinh coin");
     }
 
     // Update is called once per frame
@@ -43,7 +42,6 @@ public class Coin : MonoBehaviour
     private void OnDestroy()
     {
         //Them am thanh
-        Debug.Log("Huy coin");
         Gameplay.isDestroyStar = true;
         AudioManager.audioInstance.PlaySFX("EarnScore");
     }
