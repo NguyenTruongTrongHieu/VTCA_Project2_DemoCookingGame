@@ -12,6 +12,9 @@ public class SaveAndLoad : MonoBehaviour
 
     public List<LevelScore> levelScores;
     public int levels;
+    public int oneStar;
+    public int twoStar;
+    public int threeStar;
 
     private SaveAndLoad()
     { 
@@ -49,7 +52,11 @@ public class SaveAndLoad : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Dem so luong man choi co trong game
+        levels = 1;
+        oneStar = 30;
+        twoStar = 60;
+        threeStar = 100;
     }
 
     // Update is called once per frame
@@ -73,8 +80,5 @@ public class SaveAndLoad : MonoBehaviour
         string jsonListLevelScores = PlayerPrefs.GetString("ListLevelScores");
         Debug.Log(jsonListLevelScores);
         levelScores = JsonConvert.DeserializeObject<List<LevelScore>>(jsonListLevelScores);
-
-        //Dem so luong man choi co trong game
-        levels = 1;
     }
 }

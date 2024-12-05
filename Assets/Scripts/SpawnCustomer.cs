@@ -18,12 +18,15 @@ public class SpawnCustomer : MonoBehaviour
     [SerializeField] private int highScore;
     [SerializeField] private int mediumScore;
     [SerializeField] private int lowScore;
+    [SerializeField] private int minusScore;
+
+    [SerializeField] private GameObject gameOverPanel;
     private float randomTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        RandomTimer();
+        randomTime = 1;
         RandomCustomer();
     }
 
@@ -45,6 +48,7 @@ public class SpawnCustomer : MonoBehaviour
         //Den luc sinh ra customer
         var cus = customer.GetComponent<Customers>();
         //Gan cac chi so can thiet cho cus
+        cus.gameOverPanel = gameOverPanel;
         cus.customerTime = customerTime;
         cus.safeTime = safeTime;
         cus.warningTime = warningTime;
@@ -52,6 +56,7 @@ public class SpawnCustomer : MonoBehaviour
         cus.highScore = highScore;
         cus.mediumScore = mediumScore;
         cus.lowScore = lowScore;
+        cus.minusScore = minusScore;
         //Kiem tra vi tri trong hang doi cua customer
         if (Gameplay.queueS1 == "empty")
         {
@@ -79,6 +84,7 @@ public class SpawnCustomer : MonoBehaviour
     {
         //random thoi gian de sinh ra customer
         randomTime = Random.RandomRange(beginRandomTime, endRandomTime);
+        Debug.Log(randomTime);
     }
 
     void RandomCustomer()

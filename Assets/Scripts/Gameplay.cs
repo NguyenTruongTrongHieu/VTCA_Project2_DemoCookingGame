@@ -34,6 +34,9 @@ public class Gameplay : MonoBehaviour
     //check player cham vao bin
     public static bool isChooseBin;
 
+    //Check xem player thang hay thua
+    public static bool isWinning;
+
     private Gameplay()
     { 
         
@@ -61,6 +64,8 @@ public class Gameplay : MonoBehaviour
         queueS1 = "empty";
         queueS2 = "empty";
         queueS3 = "empty";
+
+        isWinning = false;
     }
 
     // Start is called before the first frame update
