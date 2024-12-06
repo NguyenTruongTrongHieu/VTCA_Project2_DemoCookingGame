@@ -36,6 +36,7 @@ public class Gameplay : MonoBehaviour
 
     //Check xem player thang hay thua
     public static bool isWinning;
+    public static bool isGameOver;
 
     private Gameplay()
     { 
@@ -66,6 +67,7 @@ public class Gameplay : MonoBehaviour
         queueS3 = "empty";
 
         isWinning = false;
+        isGameOver = false;
     }
 
     // Start is called before the first frame update

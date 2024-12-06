@@ -22,6 +22,11 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+        if (Gameplay.isGameOver)
+        {
+            return;
+        }
+
         
         if (remainingtime > 0)
         {
@@ -95,7 +100,7 @@ public class Timer : MonoBehaviour
 
         //Cho panel game over chay
         gameOverPanel.gameObject.SetActive(true);
-        Time.timeScale = 0f;
+        Gameplay.isGameOver = true;
 
         //Neu diem cua level hien tai ma nguoi choi vua hoan thanh lon hon diem duoc luu thi luu lai
         if (Gameplay.score > levelScore.score)
@@ -111,22 +116,28 @@ public class Timer : MonoBehaviour
         if (Gameplay.score >= SaveAndLoad.saveLoadInstance.threeStar)
         {
             stars[0].sprite = fullStar;
+            stars[0].transform.GetChild(0).GetComponent<ParticleSystem>().Play();
 
             stars[1].sprite = fullStar;
+            stars[1].transform.GetChild(0).GetComponent<ParticleSystem>().Play();
 
             stars[2].sprite = fullStar;
+            stars[2].transform.GetChild(0).GetComponent<ParticleSystem>().Play();
         }
         else if (Gameplay.score >= SaveAndLoad.saveLoadInstance.twoStar)
         {
             stars[0].sprite = fullStar;
+            stars[0].transform.GetChild(0).GetComponent<ParticleSystem>().Play();
 
             stars[1].sprite = fullStar;
+            stars[1].transform.GetChild(0).GetComponent<ParticleSystem>().Play();
 
             stars[2].sprite = emptyStar;
         }
         else if (Gameplay.score >= SaveAndLoad.saveLoadInstance.oneStar)
         {
             stars[0].sprite = fullStar;
+            stars[0].transform.GetChild(0).GetComponent<ParticleSystem>().Play();
 
             stars[1].sprite = emptyStar;
 

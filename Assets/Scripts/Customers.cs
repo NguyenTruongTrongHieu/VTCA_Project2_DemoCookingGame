@@ -111,6 +111,12 @@ public class Customers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Neu player da hoan thanh game roi thi ko can lam gi het
+        if (Gameplay.isGameOver)
+        { 
+            return;
+        }
+
         //Kiem tra xem order nao da duoc hoan thanh
         if (isOnEndDrag && orderedFoods.Count != 0)
         {
@@ -359,6 +365,12 @@ public class Customers : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Neu player da hoan thanh game roi thi ko can lam gi het
+        if (Gameplay.isGameOver)
+        {
+            return;
+        }
+
         //Neu dang doi thi khong can di chuyen nua
         if (isWaiting)
         {
@@ -482,6 +494,6 @@ public class Customers : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         gameOverPanel.SetActive(true);
-        Time.timeScale = 0f;
+        Gameplay.isGameOver = true;
     }
 }

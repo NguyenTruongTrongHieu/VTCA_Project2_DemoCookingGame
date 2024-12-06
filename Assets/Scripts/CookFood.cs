@@ -86,6 +86,12 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     // Update is called once per frame
     void Update()
     {
+        //Neu player da hoan thanh game roi thi ko can lam gi het
+        if (Gameplay.isGameOver)
+        {
+            return;
+        }
+
         if (isChoose || cookingTime < 0)
         {
             return;
@@ -170,7 +176,6 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
         if (collision.gameObject.CompareTag("TrashBin"))
         {
-            Debug.Log("Cham thung rac");
             isReturnStartPosition = false;
         }
     }
