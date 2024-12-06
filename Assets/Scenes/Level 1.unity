@@ -1880,7 +1880,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 0
   startDelay:
@@ -7138,7 +7138,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 0
   startDelay:
@@ -13350,6 +13350,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle System
       objectReference: {fileID: 0}
+    - target: {fileID: 1520172959286746502, guid: cf84625356b21e44693e41e4eac0f626, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7965657248694391057, guid: cf84625356b21e44693e41e4eac0f626, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -13660,6 +13664,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 1451121565466739590, guid: b96aaf168a916324f92f99431f89756e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de6cb3b31683dd147a1733c59e2ec004, type: 3}
+    - target: {fileID: 1944802126237062537, guid: b96aaf168a916324f92f99431f89756e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de6cb3b31683dd147a1733c59e2ec004, type: 3}
     - target: {fileID: 2517859745383267552, guid: b96aaf168a916324f92f99431f89756e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -13744,6 +13756,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1328770665}
+    - target: {fileID: 3986651829882333248, guid: b96aaf168a916324f92f99431f89756e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de6cb3b31683dd147a1733c59e2ec004, type: 3}
     - target: {fileID: 4930197403053584018, guid: b96aaf168a916324f92f99431f89756e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 150

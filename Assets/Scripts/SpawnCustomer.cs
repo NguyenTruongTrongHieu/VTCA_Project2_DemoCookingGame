@@ -33,6 +33,12 @@ public class SpawnCustomer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Neu player da hoan thanh game roi thi ko can lam gi het
+        if (Gameplay.isGameOver)
+        {
+            return;
+        }
+
         //Neu hang doi cua customer da full thi khong sinh them
         if (Gameplay.queueS1 == "full" && Gameplay.queueS2 == "full" && Gameplay.queueS3 == "full")
         {
