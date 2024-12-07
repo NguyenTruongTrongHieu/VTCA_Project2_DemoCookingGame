@@ -1158,7 +1158,9 @@ MonoBehaviour:
   - name: ReceiveFood
     audioClip: {fileID: 8300000, guid: 1e36150d9d7f55b4682db4ca9cbab2ac, type: 3}
   - name: EarnScore
-    audioClip: {fileID: 8300000, guid: 58cc6f7b8e09cd14ea7e11d9570688d7, type: 3}
+    audioClip: {fileID: 8300000, guid: bfaf352eff9f2df4283776ead72c101d, type: 3}
+  - name: ButtonPress
+    audioClip: {fileID: 8300000, guid: 786d7b55cdc7cf04593f922c10723833, type: 3}
   musicSource: {fileID: 1729253814}
   sfxSource: {fileID: 736489634}
 --- !u!4 &1185572520
