@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -88,7 +89,17 @@ public class Gameplay : MonoBehaviour
 
     public void UpdateTextScore()
     {
-        textScore.text = $"{score}";
+        if (score < 30) {
+            textScore.text = $"{score}/30";
+        }
+        else if (score < 60)
+        {
+            textScore.text = $"{score}/60";
+        }
+        else 
+        {
+            textScore.text = $"{score}/100";
+        }
     }
 
     IEnumerator SetSCaleForStar()
