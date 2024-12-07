@@ -35,11 +35,8 @@ public class PauseSceneManager : MonoBehaviour
 
      public void BackToHome()
     {
-
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1.0f;
-
-        
     }
 }
 

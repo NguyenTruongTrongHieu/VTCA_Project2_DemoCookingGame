@@ -88,6 +88,7 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
         if (collision.gameObject.CompareTag("Customer"))
         {
+            Debug.Log("cus");
             var customer = collision.gameObject.GetComponent<Customers>();
             if (!customer.isWaiting || customer.isAlreadyDone || customer.isOutOfTime)
             {
@@ -98,6 +99,7 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
             {
                 if (customer.orderedFoods[i] == this.gameObject.tag)
                 {
+                    Debug.Log("Dung mon");
                     customer.havingFood = true;
                     customer.orderFoodChoose = i + 1;
                     isReturnStartPosition = false;
@@ -137,6 +139,7 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
             {
                 if (customer.orderedFoods[i] == this.gameObject.tag)
                 {
+                    Debug.Log("roi cus");
                     customer.havingFood = false;
                     isReturnStartPosition = true;
                     return;

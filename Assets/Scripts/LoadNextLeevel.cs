@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ public class LoadNextLeevel : MonoBehaviour
     [SerializeField] private Button nextLevelButton;
     [SerializeField] private Button restartButton;
     [SerializeField] private TextMeshProUGUI title;
+    [SerializeField] private TextMeshProUGUI maxLevelText;
 
     // Start is called before the first frame update
     void Start()
@@ -44,10 +46,11 @@ public class LoadNextLeevel : MonoBehaviour
         if (level >= SaveAndLoad.saveLoadInstance.levels)
         {
             Debug.Log("Da het man choi");
+            StartCoroutine(DestroyText());
             return;
         }
 
-       SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex +  1);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex +  1);
         Time.timeScale = 1.0f;
     }
 
@@ -67,5 +70,22 @@ public class LoadNextLeevel : MonoBehaviour
     {
         gameOverPanel.SetActive(!gameOverPanel.activeSelf);
         Time.timeScale = 0.0f;
+    }
+
+    IEnumerator DestroyText()
+    {
+        var newText = Instantiate(maxLevelText, maxLevelText.transform.position, Quaternion.identity);
+        newText.transform.SetParent(maxLevelText.transform.parent);
+        newText.transform.localScale = Vector3.zero;
+        newText.gameObject.SetActive(true);
+
+        while (newText.transform.localScale.y < 1)
+        {
+            newText.transform.localScale += new Vector3(10 * Time.deltaTime, 10 * Time.deltaTime, 10 * Time.deltaTime);
+            yield return null;
+        }
+
+        Destroy(newText.gameObject, 1.5f);
+        yield return null;
     }
 }
