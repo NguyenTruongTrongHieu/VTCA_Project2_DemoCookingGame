@@ -23,18 +23,27 @@ public class PauseSceneManager : MonoBehaviour
 
     public void PauseTheGame()
     {
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("ButtonPress");
+
         pausePanel.SetActive(!pausePanel.activeSelf);
         Time.timeScale = 0.0f;
     }
 
      public void ContinueTheGame()
     {
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("ButtonPress");
+
         pausePanel.SetActive(!pausePanel.activeSelf);
         Time.timeScale = 1.0f;
     }
 
      public void BackToHome()
     {
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("ButtonPress");
+
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1.0f;
     }

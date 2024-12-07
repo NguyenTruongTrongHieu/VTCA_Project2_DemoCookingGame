@@ -39,6 +39,9 @@ public class LoadNextLeevel : MonoBehaviour
 
     public void ToNextLevel()
     {
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("ButtonPress");
+
         //Kiem tra xem level hien tai da la level cuoi cung hay chua
         var scene = SceneManager.GetActiveScene().name;
         var currentLevel = scene[scene.Length - 1];
@@ -56,20 +59,20 @@ public class LoadNextLeevel : MonoBehaviour
 
     public void BackToMenu()
     {
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("ButtonPress");
+
         SceneManager.LoadSceneAsync("Menu");
         Time.timeScale = 1.0f;
     }
 
     public void RestartScene()
     {
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("ButtonPress");
+
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
-    }
-
-    public void TurnOnPanel()
-    {
-        gameOverPanel.SetActive(!gameOverPanel.activeSelf);
-        Time.timeScale = 0.0f;
     }
 
     IEnumerator DestroyText()
