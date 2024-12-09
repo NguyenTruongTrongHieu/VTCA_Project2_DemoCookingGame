@@ -41,7 +41,11 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     [SerializeField] private GameObject positionOnCuttingBoard;
     [SerializeField] private GameObject positionOnGrill;
-    [SerializeField] private RectTransform rectTransform;
+
+    //Keo tha
+    [SerializeField] private RectTransform rectTransform; 
+    private Vector2 screenPosition;
+    private Vector3 worldPosition;
 
     private Vector3 startPosition;
 
@@ -292,6 +296,8 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void OnDrag(PointerEventData eventData)
     {
         //Lam object di theo con chuot hoac ngon tay
-        rectTransform.anchoredPosition += eventData.delta;
+        screenPosition = Input.GetTouch(0).position;
+        worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+        rectTransform.position = new Vector2(worldPosition.x, worldPosition.y);
     }
 }

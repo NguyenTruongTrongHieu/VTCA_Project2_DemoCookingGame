@@ -35,6 +35,10 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     private bool isDragging;
     private bool isAbleToDrag;//Co the keo duoc khong
 
+    //Drag and drop
+    private Vector2 screenPosition;
+    private Vector3 worldPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -312,6 +316,9 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             Debug.Log("Het cho");
             return;
         }
-        objDragRect.anchoredPosition += eventData.delta;
+
+        screenPosition = Input.GetTouch(0).position;
+        worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+        objDragRect.position = new Vector2(worldPosition.x, worldPosition.y);
     }
 }
