@@ -4042,6 +4042,10 @@ PrefabInstance:
       propertyPath: ShapeModule.alignToDirection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1687068246435861790, guid: b96aaf168a916324f92f99431f89756e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -137.46497
+      objectReference: {fileID: 0}
     - target: {fileID: 2517859745383267552, guid: b96aaf168a916324f92f99431f89756e, type: 3}
       propertyPath: m_Pivot.x
       value: 0

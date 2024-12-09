@@ -13,7 +13,11 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     private bool isOnTrashBin = false;
     private Vector3 startPosition;
 
+    //Keo tha
     [SerializeField] private RectTransform rectTransform;
+    private Vector2 screenPosition;
+    private Vector3 worldPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -201,6 +205,8 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     public void OnDrag(PointerEventData eventData)
     {
         //Lam object di theo con chuot hoac ngon tay
-        rectTransform.anchoredPosition += eventData.delta;
+        screenPosition = Input.GetTouch(0).position;
+        worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+        rectTransform.position = new Vector2(worldPosition.x, worldPosition.y); 
     }
 }
