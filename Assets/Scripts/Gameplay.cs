@@ -38,7 +38,6 @@ public class Gameplay : MonoBehaviour
     //Check xem player thang hay thua
     public static bool isWinning;
     public static bool isGameOver;
-
     private Gameplay()
     { 
         
@@ -47,6 +46,7 @@ public class Gameplay : MonoBehaviour
     private void Awake()
     {
         score = 0;
+        UpdateTextScore();
         isDestroyStar = false;
 
         heart = 3;
@@ -74,7 +74,7 @@ public class Gameplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UpdateTextScore();
+        AudioManager.audioInstance.PlayMusic("InGame");
     }
 
     // Update is called once per frame
