@@ -447,6 +447,10 @@ public class Customers : MonoBehaviour
         Debug.Log("Hien panel lose");
         Gameplay.isWinning = false;
 
+        //Them am thanh
+        AudioManager.audioInstance.PlayMusic("Lose");
+        AudioManager.audioInstance.musicSource.loop = false;
+
         //Cho panel game over chay
         StartCoroutine(WaitForSecond());
 

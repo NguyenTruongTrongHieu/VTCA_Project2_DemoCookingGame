@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     public Sound[] musics;
     public Sound[] sfx;
 
-    [SerializeField] private AudioSource musicSource;
+    public AudioSource musicSource;
     [SerializeField] private AudioSource sfxSource;
 
     private void Awake()
@@ -29,7 +29,6 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayMusic("InGame");
     }
 
     // Update is called once per frame
@@ -49,6 +48,7 @@ public class AudioManager : MonoBehaviour
         }
 
         musicSource.clip = music.audioClip;
+        musicSource.loop = true;
         musicSource.Play();
     }
 

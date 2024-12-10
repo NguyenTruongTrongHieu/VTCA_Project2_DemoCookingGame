@@ -69,6 +69,10 @@ public class Timer : MonoBehaviour
             Debug.Log("Hien panel win");
             Gameplay.isWinning = true;
 
+            //Them am thanh
+            AudioManager.audioInstance.PlayMusic("Win");
+            AudioManager.audioInstance.musicSource.loop = false;
+
             //Win
             if (levelScore.score < SaveAndLoad.saveLoadInstance.oneStar)//Neu nguoi choi chua vuot qua man nay truoc do thi se can tao ra 1 man moi luu vao list
             {
@@ -96,6 +100,10 @@ public class Timer : MonoBehaviour
             //Hien panel lose
             Debug.Log("Hien panel lose");
             Gameplay.isWinning = false;
+
+            //Them am thanh
+            AudioManager.audioInstance.PlayMusic("Lose");
+            AudioManager.audioInstance.musicSource.loop = false;
         }
 
         //Cho panel game over chay
