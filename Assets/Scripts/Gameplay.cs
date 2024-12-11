@@ -79,6 +79,8 @@ public class Gameplay : MonoBehaviour
 
         isWinning = false;
         isGameOver = false;
+
+        SaveAndLoad.saveLoadInstance.isFristTimePlayGame = false;
     }
 
     // Start is called before the first frame update
