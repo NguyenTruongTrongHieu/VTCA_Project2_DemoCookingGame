@@ -9,14 +9,19 @@ using System;
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timetext;  
-    [SerializeField] float remainingtime = 90;
+    [SerializeField] float remainingtime = 90; 
+    [SerializeField] float endUpTime = 10;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private Sprite fullStar;
     [SerializeField] private Sprite emptyStar;
     [SerializeField] private Image[] stars;
 
+    private Animator animator;
+
     private void Start()
     {
+        animator = GetComponent<Animator>();
+
         gameOverPanel.SetActive(false);
     }
 
@@ -31,6 +36,14 @@ public class Timer : MonoBehaviour
         if (remainingtime > 0)
         {
             remainingtime -= Time.deltaTime;
+
+            //Neu gan het thoi gian thi chuyen sang do va chay anim
+            if (remainingtime <= endUpTime && !animator.GetBool("endTimeComing"))
+            { 
+                timetext.color = Color.red;
+                AudioManager.audioInstance.PlaySFX("ClockTicking");
+                animator.SetBool("endTimeComing", true);
+            }
         }
         else//Het thoi gian 1 man choi
         {
