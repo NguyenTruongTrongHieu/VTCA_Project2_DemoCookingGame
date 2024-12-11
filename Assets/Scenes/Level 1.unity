@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 283446974}
   - component: {fileID: 283446973}
   - component: {fileID: 283446972}
+  - component: {fileID: 283446975}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -275,7 +276,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 103419627}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -298,6 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timetext: {fileID: 283446973}
   remainingtime: 30
+  endUpTime: 10
   gameOverPanel: {fileID: 3997473982397354376}
   fullStar: {fileID: 21300048, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
   emptyStar: {fileID: 21300050, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
@@ -402,6 +404,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283446970}
   m_CullTransparentMesh: 1
+--- !u!95 &283446975
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283446970}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1a3375dc505ad7b4db9052032676a406, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &286540393
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,7 +940,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.82000005, y: 0.26014817}
   m_AnchorMax: {x: 0.82000005, y: 0.26014817}
-  m_AnchoredPosition: {x: 8.4835205, y: -99.16789}
+  m_AnchoredPosition: {x: 8.4835205, y: 173.90456}
   m_SizeDelta: {x: 315.55005, y: 163.08997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371990048
@@ -1160,7 +1183,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.375
+  orthographic size: 3.9287257
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1616,7 +1639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.67600006, y: 0.46400002}
   m_AnchorMax: {x: 0.67600006, y: 0.46400002}
-  m_AnchoredPosition: {x: 412.21936, y: -46.529724}
+  m_AnchoredPosition: {x: 412.21936, y: 226.54272}
   m_SizeDelta: {x: 167.76, y: 160.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &806811318
@@ -1881,7 +1904,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 98.232605, y: -348.8372}
+  m_AnchoredPosition: {x: 98.232605, y: -75.764725}
   m_SizeDelta: {x: 237.13379, y: 299.9689}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &985256851
@@ -2457,7 +2480,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.69639593, y: 0.287}
   m_AnchorMax: {x: 0.69639593, y: 0.287}
-  m_AnchoredPosition: {x: 32.594208, y: -109.14986}
+  m_AnchoredPosition: {x: 32.594208, y: 163.92262}
   m_SizeDelta: {x: 126.29, y: 169.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1390186749
@@ -2640,7 +2663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.67600006, y: 0.46400002}
   m_AnchorMax: {x: 0.67600006, y: 0.46400002}
-  m_AnchoredPosition: {x: 180.03333, y: -65.50644}
+  m_AnchoredPosition: {x: 180.03333, y: 207.56601}
   m_SizeDelta: {x: 167.76, y: 160.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1439227026
@@ -2860,6 +2883,8 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: bfaf352eff9f2df4283776ead72c101d, type: 3}
   - name: ButtonPress
     audioClip: {fileID: 8300000, guid: 786d7b55cdc7cf04593f922c10723833, type: 3}
+  - name: ClockTicking
+    audioClip: {fileID: 8300000, guid: 1a3e538cac0a4ef438f84fff281a6534, type: 3}
   musicSource: {fileID: 1778647469}
   sfxSource: {fileID: 298303946}
 --- !u!4 &1477792247
@@ -3179,7 +3204,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.771, y: 0.43714815}
   m_AnchorMax: {x: 0.771, y: 0.43714815}
-  m_AnchoredPosition: {x: -189.90149, y: -65.571045}
+  m_AnchoredPosition: {x: -189.90149, y: 207.5014}
   m_SizeDelta: {x: 77.18, y: 159.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1774645283
@@ -3587,7 +3612,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -177.90695}
+  m_AnchoredPosition: {x: 0, y: 95.16551}
   m_SizeDelta: {x: 1920, y: 579.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1809265954
@@ -3666,7 +3691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4082332900162812631, guid: e2b7462639bf7c142b464cb9eaa7617b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5674441796393858082, guid: e2b7462639bf7c142b464cb9eaa7617b, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4531,7 +4556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5254528109591131295, guid: b96aaf168a916324f92f99431f89756e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7444881052151054896, guid: b96aaf168a916324f92f99431f89756e, type: 3}
       propertyPath: m_AnchorMax.y
