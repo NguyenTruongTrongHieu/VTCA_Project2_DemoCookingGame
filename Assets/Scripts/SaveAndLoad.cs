@@ -15,6 +15,8 @@ public class SaveAndLoad : MonoBehaviour
     public int twoStar;
     public int threeStar;
 
+    public bool isFristTimePlayGame = true;
+
     private SaveAndLoad()
     { 
         
@@ -32,8 +34,8 @@ public class SaveAndLoad : MonoBehaviour
         { 
             Destroy(gameObject);
         }
-
-        LoadDataWithPlayerPrefs();
+        
+        LoadDataWithPlayerPrefs(out levelScores);
 
         //Set cac thong so co ban cho game
         levels = 1;
@@ -81,14 +83,17 @@ public class SaveAndLoad : MonoBehaviour
         string jsonListLevelScores = JsonConvert.SerializeObject(levelScores);
         Debug.Log(jsonListLevelScores);
         PlayerPrefs.SetString("ListLevelScores", jsonListLevelScores);
+        PlayerPrefs.SetString("IsFristTimePlayGame", isFristTimePlayGame.ToString());
 
         PlayerPrefs.Save();
     }
 
-    public void LoadDataWithPlayerPrefs() 
+    public void LoadDataWithPlayerPrefs(out List<LevelScore> levelScores) 
     {
         string jsonListLevelScores = PlayerPrefs.GetString("ListLevelScores");
         Debug.Log(jsonListLevelScores);
         levelScores = JsonConvert.DeserializeObject<List<LevelScore>>(jsonListLevelScores);
+
+        isFristTimePlayGame = bool.Parse(PlayerPrefs.GetString("IsFristTimePlayGame"));
     }
 }
