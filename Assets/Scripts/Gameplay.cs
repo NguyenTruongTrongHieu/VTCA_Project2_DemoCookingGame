@@ -4,11 +4,17 @@ using System.Text;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class Gameplay : MonoBehaviour
 {
+    //Level hien tai
+    public string level;
+    public TextMeshProUGUI levelText; 
+    public TextMeshProUGUI titleLevelText;
+
     //Diem so trong man choi
     public static int score;
     public TextMeshProUGUI textScore;
@@ -45,6 +51,10 @@ public class Gameplay : MonoBehaviour
 
     private void Awake()
     {
+        level = SceneManager.GetActiveScene().name;
+        levelText.text = level;
+        titleLevelText.text = level;
+
         score = 0;
         UpdateTextScore();
         isDestroyStar = false;
@@ -74,6 +84,9 @@ public class Gameplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //An title level di
+        StartCoroutine(SetSCaleForTitleLevel());
+
         AudioManager.audioInstance.PlayMusic("InGame");
     }
 
@@ -114,5 +127,18 @@ public class Gameplay : MonoBehaviour
             star.transform.localScale -= new Vector3(6 * Time.deltaTime, 6 * Time.deltaTime, 6 * Time.deltaTime);
             yield return null;
         }
+    }
+
+    IEnumerator SetSCaleForTitleLevel()
+    {
+        titleLevelText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        while (titleLevelText.transform.localScale.x > 0f)
+        {
+            titleLevelText.transform.localScale -= new Vector3(6 * Time.deltaTime, 6 * Time.deltaTime, 6 * Time.deltaTime);
+            yield return null;
+        }
+
+        Destroy(titleLevelText.gameObject);
     }
 }
