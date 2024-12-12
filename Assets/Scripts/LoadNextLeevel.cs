@@ -82,13 +82,13 @@ public class LoadNextLeevel : MonoBehaviour
         newText.transform.localScale = Vector3.zero;
         newText.gameObject.SetActive(true);
 
-        while (newText.transform.localScale.y < 1)
+        while (newText.transform.localScale.y < 0.98f)
         {
             newText.transform.localScale += new Vector3(10 * Time.deltaTime, 10 * Time.deltaTime, 10 * Time.deltaTime);
             yield return null;
         }
 
-        Destroy(newText.gameObject, 1.5f);
+        Destroy(newText.gameObject, 1f);
         yield return null;
     }
 }

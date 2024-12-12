@@ -447,10 +447,6 @@ public class Customers : MonoBehaviour
         Debug.Log("Hien panel lose");
         Gameplay.isWinning = false;
 
-        //Them am thanh
-        AudioManager.audioInstance.PlayMusic("Lose");
-        AudioManager.audioInstance.musicSource.loop = false;
-
         //Cho panel game over chay
         StartCoroutine(WaitForSecond());
 
@@ -468,5 +464,9 @@ public class Customers : MonoBehaviour
         yield return new WaitForSeconds(2f);
         gameOverPanel.SetActive(true);
         Gameplay.isGameOver = true;
+
+        //Them am thanh
+        AudioManager.audioInstance.PlayMusic("Lose");
+        AudioManager.audioInstance.musicSource.loop = false;
     }
 }
