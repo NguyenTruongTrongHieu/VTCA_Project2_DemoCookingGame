@@ -136,29 +136,29 @@ public class Timer : MonoBehaviour
     {
         if (Gameplay.score >= SaveAndLoad.saveLoadInstance.threeStar)
         {
+            yield return new WaitForSeconds(0.8f);
             StartCoroutine(SetAnimForStar(0));
-            yield return new WaitForSeconds(1f);
 
+            yield return new WaitForSeconds(0.8f);
             StartCoroutine(SetAnimForStar(1));
-            yield return new WaitForSeconds(1f);
 
+            yield return new WaitForSeconds(0.8f);
             StartCoroutine(SetAnimForStar(2));
-            yield return new WaitForSeconds(1f);
         }
         else if (Gameplay.score >= SaveAndLoad.saveLoadInstance.twoStar)
         {
+            yield return new WaitForSeconds(0.8f);
             StartCoroutine(SetAnimForStar(0));
-            yield return new WaitForSeconds(1f);
 
+            yield return new WaitForSeconds(0.8f);
             StartCoroutine(SetAnimForStar(1));
-            yield return new WaitForSeconds(1f);
 
             stars[2].sprite = emptyStar;
         }
         else if (Gameplay.score >= SaveAndLoad.saveLoadInstance.oneStar)
         {
+            yield return new WaitForSeconds(0.8f);
             StartCoroutine(SetAnimForStar(0));
-            yield return new WaitForSeconds(1f);
 
             stars[1].sprite = emptyStar;
 
@@ -177,11 +177,11 @@ public class Timer : MonoBehaviour
     IEnumerator SetAnimForStar(int index)
     {
         stars[index].sprite = fullStar;
-        stars[index].transform.localScale = new Vector3(2, 2, 2);
+        stars[index].transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
 
         while (stars[index].transform.localScale.y > 1)
         {
-            stars[index].transform.localScale -= new Vector3(2 * Time.deltaTime, 2 * Time.deltaTime, 2 * Time.deltaTime);
+            stars[index].transform.localScale -= new Vector3(3.5f * Time.deltaTime, 3.5f * Time.deltaTime, 3.5f * Time.deltaTime);
             yield return null;
         }
 

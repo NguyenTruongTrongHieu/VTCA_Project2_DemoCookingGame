@@ -2845,7 +2845,7 @@ MonoBehaviour:
   - name: Win
     audioClip: {fileID: 8300000, guid: 2666618450853be4aa58f76c55bac2be, type: 3}
   - name: Lose
-    audioClip: {fileID: 8300000, guid: ebab402294bff804090522155f2225ad, type: 3}
+    audioClip: {fileID: 8300000, guid: 9281054311861204fa90634189b9172c, type: 3}
   sfx:
   - name: CookFoodGrilled
     audioClip: {fileID: 8300000, guid: a2eca56d79c379a40a7fd785753cc457, type: 3}
