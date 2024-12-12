@@ -54,7 +54,7 @@ public class Timer : MonoBehaviour
             remainingtime = 0;
             //Bat panel thang thua len
             TurnOnGameOverPanel();
-            SetStarForGameOverPanel();
+            StartCoroutine(SetStarForGameOverPanel());
         }
 
         
@@ -132,33 +132,33 @@ public class Timer : MonoBehaviour
         SaveAndLoad.saveLoadInstance.SaveDataWithPlayerPrefs();
     }
 
-    void SetStarForGameOverPanel()
+    IEnumerator SetStarForGameOverPanel()
     {
         if (Gameplay.score >= SaveAndLoad.saveLoadInstance.threeStar)
         {
-            stars[0].sprite = fullStar;
-            stars[0].transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+            StartCoroutine(SetAnimForStar(0));
+            yield return new WaitForSeconds(1f);
 
-            stars[1].sprite = fullStar;
-            stars[1].transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+            StartCoroutine(SetAnimForStar(1));
+            yield return new WaitForSeconds(1f);
 
-            stars[2].sprite = fullStar;
-            stars[2].transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+            StartCoroutine(SetAnimForStar(2));
+            yield return new WaitForSeconds(1f);
         }
         else if (Gameplay.score >= SaveAndLoad.saveLoadInstance.twoStar)
         {
-            stars[0].sprite = fullStar;
-            stars[0].transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+            StartCoroutine(SetAnimForStar(0));
+            yield return new WaitForSeconds(1f);
 
-            stars[1].sprite = fullStar;
-            stars[1].transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+            StartCoroutine(SetAnimForStar(1));
+            yield return new WaitForSeconds(1f);
 
             stars[2].sprite = emptyStar;
         }
         else if (Gameplay.score >= SaveAndLoad.saveLoadInstance.oneStar)
         {
-            stars[0].sprite = fullStar;
-            stars[0].transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+            StartCoroutine(SetAnimForStar(0));
+            yield return new WaitForSeconds(1f);
 
             stars[1].sprite = emptyStar;
 
@@ -172,5 +172,19 @@ public class Timer : MonoBehaviour
 
             stars[2].sprite = emptyStar;
         }
+    }
+
+    IEnumerator SetAnimForStar(int index)
+    {
+        stars[index].sprite = fullStar;
+        stars[index].transform.localScale = new Vector3(2, 2, 2);
+
+        while (stars[index].transform.localScale.y > 1)
+        {
+            stars[index].transform.localScale -= new Vector3(2 * Time.deltaTime, 2 * Time.deltaTime, 2 * Time.deltaTime);
+            yield return null;
+        }
+
+        stars[index].transform.GetChild(0).GetComponent<ParticleSystem>().Play();
     }
 }
