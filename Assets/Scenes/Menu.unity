@@ -716,8 +716,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fast Food Flavor
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fd3f70fe2c66c014b8a1758792dcf483, type: 2}
-  m_sharedMaterial: {fileID: 8427617750912325629, guid: fd3f70fe2c66c014b8a1758792dcf483, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79ab54ce5c5aeba418970257e672770f, type: 2}
+  m_sharedMaterial: {fileID: 5840729480165514581, guid: 79ab54ce5c5aeba418970257e672770f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
