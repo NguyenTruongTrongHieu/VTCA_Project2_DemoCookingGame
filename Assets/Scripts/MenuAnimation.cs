@@ -33,6 +33,8 @@ public class MenuAnimation : MonoBehaviour
 
     public void Update()
     {
+        if (MenuButton == null || playButton == null || settingsButton == null)
+        {  return; }
         if (isMenuOn)
         {
             MenuButton.enabled = false;

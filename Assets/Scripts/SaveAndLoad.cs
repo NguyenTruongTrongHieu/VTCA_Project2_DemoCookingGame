@@ -38,7 +38,7 @@ public class SaveAndLoad : MonoBehaviour
         LoadDataWithPlayerPrefs(out levelScores);
 
         //Set cac thong so co ban cho game
-        levels = 1;
+        levels = 3;
         oneStar = 30;
         twoStar = 60;
         threeStar = 100;
