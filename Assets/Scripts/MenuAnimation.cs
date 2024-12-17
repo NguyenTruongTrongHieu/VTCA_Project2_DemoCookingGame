@@ -21,12 +21,14 @@ public class MenuAnimation : MonoBehaviour
     [SerializeField] float topPosY, middlePosY;
     [SerializeField] float tweenDuration;
     [SerializeField] CanvasGroup canvasGroup;
+    [SerializeField] private GameObject menuTitle;
+    [SerializeField] private Button playButton;
+    [SerializeField] private Button settingsButton;
 
     public void Start()
     {
         menuPanel.SetActive(false);
         menuBG.SetActive(false);
-
     }
 
     public void Update()
@@ -34,10 +36,14 @@ public class MenuAnimation : MonoBehaviour
         if (isMenuOn)
         {
             MenuButton.enabled = false;
+            playButton.enabled = false;
+            settingsButton.enabled = false;
         }
         else
         {
             MenuButton.enabled=true;
+            playButton.enabled=true;
+            settingsButton.enabled=true;
         }
     }
 
@@ -49,6 +55,7 @@ public class MenuAnimation : MonoBehaviour
         menuPanel.SetActive(!menuPanel.activeSelf);
         menuBG.SetActive(!menuBG.activeSelf);
         Time.timeScale = 0.0f;
+        menuTitle.SetActive(false);
     }
 
     public async void CloseMenu()
@@ -59,6 +66,7 @@ public class MenuAnimation : MonoBehaviour
         menuPanel.SetActive(!menuPanel.activeSelf);
         menuBG.SetActive(!menuBG.activeSelf);
         Time.timeScale = 1.0f;
+        menuTitle.SetActive(true);
     }
 
     void  MenuIntro()
