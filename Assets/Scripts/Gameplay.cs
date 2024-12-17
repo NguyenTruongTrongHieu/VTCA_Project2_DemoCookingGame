@@ -12,7 +12,6 @@ public class Gameplay : MonoBehaviour
 {
     //Level hien tai
     public string level;
-    public TextMeshProUGUI levelText; 
     public TextMeshProUGUI titleLevelText;
 
     //Diem so trong man choi
@@ -52,7 +51,6 @@ public class Gameplay : MonoBehaviour
     private void Awake()
     {
         level = SceneManager.GetActiveScene().name;
-        levelText.text = level;
         titleLevelText.text = level;
 
         score = 0;

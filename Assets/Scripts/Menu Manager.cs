@@ -15,6 +15,8 @@ public class MenuManager : MonoBehaviour
         menuPanel.SetActive(true);
         levelPanel.SetActive(false);
         gameTitle.SetActive(true);
+
+        AudioManager.audioInstance.PlayMusic("Menu");
     }
 
     // Update is called once per frame
@@ -28,6 +30,9 @@ public class MenuManager : MonoBehaviour
         levelPanel.SetActive(!levelPanel.activeSelf);
         menuPanel.SetActive(!menuPanel.activeSelf);
         gameTitle.SetActive(!gameTitle.activeSelf);
+
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("ButtonPress");
     }
 
     public void BackToMenu()
@@ -37,5 +42,8 @@ public class MenuManager : MonoBehaviour
         //tutorialPanel.SetActive(false);
         menuPanel.SetActive(!menuPanel.activeSelf);
         gameTitle.SetActive(!gameTitle.activeSelf);
+
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("ButtonPress");
     }
 }
