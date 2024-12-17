@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; // Required for UI elements
 
-public class book : MonoBehaviour
+public class Book : MonoBehaviour
 {
     [SerializeField] float pageSpeed = 0.5f;
     [SerializeField] List<Transform> pages;
@@ -18,35 +19,45 @@ public class book : MonoBehaviour
 
     public void InitialState()
     {
-        for (int i=0; i<pages.Count; i++)
+        for (int i = 0; i < pages.Count; i++)
         {
-            pages[i].transform.rotation=Quaternion.identity;
+            pages[i].transform.rotation = Quaternion.identity;
         }
         pages[0].SetAsLastSibling();
         backButton.SetActive(false);
+    }
 
+    public void OnNextButtonClick() // Called when the Next button is clicked
+    {
+        Debug.Log("Next Button Clicked");
+        RotateForward();
+    }
+
+    public void OnBackButtonClick() // Called when the Back button is clicked
+    {
+        RotateBack();
     }
 
     public void RotateForward()
     {
-        if (rotate == true) { return; }
+        if (rotate || index >= pages.Count - 1) { return; }
+
         index++;
-        float angle = 180; //in order to rotate the page forward, you need to set the rotation by 180 degrees around the y axis
+        float angle = 180; // Rotate forward
         ForwardButtonActions();
         pages[index].SetAsLastSibling();
         StartCoroutine(Rotate(angle, true));
-
     }
 
     public void ForwardButtonActions()
     {
-        if (backButton.activeInHierarchy == false)
+        if (!backButton.activeInHierarchy)
         {
-            backButton.SetActive(true); //every time we turn the page forward, the back button should be activated
+            backButton.SetActive(true);
         }
         if (index == pages.Count - 1)
         {
-            forwardButton.SetActive(false); //if the page is last then we turn off the forward button
+            forwardButton.SetActive(false);
         }
     }
 
@@ -61,41 +72,38 @@ public class book : MonoBehaviour
 
     public void BackButtonActions()
     {
-        if (forwardButton.activeInHierarchy == false)
+        if (!forwardButton.activeInHierarchy)
         {
-            forwardButton.SetActive(true); //every time we turn the page back, the forward button should be activated
+            forwardButton.SetActive(true);
         }
-        if (index - 1 == -1)
+        if (index - 1 < 0)
         {
-            backButton.SetActive(false); //if the page is first then we turn off the back button
+            backButton.SetActive(false);
         }
     }
 
     IEnumerator Rotate(float angle, bool forward)
     {
         float value = 0f;
+        rotate = true;
+        Quaternion targetRotation = Quaternion.Euler(0, angle, 0);
+
         while (true)
         {
-            rotate = true;
-            Quaternion targetRotation = Quaternion.Euler(0, angle, 0);
-            value += Time.deltaTime * pageSpeed;
-            pages[index].rotation = Quaternion.Slerp(pages[index].rotation, targetRotation, value); //smoothly turn the page
-            float angle1 = Quaternion.Angle(pages[index].rotation, targetRotation); //calculate the angle between the given angle of rotation and the current angle of rotation
+            value += Time.unscaledDeltaTime * pageSpeed;
+            pages[index].rotation = Quaternion.Slerp(pages[index].rotation, targetRotation, value);
+
+            float angle1 = Quaternion.Angle(pages[index].rotation, targetRotation);
             if (angle1 < 0.1f)
             {
-                if (forward == false)
+                if (!forward)
                 {
                     index--;
                 }
                 rotate = false;
                 break;
-
             }
             yield return null;
-
         }
     }
-
-
-
 }

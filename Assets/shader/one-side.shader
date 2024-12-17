@@ -1,15 +1,15 @@
-Shader "Unlit/one-side"
+Shader "Unlit/OneSided"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        [Enum(UnityEngine.Rendering.CullMode)] _Cull("Cull", Float)=0
     }
     SubShader
     {
-        Tags {"Queue"="Transparent" "RenderType"="Transparent"}
-        Lighting Off ZWrite Off
-        Cull [_Cull]
+        Tags { "Queue" = "Transparent" "RenderType" = "Transparent" }
+        Blend SrcAlpha OneMinusSrcAlpha
+        ZWrite Off
+        Cull Back // or Cull Front depending on which side you want visible
 
         Pass
         {
@@ -51,4 +51,5 @@ Shader "Unlit/one-side"
             ENDCG
         }
     }
+    FallBack "Diffuse"
 }
