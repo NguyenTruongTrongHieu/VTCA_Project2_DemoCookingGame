@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject levelPanel;
     //[SerializeField] private GameObject tutorialPanel;
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject gameTitle;
     
     void Start()
     {
@@ -25,6 +26,7 @@ public class MenuManager : MonoBehaviour
     {
         levelPanel.SetActive(!levelPanel.activeSelf);
         menuPanel.SetActive(!menuPanel.activeSelf);
+        gameTitle.SetActive(!gameTitle.activeSelf);
     }
 
     public void BackToMenu()
@@ -33,5 +35,6 @@ public class MenuManager : MonoBehaviour
         settingsPanel.SetActive(false);
         //tutorialPanel.SetActive(false);
         menuPanel.SetActive(!menuPanel.activeSelf);
+        gameTitle.SetActive(!gameTitle.activeSelf);
     }
 }
