@@ -1529,7 +1529,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 30
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6630,7 +6630,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 30
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -11001,7 +11001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1520172959286746502, guid: cf84625356b21e44693e41e4eac0f626, type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1520172959286746502, guid: cf84625356b21e44693e41e4eac0f626, type: 3}
       propertyPath: InitialModule.startSizeY.minMaxState
