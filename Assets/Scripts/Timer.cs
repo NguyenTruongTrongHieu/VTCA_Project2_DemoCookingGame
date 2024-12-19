@@ -181,7 +181,7 @@ public class Timer : MonoBehaviour
 
         while (stars[index].transform.localScale.y > 1)
         {
-            stars[index].transform.localScale -= new Vector3(3.5f * Time.deltaTime, 3.5f * Time.deltaTime, 3.5f * Time.deltaTime);
+            stars[index].transform.localScale -= new Vector3(5f * Time.deltaTime, 5f * Time.deltaTime, 5f * Time.deltaTime);
             yield return null;
         }
 
