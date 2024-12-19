@@ -678,6 +678,7 @@ MonoBehaviour:
   menuPanel: {fileID: 2490655491790074644}
   levelPanel: {fileID: 44986528186447171}
   settingsPanel: {fileID: 7419840310834349306}
+  gameTitle: {fileID: 0}
 --- !u!1 &1723821413891175584
 GameObject:
   m_ObjectHideFlags: 0
