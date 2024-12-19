@@ -33,19 +33,20 @@ public class MenuAnimation : MonoBehaviour
 
     public void Update()
     {
-        if (MenuButton == null || playButton == null || settingsButton == null)
+        if (MenuButton == null || playButton == null || settingsButton == null || menuTitle == null)
         {  return; }
         if (isMenuOn)
         {
             MenuButton.enabled = false;
             playButton.enabled = false;
             settingsButton.enabled = false;
+            menuTitle.SetActive(false);
         }
         else
         {
-            MenuButton.enabled=true;
-            playButton.enabled=true;
-            settingsButton.enabled=true;
+            MenuButton.enabled = true;
+            playButton.enabled = true;
+            settingsButton.enabled = true;
         }
     }
 
