@@ -58,6 +58,9 @@ public class MenuAnimation : MonoBehaviour
         menuBG.SetActive(!menuBG.activeSelf);
         Time.timeScale = 0.0f;
         menuTitle.SetActive(false);
+
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("ButtonPress");
     }
 
     public async void CloseMenu()
@@ -69,6 +72,9 @@ public class MenuAnimation : MonoBehaviour
         menuBG.SetActive(!menuBG.activeSelf);
         Time.timeScale = 1.0f;
         menuTitle.SetActive(true);
+
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("ButtonPress");
     }
 
     void  MenuIntro()

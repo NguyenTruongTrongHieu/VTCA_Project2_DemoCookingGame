@@ -27,8 +27,6 @@ public class LevelMenu : MonoBehaviour
             buttons[i].interactable = true;
             SetStarForLevel(i);
         }
-
-        AudioManager.audioInstance.PlayMusic("Menu");
     }
 
     public void openLevel(int levelId)
