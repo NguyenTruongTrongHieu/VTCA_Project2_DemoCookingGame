@@ -92,6 +92,9 @@ public class MenuAnimation : MonoBehaviour
     {
         if (isMenuOn) // Kiểm tra xem menu đã mở chưa
         {
+            //Them am thanh
+            AudioManager.audioInstance.PlaySFX("ButtonPress");
+
             //Debug.Log(isMenuOn);
             isMenuOn = false;
             await MenuOutro();
@@ -101,10 +104,6 @@ public class MenuAnimation : MonoBehaviour
             //infoPanel.SetActive(!infoPanel.activeSelf);
             menuBG.SetActive(!menuBG.activeSelf);
             Time.timeScale = 1.0f;
-
-
-            //Them am thanh
-            AudioManager.audioInstance.PlaySFX("ButtonPress");
         }
     }
 
