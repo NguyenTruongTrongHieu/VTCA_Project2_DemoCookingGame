@@ -15,6 +15,7 @@ public class MenuAnimation : MonoBehaviour
 
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject menuBG;
+    [SerializeField] private GameObject infoPanel;
 
     [SerializeField] RectTransform menuPanelRect;
     [SerializeField] RectTransform menuCoverRect;
@@ -24,6 +25,8 @@ public class MenuAnimation : MonoBehaviour
     [SerializeField] private GameObject menuTitle;
     [SerializeField] private Button playButton;
     [SerializeField] private Button settingsButton;
+    [SerializeField] private GameObject pauseButton;
+
 
     public void Start()
     {
@@ -33,49 +36,76 @@ public class MenuAnimation : MonoBehaviour
 
     public void Update()
     {
-        if (MenuButton == null || playButton == null || settingsButton == null || menuTitle == null)
-        {  return; }
+        //Debug.Log("Update called"); // Thêm dòng này để kiểm tra xem Update có đang chạy không
+        
+
+        if (MenuButton == null || playButton == null || settingsButton == null || menuTitle == null || infoPanel == null)
+        {
+            //Debug.Log("Có một hoặc nhiều nút là null"); // Ghi log nếu bất kỳ nút nào là null
+            return; 
+        }
+
+
         if (isMenuOn)
         {
+            Debug.Log(isMenuOn);
             MenuButton.enabled = false;
             playButton.enabled = false;
             settingsButton.enabled = false;
+            pauseButton.SetActive(false);
             menuTitle.SetActive(false);
+            infoPanel.SetActive(false);
         }
         else
         {
+            Debug.Log(isMenuOn);
             MenuButton.enabled = true;
             playButton.enabled = true;
             settingsButton.enabled = true;
+            pauseButton.SetActive(true);
+            menuTitle.SetActive(true);
+            infoPanel.SetActive(true);
         }
     }
 
-    public  void OpenMenu()
+    public void OpenMenu()
     {
+        if (!isMenuOn) // Kiểm tra xem menu đã mở chưa
+        { 
+        //Debug.Log(isMenuOn);
         isMenuOn = true;
-         MenuIntro();
+        MenuIntro();
         canvasGroup.DOFade(1, tweenDuration).SetUpdate(true);
         menuPanel.SetActive(!menuPanel.activeSelf);
-        menuBG.SetActive(!menuBG.activeSelf);
+        //menuTitle.SetActive(!menuTitle.activeSelf);
+        //infoPanel.SetActive(!infoPanel.activeSelf);
+            menuBG.SetActive(!menuBG.activeSelf);
         Time.timeScale = 0.0f;
-        menuTitle.SetActive(false);
+
 
         //Them am thanh
         AudioManager.audioInstance.PlaySFX("ButtonPress");
+        }
     }
 
     public async void CloseMenu()
     {
-        isMenuOn = false;
-        await MenuOutro();
-        canvasGroup.DOFade(0, tweenDuration).SetUpdate(true);
-        menuPanel.SetActive(!menuPanel.activeSelf);
-        menuBG.SetActive(!menuBG.activeSelf);
-        Time.timeScale = 1.0f;
-        menuTitle.SetActive(true);
+        if (isMenuOn) // Kiểm tra xem menu đã mở chưa
+        {
+            //Debug.Log(isMenuOn);
+            isMenuOn = false;
+            await MenuOutro();
+            canvasGroup.DOFade(0, tweenDuration).SetUpdate(true);
+            menuPanel.SetActive(!menuPanel.activeSelf);
+            //menuTitle.SetActive(!menuTitle.activeSelf);
+            //infoPanel.SetActive(!infoPanel.activeSelf);
+            menuBG.SetActive(!menuBG.activeSelf);
+            Time.timeScale = 1.0f;
 
-        //Them am thanh
-        AudioManager.audioInstance.PlaySFX("ButtonPress");
+
+            //Them am thanh
+            AudioManager.audioInstance.PlaySFX("ButtonPress");
+        }
     }
 
     void  MenuIntro()
