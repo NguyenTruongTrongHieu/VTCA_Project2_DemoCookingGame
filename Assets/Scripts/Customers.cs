@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Security.Cryptography;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -51,9 +53,6 @@ public class Customers : MonoBehaviour
     public int mediumScore;
     public int lowScore;
     public int minusScore;
-
-    //Gameover
-    public GameObject gameOverPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -180,7 +179,12 @@ public class Customers : MonoBehaviour
                 {
                     Gameplay.score = 0;
 
-                    TurnOnGameOverPanel();
+                    //if (gameOverPanel.gameObject.activeSelf)
+                    //{
+                    //    return;
+                    //}
+                    Timer.timerInstance.TurnOnGameOverPanel();
+                    StartCoroutine(Timer.timerInstance.SetStarForGameOverPanel());
                 }
                 //Update text score
                 gameplay.UpdateTextScore();
@@ -430,43 +434,5 @@ public class Customers : MonoBehaviour
         {
             Gameplay.queueS3 = "empty";
         }
-    }
-
-    void TurnOnGameOverPanel()
-    {
-        //Test save and load
-        var levelScore = SaveAndLoad.saveLoadInstance.levelScores.Find(x => x.level == SceneManager.GetActiveScene().name);//Tim level hien tai o trong list
-        if (levelScore == null)
-        {
-            Debug.Log("khong tim thay level hien tai trong list");
-            return;
-        }
-
-        //Lose
-        //Hien panel lose
-        Debug.Log("Hien panel lose");
-        Gameplay.isWinning = false;
-
-        //Cho panel game over chay
-        StartCoroutine(WaitForSecond());
-
-        //Neu diem cua level hien tai ma nguoi choi vua hoan thanh lon hon diem duoc luu thi luu lai
-        if (Gameplay.score > levelScore.score)
-        {
-            levelScore.score = Gameplay.score;
-        }
-        //Luu list lai
-        SaveAndLoad.saveLoadInstance.SaveDataWithPlayerPrefs();
-    }
-
-    IEnumerator WaitForSecond()
-    {
-        yield return new WaitForSeconds(2f);
-        gameOverPanel.SetActive(true);
-        Gameplay.isGameOver = true;
-
-        //Them am thanh
-        AudioManager.audioInstance.PlayMusic("Lose");
-        AudioManager.audioInstance.musicSource.loop = false;
     }
 }

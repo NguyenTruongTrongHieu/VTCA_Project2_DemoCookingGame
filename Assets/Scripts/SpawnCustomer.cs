@@ -20,7 +20,6 @@ public class SpawnCustomer : MonoBehaviour
     [SerializeField] private int lowScore;
     [SerializeField] private int minusScore;
 
-    [SerializeField] private GameObject gameOverPanel;
     private float randomTime;
 
     // Start is called before the first frame update
@@ -54,7 +53,6 @@ public class SpawnCustomer : MonoBehaviour
         //Den luc sinh ra customer
         var cus = customer.GetComponent<Customers>();
         //Gan cac chi so can thiet cho cus
-        cus.gameOverPanel = gameOverPanel;
         cus.customerTime = customerTime;
         cus.safeTime = safeTime;
         cus.warningTime = warningTime;
