@@ -34,10 +34,11 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [SerializeField] private Image sliderImage;
     [SerializeField] private Color sliderColor;
     [SerializeField] private GameObject fireBurnCookFood;//Gameobject chua anim chay cua cook food
+    [SerializeField] private GameObject getToGarbage;//Gameobject chua anim goi y thung rac
     [SerializeField] private Image emojiImage;
     [SerializeField] private Sprite[] emojis;
     private float emojiChangeScaleTime = 0.25f;
-    private bool isSetScaleForRipe = false;
+    private bool isSetScaleForRipeness = false;
 
     [SerializeField] private GameObject positionOnCuttingBoard;
     [SerializeField] private GameObject positionOnGrill;
@@ -63,7 +64,7 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         sliderCookingTime.minValue = 0;
         cookFoodPanel.SetActive(false);
         fireBurnCookFood.SetActive(false);
-
+        getToGarbage.SetActive(false);
 
         //Dua doi tuong hien tai tro thanh con cua canvas dung de keo tha
         var dragCanvas = GameObject.FindGameObjectWithTag("UIDrag");
@@ -121,10 +122,10 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             sliderImage.color = Color.green;
             emojiImage.sprite = emojis[0];
 
-            if (!isSetScaleForRipe)//Dieu kien de chi set scale cho emoji 1 lan duy nhat o moi trang thai
+            if (!isSetScaleForRipeness)//Dieu kien de chi set scale cho emoji 1 lan duy nhat o moi trang thai
             {
                 StartCoroutine(SetScaleForEmojiImage());
-                isSetScaleForRipe = true;
+                isSetScaleForRipeness = true;
             }
 
             //Them am thanh
@@ -135,10 +136,10 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             sliderImage.color = Color.red; 
             emojiImage.sprite = emojis[1];
 
-            if (isSetScaleForRipe)
+            if (isSetScaleForRipeness)
             {
                 StartCoroutine(SetScaleForEmojiImage());
-                isSetScaleForRipe = false;
+                isSetScaleForRipeness = false;
 
                 //Them am thanh
                 AudioManager.audioInstance.PlaySFX("CookFoodWarning");
@@ -151,6 +152,7 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             sliderImage.color = Color.white;
             emojiImage.sprite = null;
             fireBurnCookFood.SetActive(true);
+            getToGarbage.SetActive(true);
 
             //Them am thanh
             AudioManager.audioInstance.PlaySFX("CookFoodBurn");
