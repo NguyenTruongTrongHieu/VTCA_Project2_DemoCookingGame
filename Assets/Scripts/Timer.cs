@@ -8,6 +8,8 @@ using System;
 
 public class Timer : MonoBehaviour
 {
+    public static Timer timerInstance;
+
     [SerializeField] TextMeshProUGUI timetext;  
     [SerializeField] float remainingtime = 90; 
     [SerializeField] float endUpTime = 10;
@@ -17,6 +19,11 @@ public class Timer : MonoBehaviour
     [SerializeField] private Image[] stars;
 
     private Animator animator;
+
+    private void Awake()
+    {
+        timerInstance = this;
+    }
 
     private void Start()
     {
@@ -65,7 +72,7 @@ public class Timer : MonoBehaviour
         timetext.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    void TurnOnGameOverPanel()
+    public void TurnOnGameOverPanel()
     {
         //Test save and load
         var levelScore = SaveAndLoad.saveLoadInstance.levelScores.Find(x => x.level == SceneManager.GetActiveScene().name);//Tim level hien tai o trong list
@@ -74,6 +81,11 @@ public class Timer : MonoBehaviour
             Debug.Log("khong tim thay level hien tai trong list");
             return;
         }
+
+
+        //Cho panel game over chay
+        gameOverPanel.gameObject.SetActive(true);
+        Gameplay.isGameOver = true;
 
         //Kiem tra xem diem cua level hien tai ma nguoi choi vua hoan thanh co qua duoc moc de win khong
         if (Gameplay.score >= SaveAndLoad.saveLoadInstance.oneStar)
@@ -119,10 +131,6 @@ public class Timer : MonoBehaviour
             AudioManager.audioInstance.musicSource.loop = false;
         }
 
-        //Cho panel game over chay
-        gameOverPanel.gameObject.SetActive(true);
-        Gameplay.isGameOver = true;
-
         //Neu diem cua level hien tai ma nguoi choi vua hoan thanh lon hon diem duoc luu thi luu lai
         if (Gameplay.score > levelScore.score)
         {
@@ -132,8 +140,22 @@ public class Timer : MonoBehaviour
         SaveAndLoad.saveLoadInstance.SaveDataWithPlayerPrefs();
     }
 
-    IEnumerator SetStarForGameOverPanel()
+    public IEnumerator SetStarForGameOverPanel()
     {
+        //gan component animator cua game over
+        Animator animGameOver = gameOverPanel.GetComponent<Animator>();
+
+        //Hien title
+        animGameOver.SetInteger("gameOverStateAnim", 1);
+        yield return new WaitForSeconds(1f);
+        animGameOver.SetBool("isAnimTitleDone", true);
+
+        //Hien star
+        animGameOver.SetInteger("gameOverStateAnim", 2);
+        yield return new WaitForSeconds(1f);
+        animGameOver.SetBool("isAnimStarDone", true);
+
+        //CHay anim va hieu ung cho ngoi sao
         if (Gameplay.score >= SaveAndLoad.saveLoadInstance.threeStar)
         {
             yield return new WaitForSeconds(0.8f);
@@ -172,6 +194,12 @@ public class Timer : MonoBehaviour
 
             stars[2].sprite = emptyStar;
         }
+
+        //Hien button
+        yield return new WaitForSeconds(0.8f);
+        animGameOver.SetInteger("gameOverStateAnim", 3);
+        yield return new WaitForSeconds(1f);
+        animGameOver.SetBool("isAnimButtonsDone", true);
     }
 
     IEnumerator SetAnimForStar(int index)

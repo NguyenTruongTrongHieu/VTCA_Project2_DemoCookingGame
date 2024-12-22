@@ -58,7 +58,7 @@ public class MenuAnimation : MonoBehaviour
         }
         else
         {
-            Debug.Log(isMenuOn);
+            
             MenuButton.enabled = true;
             playButton.enabled = true;
             settingsButton.enabled = true;
