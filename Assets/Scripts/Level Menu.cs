@@ -38,7 +38,7 @@ public class LevelMenu : MonoBehaviour
         string levelName = "Level " + levelId;
         levelPanel.SetActive(false);
         //SceneManager.LoadScene(levelName);
-        LoadingManager.instance.SwitchToScene(levelName);
+        LoadingManager.instance.SwitchToSceneByName(levelName);
     }
 
     void SetStarForLevel(int index)
