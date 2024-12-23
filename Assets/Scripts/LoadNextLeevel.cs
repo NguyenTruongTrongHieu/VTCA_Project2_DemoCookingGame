@@ -53,7 +53,8 @@ public class LoadNextLeevel : MonoBehaviour
             return;
         }
 
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex +  1);
+        //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex +  1);
+        LoadingManager.instance.SwitchToSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1);
         Time.timeScale = 1.0f;
     }
 
@@ -62,7 +63,8 @@ public class LoadNextLeevel : MonoBehaviour
         //Them am thanh
         AudioManager.audioInstance.PlaySFX("ButtonPress");
 
-        SceneManager.LoadSceneAsync("Menu");
+        //SceneManager.LoadSceneAsync("Menu");
+        LoadingManager.instance.SwitchToSceneByName("Menu");
         Time.timeScale = 1.0f;
     }
 
@@ -71,7 +73,8 @@ public class LoadNextLeevel : MonoBehaviour
         //Them am thanh
         AudioManager.audioInstance.PlaySFX("ButtonPress");
 
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        LoadingManager.instance.SwitchToSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
     }
 
