@@ -40,6 +40,9 @@ public class Book : MonoBehaviour
 
     public void RotateForward()
     {
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("PageTurn");
+
         if (rotate || index >= pages.Count - 1) { return; }
 
         index++;
@@ -63,6 +66,9 @@ public class Book : MonoBehaviour
 
     public void RotateBack()
     {
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("PageTurn");
+
         if (rotate == true) { return; }
         float angle = 0; //in order to rotate the page back, you need to set the rotation to 0 degrees around the y axis
         pages[index].SetAsLastSibling();
