@@ -59,8 +59,9 @@ public class LoadingManager : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(5.0f);
+        //yield return new WaitForSeconds(0.2f);
         loadingScreenObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 
     IEnumerator SwitchToSceneAsycByBuildIndex(int id)
@@ -72,7 +73,8 @@ public class LoadingManager : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(5.0f);
+        //yield return new WaitForSeconds(0.2f);
         loadingScreenObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 }
