@@ -317,7 +317,20 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             return;
         }
 
-        screenPosition = Input.GetTouch(0).position;
+        if (Input.GetMouseButton(0))
+        {
+            Vector3 mousePos = Input.mousePosition;
+            screenPosition = new Vector2(mousePos.x, mousePos.y);
+        }
+        else if (Input.touchCount > 0)
+        {
+            screenPosition = Input.GetTouch(0).position;
+        }
+        else 
+        {
+            return;
+        }
+        
         worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
         objDragRect.position = new Vector2(worldPosition.x, worldPosition.y);
     }
