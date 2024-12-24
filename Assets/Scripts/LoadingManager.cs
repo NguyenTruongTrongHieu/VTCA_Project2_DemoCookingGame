@@ -36,6 +36,7 @@ public class LoadingManager : MonoBehaviour
 
     public void SwitchToSceneByName(string levelName)
     {
+        this.gameObject.SetActive(true);
         loadingScreenObject.SetActive(true);
 
         progressBar.value = 0;
@@ -44,6 +45,7 @@ public class LoadingManager : MonoBehaviour
 
     public void SwitchToSceneByBuildIndex(int id)
     {
+        this.gameObject.SetActive(true);
         loadingScreenObject.SetActive(true);
 
         progressBar.value = 0;

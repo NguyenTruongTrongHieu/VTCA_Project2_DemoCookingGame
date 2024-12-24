@@ -55,6 +55,7 @@ public class LoadNextLeevel : MonoBehaviour
 
         //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex +  1);
         LoadingManager.instance.SwitchToSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1);
+        gameOverPanel.SetActive(false);
         Time.timeScale = 1.0f;
     }
 
@@ -65,6 +66,7 @@ public class LoadNextLeevel : MonoBehaviour
 
         //SceneManager.LoadSceneAsync("Menu");
         LoadingManager.instance.SwitchToSceneByName("Menu");
+        gameOverPanel.SetActive(false);
         Time.timeScale = 1.0f;
     }
 
@@ -75,6 +77,7 @@ public class LoadNextLeevel : MonoBehaviour
 
         //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         LoadingManager.instance.SwitchToSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex);
+        gameOverPanel.SetActive(false);
         Time.timeScale = 1.0f;
     }
 

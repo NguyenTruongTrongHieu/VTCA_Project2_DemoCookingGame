@@ -3501,7 +3501,7 @@ PrefabInstance:
       objectReference: {fileID: 3997473982397354376}
     - target: {fileID: 9066067181121287548, guid: d122c08c3fedf3142879b4e051b2e191, type: 3}
       propertyPath: remainingtime
-      value: 40
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9066067181121287548, guid: d122c08c3fedf3142879b4e051b2e191, type: 3}
       propertyPath: stars.Array.data[0]
