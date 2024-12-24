@@ -897,14 +897,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1715560019}
     m_Modifications:
-    - target: {fileID: 554938275179905532, guid: dfe314c0612d5ac419ddf80a3949dded, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -75.764725
-      objectReference: {fileID: 0}
-    - target: {fileID: 3432834322262850465, guid: dfe314c0612d5ac419ddf80a3949dded, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4060146224527421069, guid: dfe314c0612d5ac419ddf80a3949dded, type: 3}
       propertyPath: m_Name
       value: Book
