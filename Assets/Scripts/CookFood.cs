@@ -298,7 +298,20 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void OnDrag(PointerEventData eventData)
     {
         //Lam object di theo con chuot hoac ngon tay
-        screenPosition = Input.GetTouch(0).position;
+        if (Input.GetMouseButton(0))
+        {
+            Vector3 mousePos = Input.mousePosition;
+            screenPosition = new Vector2(mousePos.x, mousePos.y);
+        }
+        else if (Input.touchCount > 0)
+        {
+            screenPosition = Input.GetTouch(0).position;
+        }
+        else
+        {
+            return;
+        }
+
         worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
         rectTransform.position = new Vector2(worldPosition.x, worldPosition.y);
     }
