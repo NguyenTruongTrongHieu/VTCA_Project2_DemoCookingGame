@@ -35,6 +35,16 @@ public class MenuManager : MonoBehaviour
         AudioManager.audioInstance.PlaySFX("ButtonPress");
     }
 
+    public void OpenSettingsPanel()
+    {
+        settingsPanel.SetActive(!levelPanel.activeSelf);
+        menuPanel.SetActive(!menuPanel.activeSelf);
+        gameTitle.SetActive(!gameTitle.activeSelf);
+
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("ButtonPress");
+    }
+
     public void BackToMenu()
     {
         levelPanel.SetActive(false);

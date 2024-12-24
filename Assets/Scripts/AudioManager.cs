@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource musicSource;
     [SerializeField] private AudioSource sfxSource;
+    VolumeSetting volumeSetting;
 
     private void Awake()
     {

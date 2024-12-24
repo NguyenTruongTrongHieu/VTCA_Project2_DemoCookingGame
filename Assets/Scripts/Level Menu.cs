@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class LevelMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject levelPanel;
     public Button[] buttons;
     [SerializeField] private Sprite fullStar;
     [SerializeField] private Sprite emptyStar;
@@ -35,7 +36,9 @@ public class LevelMenu : MonoBehaviour
         AudioManager.audioInstance.PlaySFX("ButtonPress");
 
         string levelName = "Level " + levelId;
-        SceneManager.LoadScene(levelName);
+        levelPanel.SetActive(false);
+        //SceneManager.LoadScene(levelName);
+        LoadingManager.instance.SwitchToSceneByName(levelName);
     }
 
     void SetStarForLevel(int index)

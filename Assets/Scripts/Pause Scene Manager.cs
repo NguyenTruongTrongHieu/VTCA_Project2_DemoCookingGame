@@ -13,11 +13,13 @@ public class PauseSceneManager : MonoBehaviour
     [SerializeField] private Button homeButton;
 
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject settingsPanel;
 
 
     public void Start()
     {
         pausePanel.SetActive(false);
+        settingsPanel.SetActive(false);
         
     }
 
@@ -46,6 +48,22 @@ public class PauseSceneManager : MonoBehaviour
 
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1.0f;
+    }
+
+    public void SettingsMenu()
+    {
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("ButtonPress");
+
+        settingsPanel.SetActive(!settingsPanel.activeSelf);
+    }
+
+    public void BackToPauseMenu()
+    {
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("ButtonPress");
+
+        settingsPanel.SetActive(!settingsPanel.activeSelf);
     }
 }
 
