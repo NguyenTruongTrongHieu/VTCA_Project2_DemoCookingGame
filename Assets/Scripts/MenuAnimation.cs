@@ -37,35 +37,62 @@ public class MenuAnimation : MonoBehaviour
     public void Update()
     {
         //Debug.Log("Update called"); // Thêm dòng này để kiểm tra xem Update có đang chạy không
-        
+        //playButton == null || settingsButton == null || menuTitle == null ||
 
-        if (MenuButton == null || playButton == null || settingsButton == null || menuTitle == null || infoPanel == null)
+        if (pauseButton == null || infoPanel == null)
         {
-            //Debug.Log("Có một hoặc nhiều nút là null"); // Ghi log nếu bất kỳ nút nào là null
-            return; 
-        }
-
-
-        if (isMenuOn)
-        {
-            Debug.Log(isMenuOn);
-            MenuButton.enabled = false;
-            playButton.enabled = false;
-            settingsButton.enabled = false;
-            pauseButton.SetActive(false);
-            menuTitle.SetActive(false);
-            infoPanel.SetActive(false);
+            if (isMenuOn)
+            {
+                MenuButton.enabled = false;
+                playButton.enabled = false;
+                settingsButton.enabled = false;
+                menuTitle.SetActive(false);
+            }
+            else
+            {
+                MenuButton.enabled = true;
+                playButton.enabled = true;
+                settingsButton.enabled = true;
+                menuTitle.SetActive(true);
+            }
         }
         else
         {
-            
-            MenuButton.enabled = true;
-            playButton.enabled = true;
-            settingsButton.enabled = true;
-            pauseButton.SetActive(true);
-            menuTitle.SetActive(true);
-            infoPanel.SetActive(true);
+            if (isMenuOn)
+            {
+                MenuButton.enabled = false;
+                pauseButton.SetActive(false);
+                infoPanel.SetActive(false);
+            }
+            else
+            {
+                MenuButton.enabled = true;
+                pauseButton.SetActive(true);
+                infoPanel.SetActive(true);
+            }
         }
+
+
+        //if (isMenuOn)
+        //{
+        //    Debug.Log(isMenuOn);
+        //    MenuButton.enabled = false;
+        //    playButton.enabled = false;
+        //    settingsButton.enabled = false;
+        //    pauseButton.SetActive(false);
+        //    menuTitle.SetActive(false);
+        //    infoPanel.SetActive(false);
+        //}
+        //else
+        //{
+            
+        //    MenuButton.enabled = true;
+        //    playButton.enabled = true;
+        //    settingsButton.enabled = true;
+        //    pauseButton.SetActive(true);
+        //    menuTitle.SetActive(true);
+        //    infoPanel.SetActive(true);
+        //}
     }
 
     public void OpenMenu()
