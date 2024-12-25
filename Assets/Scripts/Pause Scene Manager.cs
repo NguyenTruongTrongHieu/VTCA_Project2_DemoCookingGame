@@ -19,7 +19,7 @@ public class PauseSceneManager : MonoBehaviour
     public void Start()
     {
         pausePanel.SetActive(false);
-        //settingsPanel.SetActive(false);
+        settingsPanel.SetActive(false);
         
     }
 
@@ -55,7 +55,8 @@ public class PauseSceneManager : MonoBehaviour
         //Them am thanh
         AudioManager.audioInstance.PlaySFX("ButtonPress");
 
-        //settingsPanel.SetActive(!settingsPanel.activeSelf);
+        settingsPanel.SetActive(!settingsPanel.activeSelf); 
+        pausePanel.SetActive(!pausePanel.activeSelf);
     }
 
     public void BackToPauseMenu()
@@ -64,6 +65,7 @@ public class PauseSceneManager : MonoBehaviour
         AudioManager.audioInstance.PlaySFX("ButtonPress");
 
         settingsPanel.SetActive(!settingsPanel.activeSelf);
+        pausePanel.SetActive(!pausePanel.activeSelf);
     }
 }
 
