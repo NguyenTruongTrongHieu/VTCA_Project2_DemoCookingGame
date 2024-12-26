@@ -10,7 +10,7 @@ public class Coin : MonoBehaviour
     private Rigidbody2D rb2D;
 
     private float speed = 10f;
-    private float coinScale = 0.15f;
+    private float coinScale = 0.3f;
 
     // Start is called before the first frame update
     void Start()
