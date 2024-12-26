@@ -46,7 +46,7 @@ public class PauseSceneManager : MonoBehaviour
         //Them am thanh
         AudioManager.audioInstance.PlaySFX("ButtonPress");
 
-        SceneManager.LoadScene("Menu");
+        LoadingManager.instance.SwitchToSceneByName("Menu");
         Time.timeScale = 1.0f;
     }
 
