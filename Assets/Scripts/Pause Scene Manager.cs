@@ -46,6 +46,7 @@ public class PauseSceneManager : MonoBehaviour
         //Them am thanh
         AudioManager.audioInstance.PlaySFX("ButtonPress");
 
+        TurnOffCanvasForLoadingScreen();
         LoadingManager.instance.SwitchToSceneByName("Menu");
         Time.timeScale = 1.0f;
     }
@@ -66,6 +67,15 @@ public class PauseSceneManager : MonoBehaviour
 
         settingsPanel.SetActive(!settingsPanel.activeSelf);
         pausePanel.SetActive(!pausePanel.activeSelf);
+    }
+
+    public void TurnOffCanvasForLoadingScreen()
+    {
+        //Tat cac phan bi thua ra khi hien loading scene
+        GameObject.Find("BGCanvas").SetActive(false);
+        GameObject.Find("TableCanvas").SetActive(false);
+        GameObject.Find("Info Canvas").SetActive(false);
+        GameObject.Find("Pause Canvas").SetActive(false);
     }
 }
 

@@ -46,6 +46,7 @@ public class LoadNextLeevel : MonoBehaviour
         var scene = SceneManager.GetActiveScene().name;
         var currentLevel = scene[scene.Length - 1];
         int level = int.Parse(currentLevel.ToString());
+
         if (level >= SaveAndLoad.saveLoadInstance.levels)
         {
             Debug.Log("Da het man choi");
@@ -54,6 +55,7 @@ public class LoadNextLeevel : MonoBehaviour
         }
 
         //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex +  1);
+        TurnOffCanvasForLoadingScreen();
         LoadingManager.instance.SwitchToSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1);
         gameOverPanel.SetActive(false);
         Time.timeScale = 1.0f;
@@ -65,6 +67,8 @@ public class LoadNextLeevel : MonoBehaviour
         AudioManager.audioInstance.PlaySFX("ButtonPress");
 
         //SceneManager.LoadSceneAsync("Menu");
+
+        TurnOffCanvasForLoadingScreen();
         LoadingManager.instance.SwitchToSceneByName("Menu");
         gameOverPanel.SetActive(false);
         Time.timeScale = 1.0f;
@@ -76,6 +80,7 @@ public class LoadNextLeevel : MonoBehaviour
         AudioManager.audioInstance.PlaySFX("ButtonPress");
 
         //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        TurnOffCanvasForLoadingScreen();
         LoadingManager.instance.SwitchToSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex);
         gameOverPanel.SetActive(false);
         Time.timeScale = 1.0f;
@@ -96,5 +101,14 @@ public class LoadNextLeevel : MonoBehaviour
 
         Destroy(newText.gameObject, 1f);
         yield return null;
+    }
+
+    public void TurnOffCanvasForLoadingScreen()
+    {
+        //Tat cac phan bi thua ra khi hien loading scene
+        GameObject.Find("BGCanvas").SetActive(false);
+        GameObject.Find("TableCanvas").SetActive(false);
+        GameObject.Find("Info Canvas").SetActive(false);
+        GameObject.Find("Pause Canvas").SetActive(false);
     }
 }
