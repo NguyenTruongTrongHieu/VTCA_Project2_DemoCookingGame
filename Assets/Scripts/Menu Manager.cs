@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     //[SerializeField] private GameObject tutorialPanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject gameTitle;
+    [SerializeField] private float animSpeed = 1.0f;
     
     void Start()
     {
@@ -29,7 +30,7 @@ public class MenuManager : MonoBehaviour
     {
         levelPanel.SetActive(!levelPanel.activeSelf);
         menuPanel.SetActive(!menuPanel.activeSelf);
-        gameTitle.SetActive(!gameTitle.activeSelf);
+        gameTitle.SetActive(false);
 
         //Them am thanh
         AudioManager.audioInstance.PlaySFX("ButtonPress");
@@ -39,7 +40,7 @@ public class MenuManager : MonoBehaviour
     {
         settingsPanel.SetActive(!levelPanel.activeSelf);
         menuPanel.SetActive(!menuPanel.activeSelf);
-        gameTitle.SetActive(!gameTitle.activeSelf);
+        gameTitle.SetActive(false);
 
         //Them am thanh
         AudioManager.audioInstance.PlaySFX("ButtonPress");
@@ -51,9 +52,27 @@ public class MenuManager : MonoBehaviour
         settingsPanel.SetActive(false);
         //tutorialPanel.SetActive(false);
         menuPanel.SetActive(!menuPanel.activeSelf);
-        gameTitle.SetActive(!gameTitle.activeSelf);
+        //gameTitle.SetActive(!gameTitle.activeSelf);
+        //StartCoroutine(TitleAnim());
 
         //Them am thanh
         AudioManager.audioInstance.PlaySFX("ButtonPress");
+    }
+
+    public void CloseGameTitle()
+    {
+        StartCoroutine(TitleAnim());
+    }
+
+    public IEnumerator TitleAnim()
+    {
+        gameTitle.transform.localScale = Vector3.zero;
+        gameTitle.gameObject.SetActive(true);
+
+        while (gameTitle.transform.localScale.y < 0.98f)
+        {
+            gameTitle.transform.localScale += new Vector3(10 * Time.deltaTime, 10 * Time.deltaTime, 10 * Time.deltaTime);
+            yield return null;
+        }
     }
 }
