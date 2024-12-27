@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class LevelMenu : MonoBehaviour
     public Button[] buttons;
     [SerializeField] private Sprite fullStar;
     [SerializeField] private Sprite emptyStar;
+    
 
     private void Awake()
     {
@@ -21,17 +23,32 @@ public class LevelMenu : MonoBehaviour
         int unlockedLevel = SaveAndLoad.saveLoadInstance.levelScores.Count;
         for (int i = 0; i < buttons.Length; i++)
         {
-            buttons[i].interactable = false;
+            buttons[i].onClick.AddListener(ClickSound);
+            buttons[i].transform.GetChild(0).gameObject.SetActive(true);
+            buttons[i].transform.GetChild(1).gameObject.SetActive(false);
         }
         for (int i = 0; i < unlockedLevel; i++)
         {
-            buttons[i].interactable = true;
+            buttons[i].transform.GetChild(0).gameObject.SetActive(false);
+            buttons[i].transform.GetChild(1).gameObject.SetActive(true);
+
+            string result1 = buttons[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text;
+
+
+            if (!int.TryParse(result1, out int result))
+            {
+                Debug.Log("Error");
+                return;
+            }
+       
+            buttons[i].onClick.AddListener(() => openLevel(result));
             SetStarForLevel(i);
         }
     }
 
     public void openLevel(int levelId)
     {
+        Debug.Log(levelId);
         //Them am thanh
         AudioManager.audioInstance.PlaySFX("ButtonPress");
 
@@ -41,12 +58,18 @@ public class LevelMenu : MonoBehaviour
         LoadingManager.instance.SwitchToSceneByName(levelName);
     }
 
+    public void ClickSound()
+    {
+        //Them am thanh
+        AudioManager.audioInstance.PlaySFX("ButtonPress");
+    }
+
     void SetStarForLevel(int index)
     {
         //Duyet vao 3 star trong button
-        Image star1 = buttons[index].transform.GetChild(1).GetChild(0).GetComponent<Image>();
-        Image star2 = buttons[index].transform.GetChild(1).GetChild(1).GetComponent<Image>();
-        Image star3 = buttons[index].transform.GetChild(1).GetChild(2).GetComponent<Image>();
+        Image star1 = buttons[index].transform.GetChild(2).GetChild(0).GetComponent<Image>();
+        Image star2 = buttons[index].transform.GetChild(2).GetChild(1).GetComponent<Image>();
+        Image star3 = buttons[index].transform.GetChild(2).GetChild(2).GetComponent<Image>();
 
         star1.gameObject.SetActive(true);
         star2.gameObject.SetActive(true);

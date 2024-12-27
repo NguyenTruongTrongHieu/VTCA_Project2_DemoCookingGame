@@ -26,7 +26,9 @@ public class MenuAnimation : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private GameObject pauseButton;
+   
 
+    MenuManager menuManager;
 
     public void Start()
     {
@@ -131,6 +133,8 @@ public class MenuAnimation : MonoBehaviour
             //infoPanel.SetActive(!infoPanel.activeSelf);
             menuBG.SetActive(!menuBG.activeSelf);
             Time.timeScale = 1.0f;
+            
+
         }
     }
 
