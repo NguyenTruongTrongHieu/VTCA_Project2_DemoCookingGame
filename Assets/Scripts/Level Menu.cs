@@ -25,12 +25,10 @@ public class LevelMenu : MonoBehaviour
         {
             buttons[i].onClick.AddListener(ClickSound);
             buttons[i].transform.GetChild(0).gameObject.SetActive(true);
-            buttons[i].transform.GetChild(1).gameObject.SetActive(false);
         }
         for (int i = 0; i < unlockedLevel; i++)
         {
             buttons[i].transform.GetChild(0).gameObject.SetActive(false);
-            buttons[i].transform.GetChild(1).gameObject.SetActive(true);
 
             string result1 = buttons[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text;
 
