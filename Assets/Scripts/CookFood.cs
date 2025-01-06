@@ -150,10 +150,15 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             imageMeat.sprite = spriteMeat[2];
             ripeness = "burn";
             sliderImage.color = Color.white;
-            emojiImage.sprite = null;
+            emojiImage.sprite = emojis[2];
             fireBurnCookFood.SetActive(true);
             getToGarbage.SetActive(true);
 
+            if (!isSetScaleForRipeness)//Dieu kien de chi set scale cho emoji 1 lan duy nhat o moi trang thai
+            {
+                StartCoroutine(SetScaleForEmojiImage());
+                isSetScaleForRipeness = true;
+            }
             //Them am thanh
             AudioManager.audioInstance.PlaySFX("CookFoodBurn");
         }
