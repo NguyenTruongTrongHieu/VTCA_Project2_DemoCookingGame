@@ -439,6 +439,7 @@ MonoBehaviour:
   emojis:
   - {fileID: 21300000, guid: 44acd771467054549aacb0f755c7d6b3, type: 3}
   - {fileID: 21300000, guid: 528d089a6ce84914aad9fddb2d5e2aa9, type: 3}
+  - {fileID: 21300000, guid: 25f8b0804a2e290408d45f80da47c2c3, type: 3}
   positionOnCuttingBoard: {fileID: 0}
   positionOnGrill: {fileID: 0}
   rectTransform: {fileID: 0}
