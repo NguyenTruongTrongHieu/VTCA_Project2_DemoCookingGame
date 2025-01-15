@@ -10,6 +10,7 @@ using UnityEngine.UI;
 
 public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    [Header("CookFood position")]
     //Bien de xac dinh xem mieng thit co nam tren thot khong va nam o dau
     public int slotInGrill;
     public bool isOnTheGrill;
@@ -17,15 +18,18 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private bool isReturnStartPosition;//Bien de xac dinh co can quay ve vi tri bat dau kkhong
     private int slotBunInCuttingBoard;//Bien de xac dinh vi tri bun duoc cham vao tren ban
 
+    [Header("CookFood name")]
     //Bien de xac dinh cac cookFood khac nhau
     private string nameCookFood;
     [SerializeField] private GameObject food;
 
+    [Header("timer")]
     [SerializeField]
     private float cookingTime = 0;
     private string ripeness;
     public bool isChoose;//Bien de xac dinh khi player chon mon an
 
+    [Header("Image and animation meat")]
     [SerializeField] private Image imageMeat;
     [SerializeField] private List<Sprite> spriteMeat = new List<Sprite>();
 
@@ -44,11 +48,16 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [SerializeField] private GameObject positionOnGrill;
 
     //Keo tha
+    [Header("Drag and drop")]
     [SerializeField] private RectTransform rectTransform; 
     private Vector2 screenPosition;
     private Vector3 worldPosition;
 
     private Vector3 startPosition;
+
+    [Header("Minus score")]
+    [SerializeField] private int minusScore = 3;
+
 
     // Start is called before the first frame update
     void Start()
@@ -290,6 +299,11 @@ public class CookFood : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             }
             else //Neu khong cham vao bun thi la thung rac
             {
+                //Tru diem khi vut vao thung rac
+                Gameplay gameplay = GameObject.FindGameObjectWithTag("GameController").GetComponent<Gameplay>();
+                Gameplay.score = Mathf.Max(Gameplay.score - minusScore, 0);
+                gameplay.UpdateTextScore();
+
                 //Them am thanh
                 AudioManager.audioInstance.PlaySFX("TrashBin");
             }
