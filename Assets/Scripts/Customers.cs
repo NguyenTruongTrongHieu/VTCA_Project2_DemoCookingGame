@@ -9,13 +9,16 @@ using UnityEngine.UI;
 
 public class Customers : MonoBehaviour
 {
+    [Header("Customer infor")]
     [SerializeField] bool isMale;
 
+    [Header("Customer order")]
     public List<string> orderedFoods = new List<string>();
     private int amountOfOrderFoods;
     public int randomAmountOfOrders;
     public int orderFoodChoose;//Xac dinh xem mon an co duoc keo den cho khach chua va vi tri cua mon an do trong list orderFoods
 
+    [Header("Receive food")]
     public bool havingFood;//Xac dinh xem mon an co duoc keo den cho khach chua
     public bool isOnEndDrag = false;//Xac dinh xem player da tha chuot chua
     public bool isAlreadyDone = false;//Bien de xac dinh xem player da keo tha food vao cus chua
@@ -26,6 +29,7 @@ public class Customers : MonoBehaviour
     private bool isAnyOrder;//Kiem tra xem con order nao chua hoan thanh khong, false la het order
     private string customerEmotion;
 
+    [Header("Customer timer")]
     //Thoi gian cho va order customer
     public GameObject orderPanel;
     [SerializeField] private Slider timerSlider;
@@ -38,7 +42,7 @@ public class Customers : MonoBehaviour
     public float warningTime;
 
     private Animator animator;
-
+    [Header("Customer movement")]
     [SerializeField] private float speed;
     //Di chuyen len xuong
     private float sinCenterY;
@@ -163,14 +167,7 @@ public class Customers : MonoBehaviour
             {
                 //Tru mang
                 Gameplay.heart--;
-                if (Gameplay.score >= minusScore)
-                {
-                    Gameplay.score -= minusScore;
-                }
-                else
-                {
-                    Gameplay.score = 0;
-                }
+                Gameplay.score = Mathf.Max(Gameplay.score - minusScore, 0);
 
                 Gameplay gameplay = GameObject.FindGameObjectWithTag("GameController").GetComponent<Gameplay>();
                 gameplay.heartImage[Gameplay.heart].gameObject.SetActive(false);

@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    [Header("Food position")]
     public int slotInCuttingboard;
     private bool isDragging;
 
@@ -13,10 +14,14 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     private bool isOnTrashBin = false;
     private Vector3 startPosition;
 
+    [Header("Drag and drop")]
     //Keo tha
     [SerializeField] private RectTransform rectTransform;
     private Vector2 screenPosition;
     private Vector3 worldPosition;
+
+    [Header("Minus score")]
+    [SerializeField] private int minusScore = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -181,6 +186,11 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
             //Neu food dang o trash bin
             if (isOnTrashBin)
             {
+                //Tru diem khi vut vao thung rac
+                Gameplay gameplay = GameObject.FindGameObjectWithTag("GameController").GetComponent<Gameplay>();
+                Gameplay.score = Mathf.Max(Gameplay.score - minusScore, 0);
+                gameplay.UpdateTextScore();
+
                 //Them am thanh
                 AudioManager.audioInstance.PlaySFX("TrashBin");
             }

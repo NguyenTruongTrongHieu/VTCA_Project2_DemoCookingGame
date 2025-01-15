@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
+    [Header("Material and food obj")]
     [SerializeField]
     private GameObject materialBunObj;
     [SerializeField]
@@ -21,12 +22,15 @@ public class BinControll : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     [SerializeField]
     private GameObject hamburgerWithVegetableObj;
 
+    [Header("Drag and drop")]
     [SerializeField] private GameObject objDrag;
     [SerializeField] private RectTransform objDragRect;
 
+    [Header("position")]
     [SerializeField] private GameObject positionOnCuttingBoard;
     [SerializeField] private GameObject positionOnGrill;
 
+    //Cac bien de xac dinh nguyen lieu dang duoc chon la gi
     private bool isMaterials;
     private bool isSausage;
     private bool isCookFoods;
