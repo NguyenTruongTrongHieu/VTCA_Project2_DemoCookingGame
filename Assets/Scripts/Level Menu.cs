@@ -11,7 +11,9 @@ public class LevelMenu : MonoBehaviour
     public Button[] buttons;
     [SerializeField] private Sprite fullStar;
     [SerializeField] private Sprite emptyStar;
-    
+
+    //Chinh value scroll
+    [SerializeField] private ScrollRect scrollRect;
 
     private void Awake()
     {
@@ -42,6 +44,11 @@ public class LevelMenu : MonoBehaviour
             buttons[i].onClick.AddListener(() => openLevel(result));
             SetStarForLevel(i);
         }
+
+        //Gan value cho scroll de di chuyen cac button den button da duoc mo khoa hien tai
+        float valueScrollRect = (unlockedLevel - 1) / (buttons.Length/1.0f);
+        Debug.Log(valueScrollRect);
+        scrollRect.horizontalScrollbar.value = valueScrollRect;
     }
 
     public void openLevel(int levelId)
