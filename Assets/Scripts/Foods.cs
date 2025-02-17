@@ -144,6 +144,7 @@ public class Foods : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
                 return;
             }
 
+            //Lap de tim order phu hop voi mon an duoc keo den khach hang
             for (int i = 0; i < customer.orderedFoods.Count; i++)
             {
                 if (customer.orderedFoods[i] == this.gameObject.tag)

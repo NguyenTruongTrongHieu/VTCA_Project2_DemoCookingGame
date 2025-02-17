@@ -132,7 +132,7 @@ public class Customers : MonoBehaviour
             {
                 if (order != "")
                 {
-                    return;
+                    return;//Neu van con order thi out khoi vong if lon, tiep tuc dem thoi gian
                 }
             }
             //Khi duyet qua het cac order thi luc nay da hoan thanh xong order
@@ -311,6 +311,7 @@ public class Customers : MonoBehaviour
             {
                 isOutOfTime = true;
             }
+
             timerSlider.value = customerTime;
         }
     }
